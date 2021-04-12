@@ -12,11 +12,22 @@ New hosting/Installation
 <!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) -->
 <!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) -->
 <!-- badges: end -->
+Install from CRAN:
+
 ``` r
 install.packages("survMS")
-#> Installing package into '/home/sautreuim/R/x86_64-pc-linux-gnu-library/3.6'
-#> (as 'lib' is unspecified)
-#> Warning: package 'survMS' is not available (for R version 3.6.2)
+```
+
+Or install the development version from Github:
+
+``` r
+install.packages("devtools")
+devtools::install_github("mathildesautreuil/survMS")
+```
+
+And load the library:
+
+``` r
 library(survMS)
 #> Loading required package: ggplot2
 ```

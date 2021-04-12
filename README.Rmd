@@ -26,15 +26,21 @@ knitr::opts_chunk$set(
 
 
 Install from CRAN:
-```{r, eval=FALSE}
+```{r setupCRAN, eval=FALSE}
 install.packages("survMS")
 ```
 
 Or install the development version from Github:
 
-```{r, eval=FALSE}
+```{r setupDevtools, eval=FALSE}
 install.packages("devtools")
 devtools::install_github("mathildesautreuil/survMS")
+```
+
+And load the library:
+
+```{r load}
+library(survMS)
 ```
 
 # 1 Introduction
