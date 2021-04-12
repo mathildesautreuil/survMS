@@ -24,9 +24,17 @@ knitr::opts_chunk$set(
 <!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) -->
 <!-- badges: end -->
 
-```{r setup}
+
+Install from CRAN:
+```{r, eval=FALSE}
 install.packages("survMS")
-library(survMS)
+```
+
+Or install the development version from Github:
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("mathildesautreuil/survMS")
 ```
 
 # 1 Introduction

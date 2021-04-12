@@ -1,6 +1,6 @@
 Package: survMS
 Title: Survival Model Simulation
-Version: 0.0.1.0000
+Version: 0.0.1
 Depends: ggplot2
 Authors@R: 
     person(given = "Mathilde",
