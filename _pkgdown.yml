@@ -1,0 +1,50 @@
+title: survMS
+url: https://mathildesautreuil.github.io/survMS/
+
+authors:
+   Mathilde Sautreuil:
+     href: https://mathildesautreuil.github.io/
+
+template:
+   params:
+     bootswatch: yeti
+
+articles:
+  - title: Simulation of survival data
+    navbar: ~
+    contents:
+      - How-to-simulate-survival-models
+
+reference:
+  - title: Main function
+    desc: Main functions
+    contents:
+      - modelSim
+      - hist.modSim
+      - print.modSim
+      - plot.modSim
+  - title: Other
+    desc: Other utility functions
+    contents:
+      - get_param_weib
+      - get_param_ln
+      - get_param_ln2
+      - get_param_exp
+
+navbar:
+  left:
+    - icon: fa-home
+      text: "Home"
+      href: index.html
+    - text: "Articles"
+      icon: fa-book
+      href: articles/index.html
+    - icon: fa-code
+      text: "Functions Documentation"
+      href: reference/index.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/mathildesautreuil/survMS
+
+repo:
+  branch: main

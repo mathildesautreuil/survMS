@@ -1,0 +1,2884 @@
+[
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/NN8SEC4E",
+		"type": "article-journal",
+		"title": "Regression Models and Life-Tables",
+		"container-title": "Journal of the Royal Statistical Society. Series B (Methodological)",
+		"page": "187-220",
+		"volume": "34",
+		"issue": "2",
+		"archive": "JSTOR",
+		"abstract": "[The analysis of censored failure times is considered. It is assumed that on each individual are available values of one or more explanatory variables. The hazard function (age-specific failure rate) is taken to be a function of the explanatory variables and unknown regression coefficients multiplied by an arbitrary and unknown function of time. A conditional likelihood is obtained, leading to inferences about the unknown regression coefficients. Some generalizations are outlined.]",
+		"ISSN": "00359246",
+		"author": [
+			{
+				"family": "Cox",
+				"given": "D. R."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1972"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					3,
+					22
+				]
+			]
+		}
+	},
+
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/QCKRPJH8",
+		"type": "article-journal",
+		"title": "Feed forward neural networks for the analysis of censored survival data: a partial logistic regression approach",
+		"container-title": "Statistics in Medicine",
+		"page": "1169-1186",
+		"volume": "17",
+		"issue": "10",
+		"source": "Wiley Online Library",
+		"abstract": "Flexible modelling in survival analysis can be useful both for exploratory and predictive purposes. Feed forward neural networks were recently considered for flexible non-linear modelling of censored survival data through the generalization of both discrete and continuous time models. We show that by treating the time interval as an input variable in a standard feed forward network with logistic activation and entropy error function, it is possible to estimate smoothed discrete hazards as conditional probabilities of failure. We considered an easily implementable approach with a fast selection criteria of the best configurations. Examples on data sets from two clinical trials are provided. The proposed artificial neural network (ANN) approach can be applied for the estimation of the functional relationships between covariates and time in survival data to improve model predictivity in the presence of complex prognostic relationships. © 1998 John Wiley & Sons, Ltd.",
+		"URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291097-0258%2819980530%2917%3A10%3C1169%3A%3AAID-SIM796%3E3.0.CO%3B2-D",
+		"DOI": "10.1002/(SICI)1097-0258(19980530)17:10<1169::AID-SIM796>3.0.CO;2-D",
+		"ISSN": "1097-0258",
+		"shortTitle": "Feed forward neural networks for the analysis of censored survival data",
+		"language": "en",
+		"author": [
+			{
+				"family": "Biganzoli",
+				"given": "Elia"
+			},
+			{
+				"family": "Boracchi",
+				"given": "Patrizia"
+			},
+			{
+				"family": "Mariani",
+				"given": "Luigi"
+			},
+			{
+				"family": "Marubini",
+				"given": "Ettore"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1998",
+					5,
+					30
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					9
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/523BMAW4",
+		"type": "article-journal",
+		"title": "Cox-nnet: An artificial neural network method for prognosis prediction of high-throughput omics data",
+		"container-title": "PLOS Computational Biology",
+		"page": "e1006076",
+		"volume": "14",
+		"issue": "4",
+		"source": "Crossref",
+		"abstract": "Artificial neural networks (ANN) are computing architectures with many interconnections of simple neural-inspired computing elements, and have been applied to biomedical fields such as imaging analysis and diagnosis. We have developed a new ANN framework called Cox-nnet to predict patient prognosis from high throughput transcriptomics data. In 10 TCGA RNA-Seq data sets, Cox-nnet achieves the same or better predictive accuracy compared to other methods, including Cox-proportional hazards regression (with LASSO, ridge, and mimimax concave penalty), Random Forests Survival and CoxBoost. Cox-nnet also reveals richer biological information, at both the pathway and gene levels. The outputs from the hidden layer node provide an alternative approach for survival-sensitive dimension reduction. In summary, we have developed a new method for accurate and efficient prognosis prediction on high throughput data, with functional biological insights. The source code is freely available at https://github.com/lanagarmire/cox-nnet.",
+		"URL": "https://dx.plos.org/10.1371/journal.pcbi.1006076",
+		"DOI": "10.1371/journal.pcbi.1006076",
+		"ISSN": "1553-7358",
+		"shortTitle": "Cox-nnet",
+		"language": "en",
+		"author": [
+			{
+				"family": "Ching",
+				"given": "Travers"
+			},
+			{
+				"family": "Zhu",
+				"given": "Xun"
+			},
+			{
+				"family": "Garmire",
+				"given": "Lana X."
+			}
+		],
+		"editor": [
+			{
+				"family": "Markowetz",
+				"given": "Florian"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					4,
+					10
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					19
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/3XACT4N3",
+		"type": "article-journal",
+		"title": "A Scalable Discrete-Time Survival Model for Neural Networks",
+		"container-title": "arXiv:1805.00917 [cs, stat]",
+		"source": "arXiv.org",
+		"abstract": "There is currently great interest in applying neural networks to prediction tasks in medicine. It is important for predictive models to be able to use survival data, where each patient has a known follow-up time and event/censoring indicator. This avoids information loss when training the model and enables generation of predicted survival curves. In this paper, we describe a discrete-time survival model that is designed to be used with neural networks, which we refer to as Nnet-survival. The model is trained with the maximum likelihood method using minibatch stochastic gradient descent (SGD). The use of SGD enables rapid convergence and application to large datasets that do not fit in memory. The model is flexible, so that the baseline hazard rate and the effect of the input data on hazard probability can vary with follow-up time. It has been implemented in the Keras deep learning framework, and source code for the model and several examples is available online. We demonstrate the performance of the model on both simulated and real data and compare it to existing models Cox-nnet and Deepsurv.",
+		"URL": "http://arxiv.org/abs/1805.00917",
+		"note": "arXiv: 1805.00917",
+		"author": [
+			{
+				"family": "Gensheimer",
+				"given": "Michael F."
+			},
+			{
+				"family": "Narasimhan",
+				"given": "Balasubramanian"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					5,
+					2
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/4WXQFE4A",
+		"type": "article-journal",
+		"title": "DeepSurv: personalized treatment recommender system using a Cox proportional hazards deep neural network",
+		"container-title": "BMC Medical Research Methodology",
+		"page": "24",
+		"volume": "18",
+		"issue": "1",
+		"source": "BioMed Central",
+		"abstract": "Medical practitioners use survival models to explore and understand the relationships between patients’ covariates (e.g. clinical and genetic features) and the effectiveness of various treatment options. Standard survival models like the linear Cox proportional hazards model require extensive feature engineering or prior medical knowledge to model treatment interaction at an individual level. While nonlinear survival methods, such as neural networks and survival forests, can inherently model these high-level interaction terms, they have yet to be shown as effective treatment recommender systems.",
+		"URL": "https://doi.org/10.1186/s12874-018-0482-1",
+		"DOI": "10.1186/s12874-018-0482-1",
+		"ISSN": "1471-2288",
+		"shortTitle": "DeepSurv",
+		"journalAbbreviation": "BMC Medical Research Methodology",
+		"author": [
+			{
+				"family": "Katzman",
+				"given": "Jared L."
+			},
+			{
+				"family": "Shaham",
+				"given": "Uri"
+			},
+			{
+				"family": "Cloninger",
+				"given": "Alexander"
+			},
+			{
+				"family": "Bates",
+				"given": "Jonathan"
+			},
+			{
+				"family": "Jiang",
+				"given": "Tingting"
+			},
+			{
+				"family": "Kluger",
+				"given": "Yuval"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					2,
+					26
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/4CM3V8L8",
+		"type": "paper-conference",
+		"title": "Piecewise Exponential Artificial Neural Networks (PEANN) for Modeling Hazard Function with Right Censored Data",
+		"container-title": "Computational Intelligence Methods for Bioinformatics and Biostatistics",
+		"collection-title": "Lecture Notes in Computer Science",
+		"publisher": "Springer International Publishing",
+		"page": "125-136",
+		"source": "Springer Link",
+		"abstract": "The hazard function plays an important role in the study of disease dynamics in survival analysis. Longer follow-up for various kinds of cancer, particularly breast cancer, has made it possible the observation of complex shapes of the hazard function of occurrence of metastasis and death. The identification of the correct hazard shape is important both for formulation and support of biological hypotheses on the mechanism underlying the disease.In this paper we propose the use of a neural network to model the shape of the hazard function in time in dependence of covariates extending the piecewise exponential model. The use of neural networks accommodates a greater flexibility in the study of the hazard shape.",
+		"ISBN": "978-3-319-09042-9",
+		"language": "en",
+		"author": [
+			{
+				"family": "Fornili",
+				"given": "Marco"
+			},
+			{
+				"family": "Ambrogi",
+				"given": "Federico"
+			},
+			{
+				"family": "Boracchi",
+				"given": "Patrizia"
+			},
+			{
+				"family": "Biganzoli",
+				"given": "Elia"
+			}
+		],
+		"editor": [
+			{
+				"family": "Formenti",
+				"given": "Enrico"
+			},
+			{
+				"family": "Tagliaferri",
+				"given": "Roberto"
+			},
+			{
+				"family": "Wit",
+				"given": "Ernst"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2014"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/NS49TDLH",
+		"type": "article-journal",
+		"title": "Artificial Neural Network Model for Predicting Lung Cancer Survival",
+		"container-title": "Journal of Data Analysis and Information Processing",
+		"page": "33",
+		"volume": "05",
+		"source": "file.scirp.org",
+		"abstract": "The object of our present study is to develop a piecewise constant hazard model by using an Artificial Neural Network (ANN) to capture the complex shapes of the hazard functions, which cannot be achieved with conventional survival analysis models like Cox proportional hazard. We propose a more convenient approach to the PEANN created by Fornili et al. to handle a large amount of data. In particular, it provides much better prediction accuracies over both the Poisson regression and generalized estimating equations. This has been demonstrated with lung cancer patient data taken from the Surveillance, Epidemiology and End Results (SEER) program. The quality of the proposed model is evaluated by using several error measurement criteria.",
+		"URL": "http://www.scirp.org/journal/PaperInformation.aspx?PaperID=74270&#abstract",
+		"DOI": "10.4236/jdaip.2017.51003",
+		"language": "en",
+		"author": [
+			{
+				"family": "Rodrigo",
+				"given": "Hansapani"
+			},
+			{
+				"family": "Tsokos",
+				"given": "Chris P."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					2,
+					22
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/YVYE66T2",
+		"type": "article-journal",
+		"title": "A neural network model for survival data",
+		"container-title": "Statistics in Medicine",
+		"page": "73-82",
+		"volume": "14",
+		"issue": "1",
+		"source": "onlinelibrary.wiley.com",
+		"URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.4780140108",
+		"DOI": "10.1002/sim.4780140108",
+		"ISSN": "1097-0258",
+		"language": "en",
+		"author": [
+			{
+				"family": "Faraggi",
+				"given": "David"
+			},
+			{
+				"family": "Simon",
+				"given": "Richard"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1995",
+					1,
+					15
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/86DB9VVA",
+		"type": "article-journal",
+		"title": "On the use of artificial neural networks for the analysis of survival data",
+		"container-title": "IEEE Transactions on Neural Networks",
+		"page": "1071-1077",
+		"volume": "8",
+		"issue": "5",
+		"source": "IEEE Xplore",
+		"abstract": "Artificial neural networks are a powerful tool for analyzing data sets where there are complicated nonlinear interactions between the measured inputs and the quantity to be predicted. We show that the results obtained when neural networks are applied to survival data depend critically on the treatment of censoring in the data. When the censoring is modeled correctly, neural networks are a robust model independent technique for the analysis of very large sets of survival data.",
+		"DOI": "10.1109/72.623209",
+		"ISSN": "1045-9227",
+		"author": [
+			{
+				"family": "Brown",
+				"given": "S. F."
+			},
+			{
+				"family": "Branford",
+				"given": "A. J."
+			},
+			{
+				"family": "Moran",
+				"given": "W."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1997",
+					9
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/KP2R9YII",
+		"type": "article-journal",
+		"title": "Generating survival times to simulate Cox proportional hazards models",
+		"container-title": "Statistics in Medicine",
+		"page": "1713-1723",
+		"volume": "24",
+		"issue": "11",
+		"source": "Crossref",
+		"URL": "http://doi.wiley.com/10.1002/sim.2059",
+		"DOI": "10.1002/sim.2059",
+		"ISSN": "02776715, 10970258",
+		"language": "en",
+		"author": [
+			{
+				"family": "Bender",
+				"given": "Ralf"
+			},
+			{
+				"family": "Augustin",
+				"given": "Thomas"
+			},
+			{
+				"family": "Blettner",
+				"given": "Maria"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2005",
+					6,
+					15
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2019",
+					4,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/6Z8NGX4Q",
+		"type": "article-journal",
+		"title": "C-mix: A high-dimensional mixture model for censored durations, with applications to genetic data",
+		"container-title": "Statistical Methods in Medical Research",
+		"page": "1523-1539",
+		"volume": "28",
+		"issue": "5",
+		"source": "SAGE Journals",
+		"abstract": "We introduce a supervised learning mixture model for censored durations (C-mix) to simultaneously detect subgroups of patients with different prognosis and order them based on their risk. Our method is applicable in a high-dimensional setting, i.e. with a large number of biomedical covariates. Indeed, we penalize the negative log-likelihood by the Elastic-Net, which leads to a sparse parameterization of the model and automatically pinpoints the relevant covariates for the survival prediction. Inference is achieved using an efficient Quasi-Newton Expectation Maximization algorithm, for which we provide convergence properties. The statistical performance of the method is examined on an extensive Monte Carlo simulation study and finally illustrated on three publicly available genetic cancer datasets with high-dimensional covariates. We show that our approach outperforms the state-of-the-art survival models in this context, namely both the CURE and Cox proportional hazards models penalized by the Elastic-Net, in terms of C-index, AUC(t) and survival prediction. Thus, we propose a powerful tool for personalized medicine in cancerology.",
+		"URL": "https://doi.org/10.1177/0962280218766389",
+		"DOI": "10.1177/0962280218766389",
+		"ISSN": "0962-2802",
+		"shortTitle": "C-mix",
+		"journalAbbreviation": "Stat Methods Med Res",
+		"language": "en",
+		"author": [
+			{
+				"family": "Bussy",
+				"given": "Simon"
+			},
+			{
+				"family": "Guilloux",
+				"given": "Agathe"
+			},
+			{
+				"family": "Gaïffas",
+				"given": "Stéphane"
+			},
+			{
+				"family": "Jannot",
+				"given": "Anne-Sophie"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					5,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					1,
+					29
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/LPZWHTKX",
+		"type": "article-journal",
+		"title": "The Application of Deep Learning in Cancer Prognosis Prediction",
+		"container-title": "Cancers",
+		"page": "603",
+		"volume": "12",
+		"issue": "3",
+		"source": "www.mdpi.com",
+		"abstract": "Deep learning has been applied to many areas in health care, including imaging diagnosis, digital pathology, prediction of hospital admission, drug design, classification of cancer and stromal cells, doctor assistance, etc. Cancer prognosis is to estimate the fate of cancer, probabilities of cancer recurrence and progression, and to provide survival estimation to the patients. The accuracy of cancer prognosis prediction will greatly benefit clinical management of cancer patients. The improvement of biomedical translational research and the application of advanced statistical analysis and machine learning methods are the driving forces to improve cancer prognosis prediction. Recent years, there is a significant increase of computational power and rapid advancement in the technology of artificial intelligence, particularly in deep learning. In addition, the cost reduction in large scale next-generation sequencing, and the availability of such data through open source databases (e.g., TCGA and GEO databases) offer us opportunities to possibly build more powerful and accurate models to predict cancer prognosis more accurately. In this review, we reviewed the most recent published works that used deep learning to build models for cancer prognosis prediction. Deep learning has been suggested to be a more generic model, requires less data engineering, and achieves more accurate prediction when working with large amounts of data. The application of deep learning in cancer prognosis has been shown to be equivalent or better than current approaches, such as Cox-PH. With the burst of multi-omics data, including genomics data, transcriptomics data and clinical information in cancer studies, we believe that deep learning would potentially improve cancer prognosis.",
+		"URL": "https://www.mdpi.com/2072-6694/12/3/603",
+		"DOI": "10.3390/cancers12030603",
+		"language": "en",
+		"author": [
+			{
+				"family": "Zhu",
+				"given": "Wan"
+			},
+			{
+				"family": "Xie",
+				"given": "Longxiang"
+			},
+			{
+				"family": "Han",
+				"given": "Jianye"
+			},
+			{
+				"family": "Guo",
+				"given": "Xiangqian"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					13
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/BTDTSX7P",
+		"type": "article-journal",
+		"title": "Two Artificial Neural Networks for Modeling Discrete Survival Time of Censored Data",
+		"container-title": "Advances in Artificial Intelligence",
+		"page": "1-7",
+		"volume": "2015",
+		"source": "Crossref",
+		"URL": "https://www.hindawi.com/archive/2015/270165/",
+		"DOI": "10.1155/2015/270165",
+		"ISSN": "1687-7470, 1687-7489",
+		"language": "en",
+		"author": [
+			{
+				"family": "Sharaf",
+				"given": "Taysseer"
+			},
+			{
+				"family": "Tsokos",
+				"given": "Chris P."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2015"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					13
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/SXMJSRXC",
+		"type": "article-journal",
+		"title": "Individualized Treatment Effects with Censored Data via Fully Nonparametric Bayesian Accelerated Failure Time Models",
+		"container-title": "arXiv:1706.06611 [stat]",
+		"source": "arXiv.org",
+		"abstract": "Individuals often respond diﬀerently to identical treatments, and characterizing such variability in treatment response is an important aim in the practice of personalized medicine. In this article, we describe a non-parametric accelerated failure time model that can be used to analyze heterogeneous treatment eﬀects (HTE) when patient outcomes are time-to-event. By utilizing Bayesian additive regression trees and a mean-constrained Dirichlet process mixture model, our approach oﬀers a ﬂexible model for the regression function while placing few restrictions on the baseline hazard. Our non-parametric method leads to natural estimates of individual treatment eﬀect and has the ﬂexibility to address many major goals of HTE assessment. Moreover, our method requires little user input in terms of tuning parameter selection or subgroup speciﬁcation. We illustrate the merits of our proposed approach with a detailed analysis of two large clinical trials for the prevention and treatment of congestive heart failure using an angiotensin-converting enzyme inhibitor. The analysis revealed considerable evidence for the presence of HTE in both trials as demonstrated by substantial estimated variation in treatment eﬀect and by high proportions of patients exhibiting strong evidence of having treatment eﬀects which diﬀer from the overall treatment eﬀect.",
+		"URL": "http://arxiv.org/abs/1706.06611",
+		"note": "arXiv: 1706.06611",
+		"language": "en",
+		"author": [
+			{
+				"family": "Henderson",
+				"given": "Nicholas C."
+			},
+			{
+				"family": "Louis",
+				"given": "Thomas A."
+			},
+			{
+				"family": "Rosner",
+				"given": "Gary L."
+			},
+			{
+				"family": "Varadhan",
+				"given": "Ravi"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					6,
+					20
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					13
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/QANGIAA7",
+		"type": "webpage",
+		"title": "ResearchGate",
+		"container-title": "ResearchGate",
+		"abstract": "ResearchGate is a network dedicated to science and research. Connect, collaborate and discover scientific publications, jobs and conferences. All for free.",
+		"URL": "https://www.researchgate.net/publication/2417794_A_Neural_Network_Model_for_Prognostic_Prediction",
+		"language": "en",
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/NYLSD9M9",
+		"type": "paper-conference",
+		"title": "Statistics and data mining techniques for lifetime value modeling",
+		"container-title": "Proceedings of the fifth ACM SIGKDD international conference on Knowledge discovery and data mining",
+		"collection-title": "KDD '99",
+		"publisher": "Association for Computing Machinery",
+		"publisher-place": "San Diego, California, USA",
+		"page": "94–103",
+		"source": "ACM Digital Library",
+		"event-place": "San Diego, California, USA",
+		"URL": "https://doi.org/10.1145/312129.312205",
+		"DOI": "10.1145/312129.312205",
+		"ISBN": "978-1-58113-143-7",
+		"author": [
+			{
+				"family": "Mani",
+				"given": "D. R."
+			},
+			{
+				"family": "Drew",
+				"given": "James"
+			},
+			{
+				"family": "Betz",
+				"given": "Andrew"
+			},
+			{
+				"family": "Datta",
+				"given": "Piew"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1999",
+					8,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/W2DEHCEB",
+		"type": "article-journal",
+		"title": "Incorporating acceleration variability into seismic hazard analysis",
+		"container-title": "Bulletin of the Seismological Society of America",
+		"page": "1451-1462",
+		"volume": "74",
+		"issue": "4",
+		"abstract": "Accelerations at a site resulting from earthquakes of a given magnitude and distance are commonly assumed to be lognormally distributed with standard deviation σ (where σ is independent of magnitude and distance. Significantly higher accelerations may be predicted for a given return period when acceleration variability is taken into account than when only median acceleration values are used in seismic hazard calculations. If the magnitude range is not restricted, the acceleration having a given return period increases from ao, obtained using median values, to aoexp(βσ2/2c2), when acceleration variability is included. This result assumes the attenuation function is of the form loge(a) = c1 + c2m + f(R) [where f(R) is a function of distance only], and the magnitude-frequency relationship is loge(N) = α − βm. In this case, the acceleration for a return period is best approximated by using, rather than the median value for each magnitude and distance, the acceleration that is a factor exp(kσ) greater than the median, where k = βσ/2c2.For a restricted magnitude range, mmin ≦ m ≦ mmax, using only median values limits the calculated accelerations at a site to a range amin ≦ a ≦ amax. If variability is included, the acceleration range is no longer limited; the return period of an acceleration near amin increases, while that of an acceleration near amax decreases. If the distribution of accelerations is truncated at nσ, the maximum acceleration at a site will be amaxexp(nσ). Half or more of the increase in the acceleration level for a return period obtained by including acceleration variability may result from accelerations that are greater than 1.5σ to 2.0σ above the median value. Including variability and using a finite maximum magnitude may give a higher acceleration for a fixed return period than the value calculated using median values and an infinite maximum magnitude.",
+		"ISSN": "0037-1106",
+		"journalAbbreviation": "Bulletin of the Seismological Society of America",
+		"author": [
+			{
+				"family": "Bender",
+				"given": "Bernice"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1984",
+					8,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/KCILGW99",
+		"type": "article-journal",
+		"title": "Variate generation for accelerated life and proportional hazards models with time dependent covariates",
+		"container-title": "Statistics & Probability Letters",
+		"page": "335-339",
+		"volume": "10",
+		"issue": "4",
+		"source": "Crossref",
+		"abstract": "Variate generation algorithms for lifetimes when survival models incorporate time dependent covariates are presented. These algorithms are closed form for special cases of the function that links the covariate values to the survivor distribution. These algorithms are illustrated by several examples.",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/0167715290900529",
+		"DOI": "10.1016/0167-7152(90)90052-9",
+		"ISSN": "01677152",
+		"language": "en",
+		"author": [
+			{
+				"family": "Leemis",
+				"given": "Lawrence M."
+			},
+			{
+				"family": "Shih",
+				"given": "Li-Hsing"
+			},
+			{
+				"family": "Reynertson",
+				"given": "Kurt"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1990",
+					9
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					16
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/AYQD3K2D",
+		"type": "article-journal",
+		"title": "Greedy Function Approximation: A Gradient Boosting Machine",
+		"container-title": "The Annals of Statistics",
+		"page": "1189-1232",
+		"volume": "29",
+		"issue": "5",
+		"source": "JSTOR",
+		"archive": "JSTOR",
+		"abstract": "Function estimation/approximation is viewed from the perspective of numerical optimization in function space, rather than parameter space. A connection is made between stagewise additive expansions and steepest-descent minimization. A general gradient descent \"boosting\" paradigm is developed for additive expansions based on any fitting criterion. Specific algorithms are presented for least-squares, least absolute deviation, and Huber-M loss functions for regression, and multiclass logistic likelihood for classification. Special enhancements are derived for the particular case where the individual additive components are regression trees, and tools for interpreting such \"TreeBoost\" models are presented. Gradient boosting of regression trees produces competitive, highly robust, interpretable procedures for both regression and classification, especially appropriate for mining less than clean data. Connections between this approach and the boosting methods of Freund and Shapire and Friedman, Hastie and Tibshirani are discussed.",
+		"URL": "https://www.jstor.org/stable/2699986",
+		"ISSN": "0090-5364",
+		"shortTitle": "Greedy Function Approximation",
+		"author": [
+			{
+				"family": "Friedman",
+				"given": "Jerome H."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2001"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					16
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/L9HPZ2NN",
+		"type": "book",
+		"title": "Analysis of Survival Data",
+		"publisher": "CRC Press",
+		"number-of-pages": "216",
+		"source": "Google Books",
+		"abstract": "This monograph contains many ideas on the analysis of survival data to present a comprehensive account of the field. The value of survival analysis is not confined to medical statistics, where the benefit of the analysis of data on such factors as life expectancy and duration of periods of freedom from symptoms of a disease as related to a treatment applied individual histories and so on, is obvious. The techniques also find important applications in industrial life testing and a range of subjects from physics to econometrics. In the eleven chapters of the book the methods and applications of are discussed and illustrated by examples.",
+		"ISBN": "978-0-412-24490-2",
+		"note": "Google-Books-ID: Y4pdM2soP4IC",
+		"language": "en",
+		"author": [
+			{
+				"family": "Cox",
+				"given": "D. R."
+			},
+			{
+				"family": "Oakes",
+				"given": "David"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1984",
+					6,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/B9LNPW8Y",
+		"type": "article-journal",
+		"title": "Miscellanea. A note on scaled Schoenfeld residuals for the proportional hazards model",
+		"container-title": "Biometrika",
+		"page": "565-571",
+		"volume": "88",
+		"issue": "2",
+		"source": "academic.oup.com",
+		"abstract": "Abstract.  Grambsch &amp; Therneau (1994) show how Schoenfeld's partial residuals can be used to diagnose the nature of nonproportional hazards in Cox's (1972)",
+		"URL": "https://academic.oup.com/biomet/article/88/2/565/264977",
+		"DOI": "10.1093/biomet/88.2.565",
+		"ISSN": "0006-3444",
+		"journalAbbreviation": "Biometrika",
+		"language": "en",
+		"author": [
+			{
+				"family": "Winnett",
+				"given": "Angela"
+			},
+			{
+				"family": "Sasieni",
+				"given": "Peter"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2001",
+					6,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/7IG25JQP",
+		"type": "article-journal",
+		"title": "Partial residuals for the proportional hazards regression model",
+		"container-title": "Biometrika",
+		"page": "239-241",
+		"volume": "69",
+		"issue": "1",
+		"source": "academic.oup.com",
+		"abstract": "Abstract.  Residuals are defined for the proportional hazards regression model introduced by Cox (1972). These residuals can be plotted against time to test the",
+		"URL": "https://academic.oup.com/biomet/article/69/1/239/243012",
+		"DOI": "10.1093/biomet/69.1.239",
+		"ISSN": "0006-3444",
+		"journalAbbreviation": "Biometrika",
+		"language": "en",
+		"author": [
+			{
+				"family": "Schoenfeld",
+				"given": "David"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1982",
+					4,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/5PBT5WXD",
+		"type": "article-journal",
+		"title": "Chi-squared goodness-of-fit tests for the proportional hazards regression model",
+		"container-title": "Biometrika",
+		"page": "145-153",
+		"volume": "67",
+		"issue": "1",
+		"source": "academic.oup.com",
+		"abstract": "AbstractSUMMARY.   A class of omnibus chi-squared goodness-of-fit tests is presented for the model, relating failure time to covariate values, proposed by Cox (",
+		"URL": "https://academic.oup.com/biomet/article/67/1/145/276371",
+		"DOI": "10.1093/biomet/67.1.145",
+		"ISSN": "0006-3444",
+		"journalAbbreviation": "Biometrika",
+		"language": "en",
+		"author": [
+			{
+				"family": "Schoenfeld",
+				"given": "David"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1980",
+					1,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/HYK8FR34",
+		"type": "chapter",
+		"title": "Evaluating the Proportional Hazards Assumption",
+		"container-title": "Survival Analysis: A Self-Learning Text, Third Edition",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "161-200",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "We begin with a brief review of the characteristics of the Cox proportional hazards (PH) model. We then give an overview of three methods for checking the PH assumption: graphical, goodness-of-fit (GOF), and time-dependent variable approaches.",
+		"URL": "https://doi.org/10.1007/978-1-4419-6646-9_4",
+		"ISBN": "978-1-4419-6646-9",
+		"note": "DOI: 10.1007/978-1-4419-6646-9_4",
+		"language": "en",
+		"author": [
+			{
+				"family": "Kleinbaum",
+				"given": "David G."
+			},
+			{
+				"family": "Klein",
+				"given": "Mitchel"
+			}
+		],
+		"editor": [
+			{
+				"family": "Kleinbaum",
+				"given": "David G."
+			},
+			{
+				"family": "Klein",
+				"given": "Mitchel"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2012"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/LKNWSHSF",
+		"type": "article-journal",
+		"title": "A simple test of the proportional hazards assumption",
+		"container-title": "Biometrika",
+		"page": "289-300",
+		"volume": "74",
+		"issue": "2",
+		"source": "academic.oup.com",
+		"abstract": "Abstract.  A new test of the proportional hazards assumption for two-sample censored data is presented. The test is based on a comparison of different generaliz",
+		"URL": "https://academic.oup.com/biomet/article/74/2/289/239436",
+		"DOI": "10.1093/biomet/74.2.289",
+		"ISSN": "0006-3444",
+		"journalAbbreviation": "Biometrika",
+		"language": "en",
+		"author": [
+			{
+				"family": "Gill",
+				"given": "Richard"
+			},
+			{
+				"family": "Schumacher",
+				"given": "Martin"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1987",
+					6,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/KMHA9CZ6",
+		"type": "book",
+		"title": "Survival Analysis",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer New York",
+		"publisher-place": "New York, NY",
+		"source": "Crossref",
+		"event-place": "New York, NY",
+		"URL": "http://link.springer.com/10.1007/978-1-4419-6646-9",
+		"ISBN": "978-1-4419-6645-2",
+		"note": "DOI: 10.1007/978-1-4419-6646-9",
+		"language": "en",
+		"author": [
+			{
+				"family": "Kleinbaum",
+				"given": "David G."
+			},
+			{
+				"family": "Klein",
+				"given": "Mitchel"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2012"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/C3R68KK4",
+		"type": "chapter",
+		"title": "Testing Proportional Hazards",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "127-152",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "A key assumption of the Cox model is proportional hazards.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_6",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_6",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/5VQDTLAC",
+		"type": "chapter",
+		"title": "Residuals",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "79-86",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "There are four major residuals of interest in the Cox model: the martingale, deviance, score, and Schoenfeld residuals, along with two others, the dfbeta and scaled Schoenfeld residuals, that are derived from these. This chapter gives an overview of the definitions and mathematical underpinnings of the residuals; later chapters take up their uses one by one in detail.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_4",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_4",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/QE8JE5T8",
+		"type": "chapter",
+		"title": "Introduction",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "1-6",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "Since its introduction, the proportional hazards model proposed by Cox [36] has become the workhorse of regression analysis for censored data. In the last several years, the theoretical basis for the model has been solidified by connecting it to the study of counting processes and martingale theory, as discussed in the books of Fleming and Harrington [51] and of Andersen et al. [4] . These developments have, in turn, led to the introduction of several new extensions to the original model. These include the analysis of residuals, time-dependent coefficients, multiple/correlated observations, multiple time scales, time-dependent strata, and estimation of underlying hazard functions.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_1",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_1",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/CBIWEC7S",
+		"type": "chapter",
+		"title": "Frailty Models",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "231-260",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "In the last several years there has been significant and active research concerning the addition of random effects to survival models. In this setting, a random effect is a continuous variable that describes excess risk or frailty for distinct categories, such as individuals or families. The idea is that individuals have different frailties, and that those who are most frail will die earlier than the others. Aalen [1] provides theoretical and practical motivation for frailty models by discussing the impact of heterogeneity on analyses, and by illustrating how random effects can deal with it. He states It is a basic observation of medical statistics that individuals are dissimilar. . .. Still, there is a tendency to regard this variation as a nuisance, and not as something to be considered seriously in its own right. Statisticians are often accused of being more interested in averages, and there is some truth to this",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_9",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_9",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/LBDPBTWZ",
+		"type": "chapter",
+		"title": "Expected Survival",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "261-287",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "The calculation of an expected survival (based on some reference population) for a cohort of patients under study has a long history. These methods are most familiar when the reference population is census based, for example, the overall survival experience of the United States population by age and sex. Recently, these ideas have been rediscovered and applied to the proportional hazards model. In this case the reference population is the result of a fitted Cox model, with the results of the model applied to a new population of subjects. Many of the computational and interpretation issues with the estimates are particularly clear in the case of population data. Therefore, this chapter elaborates on both population- and modelbased techniques.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_10",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_10",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/HL33PTZL",
+		"type": "chapter",
+		"title": "Influence",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "153-168",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "Our third important use for residuals is to assess influence, the impact of each point on the fit of a model.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_7",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_7",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/WXANAX4W",
+		"type": "chapter",
+		"title": "Multiple Events per Subject",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "169-229",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "There is increasing interest, and need, to apply survival analysis to data sets with multiple events per subject. This includes both the cases of multiple events of the same type, and events of different types. Examples of the former would be recurrent infections in AIDS patients or multiple infarcts in a coronary study. Examples of the latter are the use of both survival and recurrence information in cancer trials, or multiple sequelae (toxicity, worsening symptoms, etc.) in the management of chronic disease. With the increasing emphasis on quality of life, rehospitalization, and other secondary endpoints such analyses will become more common.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_8",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_8",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/3ZIQM3TN",
+		"type": "chapter",
+		"title": "Estimating the Survival and Hazard Functions",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "7-37",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "This chapter gives an introduction to the simplest concept: estimating the survival curve when there are no covariates. Although simple, it forms a platform for understanding the more complex material that follows. We do it twice, once informally (although making use of counting process ideas) in Section 1, and then a second time with the connections to counting processes and martingales much more complete. Sections 2 and 3 first give an overview of the necessary theory and then apply it to the informal results of Section 1, both validating and extending them. Section 4 discusses the extension to tied data. The reader might want to focus on Section 1 on the first reading, perhaps supplemented with the results (but not derivations) of Sections 3 and 4.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_2",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_2",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/8LFS663P",
+		"type": "chapter",
+		"title": "The Cox Model",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "39-77",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "The Cox proportional hazards model [36] has become by a wide margin the most used procedure for modeling the relationship of covariates to a survival or other censored outcome.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_3",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_3",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/FNJ5FFR7",
+		"type": "chapter",
+		"title": "Functional Form",
+		"container-title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer",
+		"publisher-place": "New York, NY",
+		"page": "87-126",
+		"source": "Springer Link",
+		"event-place": "New York, NY",
+		"abstract": "In the Cox model, we assume that the hazard function satisfies $${\\lambda _i}(t) = {\\lambda _0}(t)\\exp ({X_i}\\beta ),$$ that is, a proportional hazards structure with a loglinear model for the covariates. For a continuous variable, age, for instance, this implicitly assumes the ratio of risks between a 45- and a 50-year-old is the same as that between an 80- and an 85-year-old. Yet experience with biological data shows that threshold effects, both upper and lower, are common. Perhaps the risk does not begin to rise until after age 65, or even rises and then falls again at a later age.",
+		"URL": "https://doi.org/10.1007/978-1-4757-3294-8_5",
+		"ISBN": "978-1-4757-3294-8",
+		"note": "DOI: 10.1007/978-1-4757-3294-8_5",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"editor": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/PJEJ7SZP",
+		"type": "article-journal",
+		"title": "Proportionally Difficult: Testing for Nonproportional Hazards in Cox Models",
+		"container-title": "Political Analysis",
+		"page": "189-205",
+		"volume": "18",
+		"issue": "2",
+		"source": "Crossref",
+		"URL": "https://www.cambridge.org/core/product/identifier/S1047198700012407/type/journal_article",
+		"DOI": "10.1093/pan/mpp044",
+		"ISSN": "1047-1987, 1476-4989",
+		"shortTitle": "Proportionally Difficult",
+		"language": "en",
+		"author": [
+			{
+				"family": "Keele",
+				"given": "Luke"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2010"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/K3F6YIRL",
+		"type": "book",
+		"title": "Modeling Survival Data: Extending the Cox Model",
+		"collection-title": "Statistics for Biology and Health",
+		"publisher": "Springer New York",
+		"publisher-place": "New York, NY",
+		"source": "Crossref",
+		"event-place": "New York, NY",
+		"URL": "http://link.springer.com/10.1007/978-1-4757-3294-8",
+		"ISBN": "978-1-4419-3161-0",
+		"note": "DOI: 10.1007/978-1-4757-3294-8",
+		"shortTitle": "Modeling Survival Data",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			}
+		],
+		"collection-editor": [
+			{
+				"family": "Dietz",
+				"given": "K."
+			},
+			{
+				"family": "Gail",
+				"given": "M."
+			},
+			{
+				"family": "Krickeberg",
+				"given": "K."
+			},
+			{
+				"family": "Samet",
+				"given": "J."
+			},
+			{
+				"family": "Tsiatis",
+				"given": "A."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/NAVIIMPC",
+		"type": "article-journal",
+		"title": "Testing Goodness of Fit for Proportional Hazards Model with Censored Observations",
+		"container-title": "Journal of the American Statistical Association",
+		"page": "649-652",
+		"volume": "79",
+		"issue": "387",
+		"source": "JSTOR",
+		"archive": "JSTOR",
+		"abstract": "A numerical omnibus test of fit for the two-sample proportional hazards model is proposed for randomly censored observations. The test is derived from Cox's partial likelihood and does not need a dummy time-dependent covariate or any partition of the time-axis. Consistency of the test is established. Examples are provided for illustration.",
+		"URL": "https://www.jstor.org/stable/2288412",
+		"DOI": "10.2307/2288412",
+		"ISSN": "0162-1459",
+		"author": [
+			{
+				"family": "Wei",
+				"given": "L. J."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1984"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/K48DQ7U3",
+		"type": "article-journal",
+		"title": "Proportional Hazards Tests and Diagnostics Based on Weighted Residuals",
+		"container-title": "Biometrika",
+		"page": "515-526",
+		"volume": "81",
+		"issue": "3",
+		"source": "JSTOR",
+		"archive": "JSTOR",
+		"abstract": "Nonproportional hazards can often be expressed by extending the Cox model to include time varying coefficients; e.g., for a single covariate, the hazard function for subject i is modelled as exp β(t)Zi(t). A common example is a treatment effect that decreases with time. We show that the function β(t) can be directly visualized by smoothing an appropriate residual plot. Also, many tests of proportional hazards, including those of Cox (1972), Gill & Schumacher (1987), Harrell (1986), Lin (1991), Moreau, O'Quigley & Mesbah (1985), Nagelkerke, Oosting & Hart (1984), O'Quigley & Pessione (1989), Schoenfeld (1980) and Wei (1984) are related to time-weighted score tests of the proportional hazards hypothesis, and can be visualized as a weighted least-squares line fitted to the residual plot.",
+		"URL": "https://www.jstor.org/stable/2337123",
+		"DOI": "10.2307/2337123",
+		"ISSN": "0006-3444",
+		"author": [
+			{
+				"family": "Grambsch",
+				"given": "Patricia M."
+			},
+			{
+				"family": "Therneau",
+				"given": "Terry M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1994"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/ERMGIMG8",
+		"type": "article-journal",
+		"title": "A Global Goodness-of-Fit Statistic for the Proportional Hazards Model",
+		"container-title": "Applied Statistics",
+		"page": "212",
+		"volume": "34",
+		"issue": "3",
+		"source": "Crossref",
+		"abstract": "A simple alternative to the proportional hazards model is considered, whereby the regression coefficients can vary with time. It leads to a statistic which can be used for checking the assumption of proportional hazards. In the two-sample problem, this statistic is the same as Schoenfeld's (1980); a conservative version, computationally simple, is proposed in this case.",
+		"URL": "https://www.jstor.org/stable/2347465?origin=crossref",
+		"DOI": "10.2307/2347465",
+		"ISSN": "00359254",
+		"language": "en",
+		"author": [
+			{
+				"family": "Moreau",
+				"given": "T."
+			},
+			{
+				"family": "O'Quigley",
+				"given": "J."
+			},
+			{
+				"family": "Mesbah",
+				"given": "M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1985"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/PD7VZFMA",
+		"type": "article-journal",
+		"title": "Score Tests for Homogeneity of Regression Effect in the Proportional Hazards Model",
+		"container-title": "Biometrics",
+		"page": "135",
+		"volume": "45",
+		"issue": "1",
+		"source": "Crossref",
+		"abstract": "A simple model, containing the proportional hazards regression model as a special case, is presented. The purpose of the model is to provide a framework in which specific alternatives to the proportional hazards assumption may be tested. Rank-invariant score tests for linear, quadratic, or exponential trends can, for instance, all be undertaken within this framework. In the case of the two-sample problem the required calculations are shown to take a particularly simple form. Special consideration is given to the two-sample case in which there is an inversion of the regression effect, i.e., where the hazard functions cross at some given point. Both of the motivating examples are concerned with this problem. Computational aspects are relatively straightforward and some discussion on this is provided.",
+		"URL": "https://www.jstor.org/stable/2532040?origin=crossref",
+		"DOI": "10.2307/2532040",
+		"ISSN": "0006341X",
+		"language": "en",
+		"author": [
+			{
+				"family": "O'Quigley",
+				"given": "John"
+			},
+			{
+				"family": "Pessione",
+				"given": "Fabienne"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1989",
+					3
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/FTIVSRRM",
+		"type": "article-journal",
+		"title": "Martingale-Based Residuals for Survival Models",
+		"page": "15",
+		"source": "Zotero",
+		"abstract": "Graphical methods based on the analysis of residuals are considered for the setting of the highly-used Cox (1972) regression model and for the Andersen-Gill (1982) generalization of that model. We start with a class of martingale-based residuals as proposed by Barlow & Prentice (1988). These residuals and/or their transforms are useful for investigating the functional form of a covariate, the proportional hazards assumption, the leverage of each subject upon the estimates of 13, and the lack of model fit to a given subject.",
+		"language": "en",
+		"author": [
+			{
+				"family": "Therneau",
+				"given": "Terry M"
+			},
+			{
+				"family": "Grambsch",
+				"given": "Patricia M"
+			},
+			{
+				"family": "Fleming",
+				"given": "Thomas R"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1990"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/YT2242PJ",
+		"type": "chapter",
+		"title": "The Counting Process and Martingale Framework",
+		"container-title": "Counting Processes and Survival Analysis",
+		"publisher": "John Wiley & Sons, Ltd",
+		"page": "15-49",
+		"source": "Wiley Online Library",
+		"abstract": "This chapter contains sections titled: Introduction Stochastic Processes and Stochastic Integrals The Martingale M = N – A The Doob-Meyer Decomposition: Applications to Quadratic Variation The Martingale Transform ∫ HdM Bibliographic Notes",
+		"URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/9781118150672.ch1",
+		"ISBN": "978-1-118-15067-2",
+		"note": "DOI: 10.1002/9781118150672.ch1",
+		"language": "en",
+		"author": [
+			{
+				"family": "Fleming",
+				"given": "Thomas R"
+			},
+			{
+				"family": "Harrington",
+				"given": "David P."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2011"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					5,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/XGK3GB4L",
+		"type": "book",
+		"title": "Counting Processes and Survival Analysis",
+		"publisher": "John Wiley & Sons, Ltd",
+		"edition": "1",
+		"source": "Wiley Online Library",
+		"URL": "https://onlinelibrary.wiley.com/doi/10.1002/9781118150672",
+		"note": "DOI: 10.1002/9781118150672",
+		"author": [
+			{
+				"family": "Fleming",
+				"given": "Thomas R"
+			},
+			{
+				"family": "Harrington",
+				"given": "David P."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2005"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					5,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/3HACRRU9",
+		"type": "article-journal",
+		"title": "A Two-Sample Censored-Data Rank Test for Acceleration",
+		"container-title": "Biometrics",
+		"page": "1049",
+		"volume": "40",
+		"issue": "4",
+		"source": "Crossref",
+		"abstract": "A score test for the null hypothesis of proportional hazards against rank-regression alternatives is proposed as a complement to the logrank test for comparing censored survival curves. The test statistic has an asymptotic normal distribution that is independent of the logrank distribution under the null hypothesis, and its power is good against acceleration alternatives (i.e. with crossing hazards) where the logrank test fails. Monte Carlo studies indicate that its small-sample properties are comparable to those of the logrank and ranksum procedures.",
+		"URL": "https://www.jstor.org/stable/2531155?origin=crossref",
+		"DOI": "10.2307/2531155",
+		"ISSN": "0006341X",
+		"language": "en",
+		"author": [
+			{
+				"family": "Breslow",
+				"given": "N. E."
+			},
+			{
+				"family": "Edler",
+				"given": "L."
+			},
+			{
+				"family": "Berger",
+				"given": "J."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1984",
+					12
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					5,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/FQZ73LUG",
+		"type": "article-journal",
+		"title": "Goodness-of-Fit Analysis for the Cox Regression Model Based on a Class of Parameter Estimators",
+		"container-title": "Journal of the American Statistical Association",
+		"page": "725-728",
+		"volume": "86",
+		"issue": "415",
+		"source": "JSTOR",
+		"archive": "JSTOR",
+		"abstract": "In this article we propose a class of estimation functions for the vector of regression parameters in the Cox proportional hazards model with possibly time-dependent covariates by incorporating the weight functions commonly used in weighted log-rank tests into the partial likelihood score function. The resulting estimators behave much like the conventional maximum partial likelihood estimator in that they are consistent and asymptotically normal. When the Cox model is inappropriate, however, the estimators with different weight functions generally converge to nonidentical constant vectors. For example, the magnitude of the parameter estimator using the Kaplan-Meier survival estimator as the weight function will be stochastically larger than that of the maximum partial likelihood estimator if covariate effects diminish over time. Such facts motivate us to develop goodness-of-fit methods for the Cox regression model by comparing parameter estimators with different weight functions. Under the assumed model, the normalized difference between the maximum partial likelihood estimator and a weighted parameter estimator is shown to converge weakly to a multivariate normal with mean zero and with a covariance matrix for which a consistent estimator is proposed. The asymptotic properties of the weighted parameter estimators and those of the related goodness-of-fit tests under misspecified Cox models are also investigated. In particular, it is demonstrated that a goodness-of-fit test with a monotone weight function is consistent against monotone departures from the proportional hazards assumption. Versatile testing procedures with broad sensitivities can be developed based on simultaneous use of several weight functions. Three examples using real data are presented.",
+		"URL": "https://www.jstor.org/stable/2290404",
+		"DOI": "10.2307/2290404",
+		"ISSN": "0162-1459",
+		"author": [
+			{
+				"family": "Lin",
+				"given": "D. Y."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1991"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					5,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/4NPJ6PV4",
+		"type": "article-journal",
+		"title": "Analysis of Accelerated Hazards Models",
+		"container-title": "Journal of the American Statistical Association",
+		"page": "608-618",
+		"volume": "95",
+		"issue": "450",
+		"source": "Taylor and Francis+NEJM",
+		"abstract": "The proportional hazards model for survival time data usually assumes that the covariates of interest take constant effects proportionally on an unspecified baseline hazard function. However, it may not be applicable when the assumption of constant proportionality is violated. In a two-arm randomized clinical trial, for example, the treatment is often expected to be fully effective only after a certain lag period. Some alternatives, such as the accelerated failure time model, have been developed in statistical literature. This article introduces an accelerated hazards model when there is a scale change relationship between the hazard functions. An estimating equation is proposed to estimate the parameter semiparametrically. The methodology is demonstrated within a two-sample framework. Several extensions of the model are also considered. Real clinical trial data are used to investigate the model's practical use.",
+		"URL": "https://www.tandfonline.com/doi/abs/10.1080/01621459.2000.10474236",
+		"DOI": "10.1080/01621459.2000.10474236",
+		"ISSN": "0162-1459",
+		"author": [
+			{
+				"family": "Chen",
+				"given": "Ying Qing"
+			},
+			{
+				"family": "Wang",
+				"given": "Mei-Cheng"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000",
+					6,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					8,
+					31
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/A38FNAIP",
+		"type": "article",
+		"title": "Co-2010.pdf",
+		"URL": "https://www.stat.sfu.ca/content/dam/sfu/stat/alumnitheses/MiscellaniousTheses/Co-2010.pdf",
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					8,
+					31
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/QHE39JRM",
+		"type": "paper-conference",
+		"title": "A Neural Network Model for Prognostic Prediction",
+		"container-title": "Proceedings of the Fifteenth International Conference on Machine Learning",
+		"collection-title": "ICML '98",
+		"publisher": "Morgan Kaufmann Publishers Inc.",
+		"publisher-place": "San Francisco, CA, USA",
+		"page": "540–546",
+		"source": "ACM Digital Library",
+		"event-place": "San Francisco, CA, USA",
+		"ISBN": "978-1-55860-556-5",
+		"author": [
+			{
+				"family": "Street",
+				"given": "W. Nick"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1998",
+					7,
+					24
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					9,
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/8GM2UK9V",
+		"type": "paper-conference",
+		"title": "Statistics and data mining techniques for lifetime value modeling",
+		"container-title": "Proceedings of the fifth ACM SIGKDD international conference on Knowledge discovery and data mining",
+		"collection-title": "KDD '99",
+		"publisher": "Association for Computing Machinery",
+		"publisher-place": "New York, NY, USA",
+		"page": "94–103",
+		"source": "ACM Digital Library",
+		"event-place": "New York, NY, USA",
+		"URL": "https://doi.org/10.1145/312129.312205",
+		"DOI": "10.1145/312129.312205",
+		"ISBN": "978-1-58113-143-7",
+		"author": [
+			{
+				"family": "Mani",
+				"given": "D. R."
+			},
+			{
+				"family": "Drew",
+				"given": "James"
+			},
+			{
+				"family": "Betz",
+				"given": "Andrew"
+			},
+			{
+				"family": "Datta",
+				"given": "Piew"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1999",
+					8,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					9,
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/APA6LCXS",
+		"type": "article-journal",
+		"title": "Time-to-Event Prediction with Neural Networks and Cox Regression",
+		"container-title": "arXiv:1907.00825 [cs, stat]",
+		"source": "arXiv.org",
+		"abstract": "New methods for time-to-event prediction are proposed by extending the Cox proportional hazards model with neural networks. Building on methodology from nested case-control studies, we propose a loss function that scales well to large data sets, and enables fitting of both proportional and non-proportional extensions of the Cox model. Through simulation studies, the proposed loss function is verified to be a good approximation for the Cox partial log-likelihood. The proposed methodology is compared to existing methodologies on real-world data sets, and is found to be highly competitive, typically yielding the best performance in terms of Brier score and binomial log-likelihood. A python package for the proposed methods is available at https://github.com/havakv/pycox.",
+		"URL": "http://arxiv.org/abs/1907.00825",
+		"note": "arXiv: 1907.00825",
+		"author": [
+			{
+				"family": "Kvamme",
+				"given": "Håvard"
+			},
+			{
+				"family": "Borgan",
+				"given": "Ørnulf"
+			},
+			{
+				"family": "Scheel",
+				"given": "Ida"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					9,
+					13
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					9,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/7ICPAGTY",
+		"type": "article-journal",
+		"title": "A Simple Method for Detecting Interactions between a Treatment and a Large Number of Covariates",
+		"container-title": "arXiv:1212.2995 [stat]",
+		"source": "arXiv.org",
+		"abstract": "We consider a setting in which we have a treatment and a large number of covariates for a set of observations, and wish to model their relationship with an outcome of interest. We propose a simple method for modeling interactions between the treatment and covariates. The idea is to modify the covariate in a simple way, and then fit a standard model using the modified covariates and no main effects. We show that coupled with an efficiency augmentation procedure, this method produces valid inferences in a variety of settings. It can be useful for personalized medicine: determining from a large set of biomarkers the subset of patients that can potentially benefit from a treatment. We apply the method to both simulated datasets and gene expression studies of cancer. The modified data can be used for other purposes, for example large scale hypothesis testing for determining which of a set of covariates interact with a treatment variable.",
+		"URL": "http://arxiv.org/abs/1212.2995",
+		"note": "arXiv: 1212.2995",
+		"author": [
+			{
+				"family": "Tian",
+				"given": "Lu"
+			},
+			{
+				"family": "Alizadeh",
+				"given": "Ash"
+			},
+			{
+				"family": "Gentles",
+				"given": "Andrew"
+			},
+			{
+				"family": "Tibshirani",
+				"given": "Robert"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2012",
+					12,
+					12
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					10,
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/5CMZB463",
+		"type": "article-journal",
+		"title": "The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups",
+		"container-title": "Nature",
+		"page": "346-352",
+		"volume": "486",
+		"issue": "7403",
+		"source": "PubMed",
+		"abstract": "The elucidation of breast cancer subgroups and their molecular drivers requires integrated views of the genome and transcriptome from representative numbers of patients. We present an integrated analysis of copy number and gene expression in a discovery and validation set of 997 and 995 primary breast tumours, respectively, with long-term clinical follow-up. Inherited variants (copy number variants and single nucleotide polymorphisms) and acquired somatic copy number aberrations (CNAs) were associated with expression in ~40% of genes, with the landscape dominated by cis- and trans-acting CNAs. By delineating expression outlier genes driven in cis by CNAs, we identified putative cancer genes, including deletions in PPP2R2A, MTAP and MAP2K4. Unsupervised analysis of paired DNA–RNA profiles revealed novel subgroups with distinct clinical outcomes, which reproduced in the validation cohort. These include a high-risk, oestrogen-receptor-positive 11q13/14 cis-acting subgroup and a favourable prognosis subgroup devoid of CNAs. Trans-acting aberration hotspots were found to modulate subgroup-specific gene networks, including a TCR deletion-mediated adaptive immune response in the ‘CNA-devoid’ subgroup and a basal-specific chromosome 5 deletion-associated mitotic network. Our results provide a novel molecular stratification of the breast cancer population, derived from the impact of somatic CNAs on the transcriptome.",
+		"DOI": "10.1038/nature10983",
+		"ISSN": "1476-4687",
+		"note": "PMID: 22522925\nPMCID: PMC3440846",
+		"journalAbbreviation": "Nature",
+		"language": "eng",
+		"author": [
+			{
+				"family": "Curtis",
+				"given": "Christina"
+			},
+			{
+				"family": "Shah",
+				"given": "Sohrab P."
+			},
+			{
+				"family": "Chin",
+				"given": "Suet-Feung"
+			},
+			{
+				"family": "Turashvili",
+				"given": "Gulisa"
+			},
+			{
+				"family": "Rueda",
+				"given": "Oscar M."
+			},
+			{
+				"family": "Dunning",
+				"given": "Mark J."
+			},
+			{
+				"family": "Speed",
+				"given": "Doug"
+			},
+			{
+				"family": "Lynch",
+				"given": "Andy G."
+			},
+			{
+				"family": "Samarajiwa",
+				"given": "Shamith"
+			},
+			{
+				"family": "Yuan",
+				"given": "Yinyin"
+			},
+			{
+				"family": "Gräf",
+				"given": "Stefan"
+			},
+			{
+				"family": "Ha",
+				"given": "Gavin"
+			},
+			{
+				"family": "Haffari",
+				"given": "Gholamreza"
+			},
+			{
+				"family": "Bashashati",
+				"given": "Ali"
+			},
+			{
+				"family": "Russell",
+				"given": "Roslin"
+			},
+			{
+				"family": "McKinney",
+				"given": "Steven"
+			},
+			{
+				"literal": "METABRIC Group"
+			},
+			{
+				"family": "Langerød",
+				"given": "Anita"
+			},
+			{
+				"family": "Green",
+				"given": "Andrew"
+			},
+			{
+				"family": "Provenzano",
+				"given": "Elena"
+			},
+			{
+				"family": "Wishart",
+				"given": "Gordon"
+			},
+			{
+				"family": "Pinder",
+				"given": "Sarah"
+			},
+			{
+				"family": "Watson",
+				"given": "Peter"
+			},
+			{
+				"family": "Markowetz",
+				"given": "Florian"
+			},
+			{
+				"family": "Murphy",
+				"given": "Leigh"
+			},
+			{
+				"family": "Ellis",
+				"given": "Ian"
+			},
+			{
+				"family": "Purushotham",
+				"given": "Arnie"
+			},
+			{
+				"family": "Børresen-Dale",
+				"given": "Anne-Lise"
+			},
+			{
+				"family": "Brenton",
+				"given": "James D."
+			},
+			{
+				"family": "Tavaré",
+				"given": "Simon"
+			},
+			{
+				"family": "Caldas",
+				"given": "Carlos"
+			},
+			{
+				"family": "Aparicio",
+				"given": "Samuel"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2012",
+					4,
+					18
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/K72I9PMW",
+		"type": "article-journal",
+		"title": "DNNSurv: Deep Neural Networks for Survival Analysis Using Pseudo Values",
+		"container-title": "arXiv:1908.02337 [cs, stat]",
+		"source": "arXiv.org",
+		"abstract": "There has been increasing interest in modelling survival data using deep learning methods in medical research. Current approaches have focused on designing special cost functions to handle censored survival data. We propose a very different method with two steps. In the first step, we transform each subject's survival time into a series of jackknife pseudo conditional survival probabilities and then use these pseudo probabilities as a quantitative response variable in the deep neural network model. By using the pseudo values, we reduce a complex survival analysis to a standard regression problem, which greatly simplifies the neural network construction. Our two-step approach is simple, yet very flexible in making risk predictions for survival data, which is very appealing from the practice point of view. The source code is freely available at http://github.com/lilizhaoUM/DNNSurv.",
+		"URL": "http://arxiv.org/abs/1908.02337",
+		"note": "arXiv: 1908.02337",
+		"shortTitle": "DNNSurv",
+		"author": [
+			{
+				"family": "Zhao",
+				"given": "Lili"
+			},
+			{
+				"family": "Feng",
+				"given": "Dai"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					10
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					10,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/QNRPQXAV",
+		"type": "article-journal",
+		"title": "Benchmark of lasso-like penalties in the Cox model for TCGA datasets reveal improved performance with pre-filtering and wide differences between cancers",
+		"container-title": "bioRxiv",
+		"page": "2020.03.09.984070",
+		"source": "www.biorxiv.org",
+		"abstract": "<h3>Abstract</h3> <h3>Motivation</h3> <p>Prediction of patient survival from tumor molecular ‘omics’ data is a key step toward personalized medicine. With this aim, the databases available are growing, with the collection of various ‘omics’ characterizations of patient tumors, together with their associated clinical outcomes for weeks to years of follow-up. Cox models with variable selection used with RNA profiling datasets are popular for identification of prognostic biomarkers and for clinical predictions. However, these models are confronted with the ‘curse of dimensionality’, as the number <i>p</i> of covariates (genes) can greatly exceed the number <i>n</i> of patients. To tackle this problem, variance-based pre-filtering and penalization methods are popular for dimension reduction. In the present paper, we study the impact of a pre-filtering step based on gene variability, and we evaluate the performance of the lasso penalization of the Cox model and four variants (i.e., elastic net, adaptive elastic net, ridge, univariate Cox) in terms of prediction, selection and stability.</p><h3>Results</h3> <p>First, we show that the prediction capacity with the Cox penalties method is cancer dependent. Second, we develop a methodology to fix a threshold to filter out genes with low variability without losing prediction capacity. Third, we show that it is best not to use the Cox model to select prognostic biomarkers, as its false discovery proportion is always ≥ 50%. Finally, to predict overall survival, we can suggest the use of the ridge penalty, or the elastic net if a more parsimonious model is needed, after the pre-filtering step.</p><h3>Availability</h3> <p>We provide the R script generated to reproduce all of the figures presented in this article.</p><h3>Supplementary information</h3> <p>Supplementary Figures and R scripts are available.</p>",
+		"URL": "https://www.biorxiv.org/content/10.1101/2020.03.09.984070v1",
+		"DOI": "10.1101/2020.03.09.984070",
+		"language": "en",
+		"author": [
+			{
+				"family": "Jardillier",
+				"given": "Rémy"
+			},
+			{
+				"family": "Chatelain",
+				"given": "Florent"
+			},
+			{
+				"family": "Guyon",
+				"given": "Laurent"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					10
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					10,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/AMXYSN3Q",
+		"type": "report",
+		"title": "Benchmark of lasso-like penalties in the Cox model for TCGA datasets reveal improved performance with pre-filtering and wide differences between cancers",
+		"publisher": "Bioinformatics",
+		"genre": "preprint",
+		"source": "DOI.org (Crossref)",
+		"abstract": "Motivation: Prediction of patient survival from tumor molecular ’omics’ data is a key step toward personalized medicine. With this aim, the databases available are growing, with the collection of various ’omics’ characterizations of patient tumors, together with their associated clinical outcomes for weeks to years of follow-up. Cox models with variable selection used with RNA proﬁling datasets are popular for identiﬁcation of prognostic biomarkers and for clinical predictions. However, these models are confronted with the ’curse of dimensionality’, as the number p of covariates (genes) can greatly exceed the number n of patients. To tackle this problem, variance-based pre-ﬁltering and penalization methods are popular for dimension reduction. In the present paper, we study the impact of a pre-ﬁltering step based on gene variability, and we evaluate the performance of the lasso penalization of the Cox model and four variants (i.e., elastic net, adaptive elastic net, ridge, univariate Cox) in terms of prediction, selection and stability.",
+		"URL": "http://biorxiv.org/lookup/doi/10.1101/2020.03.09.984070",
+		"note": "DOI: 10.1101/2020.03.09.984070",
+		"language": "en",
+		"author": [
+			{
+				"family": "Jardillier",
+				"given": "Rémy"
+			},
+			{
+				"family": "Chatelain",
+				"given": "Florent"
+			},
+			{
+				"family": "Guyon",
+				"given": "Laurent"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					10
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					10,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/3METJCWI",
+		"type": "book",
+		"title": "Regression Modeling Strategies: With Applications to Linear Models, Logistic and Ordinal Regression, and Survival Analysis",
+		"collection-title": "Springer Series in Statistics",
+		"publisher": "Springer International Publishing",
+		"publisher-place": "Cham",
+		"source": "Crossref",
+		"event-place": "Cham",
+		"URL": "http://link.springer.com/10.1007/978-3-319-19425-7",
+		"ISBN": "978-3-319-19424-0",
+		"note": "DOI: 10.1007/978-3-319-19425-7",
+		"shortTitle": "Regression Modeling Strategies",
+		"language": "en",
+		"author": [
+			{
+				"family": "Harrell ,",
+				"given": "Frank E."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2015"
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					11,
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/T9SID9U4",
+		"type": "chapter",
+		"title": "On-line Learning and Stochastic Approximations",
+		"container-title": "On-Line Learning in Neural Networks",
+		"publisher": "Cambridge University Press",
+		"page": "9-42",
+		"edition": "1",
+		"source": "Crossref",
+		"abstract": "The convergence of online learning algorithms is analyzed using the tools of the stochastic approximation theory, and proved under very weak conditions. A general framework for online learning algorithms is ﬁrst presented. This framework encompasses the most common online learning algorithms in use today, as illustrated by several examples. The stochastic approximation theory then provides general results describing the convergence of all these learning algorithms at once.",
+		"URL": "https://www.cambridge.org/core/product/identifier/CBO9780511569920A009/type/book_part",
+		"ISBN": "978-0-521-65263-6",
+		"note": "DOI: 10.1017/CBO9780511569920.003",
+		"language": "en",
+		"editor": [
+			{
+				"family": "Saad",
+				"given": "David"
+			}
+		],
+		"author": [
+			{
+				"family": "Bottou",
+				"given": "Léon"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1999",
+					1,
+					28
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					12,
+					9
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/ZMA2BQNJ",
+		"type": "book",
+		"title": "Introduction to information retrieval",
+		"publisher": "Cambridge University Press",
+		"publisher-place": "New York",
+		"number-of-pages": "482",
+		"source": "Library of Congress ISBN",
+		"event-place": "New York",
+		"ISBN": "978-0-521-86571-5",
+		"call-number": "QA76.9.T48 M26 2008",
+		"note": "OCLC: ocn190786122",
+		"author": [
+			{
+				"family": "Manning",
+				"given": "Christopher D."
+			},
+			{
+				"family": "Raghavan",
+				"given": "Prabhakar"
+			},
+			{
+				"family": "Schütze",
+				"given": "Hinrich"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2008"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/XWN8RJK9",
+		"type": "article-journal",
+		"title": "Binacox: automatic cut-point detection in high-dimensional Cox model with applications in genetics",
+		"container-title": "arXiv:1807.09813 [cs, stat]",
+		"source": "arXiv.org",
+		"abstract": "We introduce the binacox, a prognostic method to deal with the problem of detecting multiple cut-points per features in a multivariate setting where a large number of continuous features are available. The method is based on the Cox model and combines one-hot encoding with the binarsity penalty, which uses total-variation regularization together with an extra linear constraint, and enables feature selection. Original nonasymptotic oracle inequalities for prediction (in terms of Kullback-Leibler divergence) and estimation with a fast rate of convergence are established. The statistical performance of the method is examined in an extensive Monte Carlo simulation study, and then illustrated on three publicly available genetic cancer datasets. On these high-dimensional datasets, our proposed method significantly outperforms state-of-the-art survival models regarding risk prediction in terms of the C-index, with a computing time orders of magnitude faster. In addition, it provides powerful interpretability from a clinical perspective by automatically pinpointing significant cut-points in relevant variables.",
+		"URL": "http://arxiv.org/abs/1807.09813",
+		"note": "arXiv: 1807.09813",
+		"shortTitle": "Binacox",
+		"author": [
+			{
+				"family": "Bussy",
+				"given": "Simon"
+			},
+			{
+				"family": "Alaya",
+				"given": "Mokhtar Z."
+			},
+			{
+				"family": "Jannot",
+				"given": "Anne-Sophie"
+			},
+			{
+				"family": "Guilloux",
+				"given": "Agathe"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					1,
+					10
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					2,
+					7
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/GB6D9K3I",
+		"type": "article-journal",
+		"title": "Random survival forests",
+		"container-title": "The Annals of Applied Statistics",
+		"page": "841-860",
+		"volume": "2",
+		"issue": "3",
+		"source": "arXiv.org",
+		"abstract": "We introduce random survival forests, a random forests method for the analysis of right-censored survival data. New survival splitting rules for growing survival trees are introduced, as is a new missing data algorithm for imputing missing data. A conservation-of-events principle for survival forests is introduced and used to define ensemble mortality, a simple interpretable measure of mortality that can be used as a predicted outcome. Several illustrative examples are given, including a case study of the prognostic implications of body mass for individuals with coronary artery disease. Computations for all examples were implemented using the freely available R-software package, randomSurvivalForest.",
+		"URL": "http://arxiv.org/abs/0811.1645",
+		"DOI": "10.1214/08-AOAS169",
+		"ISSN": "1932-6157",
+		"note": "arXiv: 0811.1645",
+		"journalAbbreviation": "Ann. Appl. Stat.",
+		"author": [
+			{
+				"family": "Ishwaran",
+				"given": "Hemant"
+			},
+			{
+				"family": "Kogalur",
+				"given": "Udaya B."
+			},
+			{
+				"family": "Blackstone",
+				"given": "Eugene H."
+			},
+			{
+				"family": "Lauer",
+				"given": "Michael S."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2008",
+					9
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					2,
+					7
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/uYsfYM7W/items/X9SMDBHP",
+		"type": "article-journal",
+		"title": "Adaptive kernel estimation of the baseline function in the Cox model with high-dimensional covariates",
+		"container-title": "Journal of Multivariate Analysis",
+		"page": "141-159",
+		"volume": "148",
+		"source": "ScienceDirect",
+		"abstract": "We propose a novel kernel estimator of the baseline function in a general high-dimensional Cox model, for which we derive non-asymptotic rates of convergence. To construct our estimator, we first estimate the regression parameter in the Cox model via a LASSO procedure. We then plug this estimator into the classical kernel estimator of the baseline function, obtained by smoothing the so-called Breslow estimator of the cumulative baseline function. We propose and study an adaptive procedure for selecting the bandwidth, in the spirit of Goldenshluger and Lepski (2011). We state non-asymptotic oracle inequalities for the final estimator, which leads to a reduction in the rate of convergence when the dimension of the covariates grows.",
+		"URL": "https://www.sciencedirect.com/science/article/pii/S0047259X1600083X",
+		"DOI": "10.1016/j.jmva.2016.03.002",
+		"ISSN": "0047-259X",
+		"journalAbbreviation": "Journal of Multivariate Analysis",
+		"language": "en",
+		"author": [
+			{
+				"family": "Guilloux",
+				"given": "Agathe"
+			},
+			{
+				"family": "Lemler",
+				"given": "Sarah"
+			},
+			{
+				"family": "Taupin",
+				"given": "Marie-Luce"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					6,
+					1
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					2,
+					10
+				]
+			]
+		}
+	}
+]

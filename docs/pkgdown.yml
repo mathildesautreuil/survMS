@@ -1,0 +1,10 @@
+pandoc: 1.19.2.1
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  How-to-simulate-survival-models: How-to-simulate-survival-models.html
+last_built: 2021-04-11T10:49Z
+urls:
+  reference: https://mathildesautreuil.github.io/survMS//reference
+  article: https://mathildesautreuil.github.io/survMS//articles
+

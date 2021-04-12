@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^doc$
+^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^README.html
+cran-comments.md
+^CRAN-RELEASE$
+biomed-central.csl
+references.bib
+^README_files$

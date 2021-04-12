@@ -1,0 +1,23 @@
+Package: survMS
+Title: Survival Model Simulation
+Version: 0.0.1.0000
+Depends: ggplot2
+Authors@R: 
+    person(given = "Mathilde",
+           family = "Sautreuil",
+           role = c("aut", "cre"),
+           email = "mathilde.sautreuil@gmail.com")
+URL: https://github.com/mathildesautreuil/survMS/
+BugReports: https://github.com/mathildesautreuil/survMS/issues  
+Maintainer: Mathilde Sautreuil <mathilde.sautreuil@gmail.com>
+Description: Package enables to simulate survival models (Cox, AFT and AH) with different levels of complexity.
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+Imports: graphics
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1

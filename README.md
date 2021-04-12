@@ -1,0 +1,405 @@
+survMS R package: survival Model Simulation
+================
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+New hosting/Installation
+========================
+
+<https://github.com/mathildesautreuil/survMS>
+
+<!-- badges: start -->
+<!-- [![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) -->
+<!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) -->
+<!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) -->
+<!-- badges: end -->
+``` r
+install.packages("survMS")
+#> Installing package into '/home/sautreuim/R/x86_64-pc-linux-gnu-library/3.6'
+#> (as 'lib' is unspecified)
+#> Warning: package 'survMS' is not available (for R version 3.6.2)
+library(survMS)
+#> Loading required package: ggplot2
+```
+
+1 Introduction
+==============
+
+**survMS** is an R package that generates survival data from different survival models with varying levels of complexity. Three survival models are implemented in the package to simulate survival data: a Cox model, an Accelerated Failure Time (AFT) model, and an Accelerated Hazard (AH) model. These models have their specificities. Indeed, a Cox model is a proportional risk model, not an AFT and an AH model. A proportional risk model means that the ratio of the risks between two individuals with different explanatory variables does not depend on the time. In an AFT model, the explanatory variables have an accelerating or decelerating effect on individuals' survival. In both models, a Cox model and an AFT model, the survival function’s curves never intersect. When one is interested in more complex data with intersecting survival curves, for example, to make it more difficult for methods to predict survival, two approaches are implemented in the package. The first approach consists of modifying an AFT model to have intersecting survival curves. The second approach concerns using of an AH model (for *Accelerated Hazards*) to generate the survival data. an AH model is more flexible than the two models mentioned above. In an AH model, the variables accelerate or decelerate the hazard risk. The survival curves of an AH model can therefore cross each other. The generation of survival times carried out from the different models mentioned above. The baseline risk function of the models is assumed to be known and follows a particular probability distribution. For these different models, we use parametric distribution of the baseline risk for the generation of survival time.
+
+Note that we stayed in a linear dependency framework without interaction. We will adapt the package in a second step to be in a nonlinear framework to simulate interactions. The package's implementation is easily adapted to the nonlinear framework with interactions by replacing the explanatory variables' linear part with a nonlinear function of the explanatory variables. All the functions in the package are coded to introduce this nonlinear function of the explanatory variables easily.
+
+For details on methodology, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). <!-- ## Reminder of the functions used in survival analysis -->
+
+<!-- The table below summarizes the writing of the functions used in survival analysis (instantaneous risk $\lambda(t)$, cumulative risk function $H_0(t)$, survival function $S(t)$ and density $f(t)$) for each of the models considered (Cox, AFT and AH) for the generation of survival data. -->
+<!-- |                         | Cox                                                           | AFT                                                     | AH                                                         | -->
+<!-- |-------------------------|---------------------------------------------------------------|---------------------------------------------------------|------------------------------------------------------------| -->
+<!-- | $$H(t|X_{i.})$$     | $$H_0(t)\exp(\beta^T X_{i.})$$                                | $$H_0(t\exp(\beta^T X_{i.}))$$                          | $$ H_0(t\exp(\beta^T X_{i.}))\exp(-\beta^T X_{i.})$$       | -->
+<!-- | $$\lambda(t|X_{i.})$$ | $$\alpha_0(t)\exp(\beta^T X_{i.})$$                           | $$\alpha_0(t\exp(\beta^T X_{i.}))\exp(\beta^T X_{i.})$$ | $$\alpha_0(t\exp(\beta^T X_{i.}))$$                        | -->
+<!-- | $$S(t|X_{i.})$$       | $$S_0(t)^{\exp(\beta^T X_{i.})}$$                             | $$S_0(t\exp(\beta^T X_{i.}))$$                          | $$S_0(t\exp(\beta^T X_{i.}))^{\exp(-\beta^T X_{i.})}$$     | -->
+<!-- | $$f(t|X_{i.})$$     | $$f_0(t) \exp(\beta^T X_{i.}) S_0(t)^{\exp(\beta^T X_{i.})}$$ | $$f_0(t\exp(\beta^T X_{i.})) \exp(\beta^T X_{i.})$$     | $$f_0(t \exp(\beta^T X_{i.})) S_0(t\exp(\beta^T X_{i.}))^{(\exp(-\beta^T X_{i.})-1)}$$ | -->
+<!-- ## Survival times generation -->
+<!-- The models considered are composed of one function, $\alpha_0(t)$, with the baseline risk and the parameters $\beta,$ reflecting the effect of the variables on survival times. For data generation, we assume that the base risk function $\alpha_0(t)$ is known and therefore follows a probability distribution. For this initial version of the package, the baseline hazard distributions are Weibull and log-normale.  These distribution characteristics are summarized in the table below, showing the correspondences in terms of baseline risk and cumulative risk. -->
+<!-- |                            | Weibull                                                                                                            | Log-normale                                       | -->
+<!-- |----------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------| -->
+<!-- | Parameters                 | $$\lambda > 0 \text{ (échelle)}$$ $$a > 0 \text{ (forme)}  $$                                                     | $$\mu \in ]-\infty,+\infty[$$   $$\sigma > 0$$  | -->
+<!-- | Support                    | $$[0,+\infty[$$                                                                                                    | $$]0,+\infty[$$                                   | -->
+<!-- | Baseline hazard            | $$\alpha_0(t) = \lambda a t^{(a-1)}$$                                                         | $$\alpha_0(t) = \frac{\frac{1}{\sigma\sqrt{2\pi t}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}$$ | -->
+<!-- | Cumulative Hazards         | $$H_0(t) = \lambda t^{a}$$                                                                                         | $$H_0(t) = - \log\left(1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]\right)          $$                                                                     | -->
+<!-- | Inverse cumulative hazards | $$H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}$$                                                           | $$H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)                                   $$                                                                     | -->
+<!-- | Density                    | $$f(t) = \lambda a t^{(a-1)} \exp(-\lambda t^{a})         $$                                                       | $$f(t) =  \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right] \frac{1}{\sigma t \sqrt{2\pi }}                    $$                                       | -->
+<!-- | Cumulative function        | $$F(t) = \exp(-\lambda t^{a})    $$                                                                                | $$F(t) = 1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]                             $$                                                                       | -->
+<!-- | Expectation                | $$\mathbb{E}(T) =  \Gamma(\frac{1}{a} + 1) \frac{1}{\sqrt[a]{\lambda}}$$                                         | $$\mathbb{E}(T) = \exp (\mu + \frac{\sigma^2}{2})                                     $$                                                                       | -->
+<!-- | Variance                   | $$\mathbb{V}(T) =  \left[ \Gamma(\frac{2}{a} + 1) - \Gamma^2(\frac{1}{a} + 1)\right] \frac{1}{\sqrt[a]{\mu^2} }$$ |  $$\mathbb{V}(T) = (\exp(\sigma^2) -1) \exp(2\mu+\sigma^2)                           $$                                                                        | -->
+<!-- |                            |                                                      Weibull                                                      |                                                                           Log-normale                                                                           | -->
+<!-- |----------------------------|:-----------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:| -->
+<!-- | Parameters                 |                            $$\lambda > 0$$ \text{ (échelle)}  $$a > 0$$ \text{ (forme)}                           |                                                         $$\mu \in ]-\infty,+\infty[$$     $$\sigma > 0$$                                                        | -->
+<!-- | Support                    |                                                  $$\mathbb{R}^{+}$$                                                  |                                                                         $$\mathbb{R}^{+}_{\star}$$                                                                         | -->
+<!-- | Baseline hazard            |                                       $$\alpha_0(t) = \lambda a t^{(a-1)}$$                                       | $$\alpha_0(t) = \frac{\frac{1}{\sigma\sqrt{2\pi t}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}$$ | -->
+<!-- | Cumulative Hazards         |                                             $$H_0(t) = \lambda t^{a}$$                                            |                                         $$H_0(t) = - \log\left(1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]\right)$$                                        | -->
+<!-- | Inverse cumulative hazards |                              $$H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}$$                             |                                                     $$H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)$$                                                     | -->
+<!-- | Density                    |                                $$f(t) = \lambda a t^{(a-1)} \exp(-\lambda t^{a})$$                                |                                $$f(t) =  \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right] \frac{1}{\sigma t \sqrt{2\pi }}$$                               | -->
+<!-- | Cumulative function        |                                          $$F(t) = \exp(-\lambda t^{a})$$                                          |                                                   $$F(t) = 1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]$$                                                   | -->
+<!-- | Expectation                |                      $$\mathbb{E}(T) =  \Gamma(\frac{1}{a} + 1) \frac{1}{\sqrt[a]{\lambda}}$$                     |                                                       $$\mathbb{E}(T) = \exp (\mu + \frac{\sigma^2}{2})$$                                                       | -->
+<!-- | Variance                   | $$\mathbb{V}(T) =  \left[ \Gamma(\frac{2}{a} + 1) - \Gamma^2(\frac{1}{a} + 1)\right] \frac{1}{\sqrt[a]{\mu^2} }$$ |                                                   $$ \mathbb{V}(T) = (\exp(\sigma^2) -1) \exp(2\mu+\sigma^2)$$                                                  | -->
+<!-- The distribution function is deduced from the survival function from the following formula :  -->
+<!-- $$ -->
+<!--      F(t|X) = 1 - S(t|X).  -->
+<!-- $$ -->
+<!-- For data generation, if $Y$ is a random variable that follows a probability distribution $F,$ then $U = F(Y)$ follows a uniform distribution over the interval $[0.1],$ and $(1-U)$ also follows a uniform distribution $\mathcal{U}[0.1].$ From the previous equation, we finally obtain that :  -->
+<!-- $$ -->
+<!--      1 - U = S(t|X) = \exp(-H_0(\psi_1(X)t)\psi_2(X)) % \sim \mathcal{U} [0,1]. -->
+<!--      $$ -->
+<!--      <!-- \\ %\sim \mathcal{U} [0.1] \\ -->
+<!-- $$ 1-U = \exp(-H_0(\psi_1(X)t)\psi_2(X)) % \sim \mathcal{U} [0,1]. $$ -->
+<!-- %\textcolor{red}{equivalent do not put = ?}\label{eq:U} --> <!-- If $\alpha_0(t)$ is positive for any $t,$ then $H_0(t)$ can be inverted and the survival time of each of the considered models (Cox, AFT, and AH) express starting from $H_0^{-1}(u).$ The expression of the survival times for each of the models is presented in the table above and is written in a general way :  -->
+
+<!--  $$ -->
+<!--       T = \frac{1}{\psi_1(X)} H^{-1}_0 \left( \frac{\log(1-U)}{\psi_2(X)} \right), \text{with} -->
+<!--   $$ -->
+<!-- where the set $(\psi_1(X), \psi_2(X))$ is equal to $(1, \exp(\beta^TX_{i.})$ for Cox's model, to $(\exp(-\beta^TX_{i.)). }, \exp(-\beta^TX_{i.})$ for an AFT model and $(\exp(-\beta^TX_{i.}, 1)$ for an AH model. -->
+<!-- $$ -->
+<!-- (\psi_1(X), \psi_2(X)) = \left\{ -->
+<!--     \begin{array}{ll} -->
+<!--         (1, \exp(\beta^TX)) & \mbox{for Cox's model } \\ -->
+<!--         (\exp(\beta^TX), \exp(-\beta^TX)) & \mbox{for model AH} \\\ -->
+<!--         (\exp(\beta^TX), 1) & \mbox{for an AFT model. }  -->
+<!--     \end{array} -->
+<!-- \right. -->
+<!-- $$ -->
+<!-- Two distributions were proposed for the cumulative risk function $H_0(t)$ to generate the survival data. If the survival times are distributed according to a Weibull distribution $\mathcal{W}(a, \lambda),$ the baseline risk is of the form :  -->
+<!-- $$ -->
+<!--     \alpha_0(t) = a\lambda t^{a-1}, \lambda > 0, a > 0. -->
+<!-- $$ -->
+<!-- The cumulative risk function is therefore written as follows:  -->
+<!-- $$ -->
+<!--     H_0(t) = \lambda t^{a}, \lambda > 0, a > 0 -->
+<!-- $$ -->
+<!--  and the inverse of this function is expressed as follows: -->
+<!--  $$ -->
+<!--      H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}. -->
+<!--  $$ -->
+<!--  In a second step, we considered that the survival times followed a log-normal $\mathcal{LN}(\mu, \sigma)$ distribution of mean $\mu$ and standard deviation $\sigma$. The basic risk function is therefore written as :  -->
+<!--  $$ -->
+<!--      \alpha_0(t) = \frac{\frac{\frac{1}{\sigma\sqrt{2\pi t}}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}, -->
+<!--  $$ -->
+<!--  with $\Phi(t)$ the distribution function of a centered and reduced normal distribution. The cumulative risk function is written as :  -->
+<!--  $$ -->
+<!--      H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right] -->
+<!--  $$ -->
+<!--  and therefore the inverse of this function is expressed by :  -->
+<!--  $$ -->
+<!--      H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu), -->
+<!--  $$ -->
+<!--  with $\Phi^{-1}(t)$ the inverse of the distribution function of a centered and reduced normal distribution. -->
+<!--  As specified in Section~\ref{sec:chap3_intro}, we have simulated the survival data from three different models. The first model considered is a Cox model, whose baseline risk function distribution can be a Weibull or a log-normale distribution. This simulation allows us to have survival data by checking the proportional risks. -->
+<!--  The second model for data simulation is an AFT model associated with the Weibull or log-normal distribution for the baseline risk function.  -->
+<!--  With an AFT model, the risks are not proportional. But the survival curves are parallel as for a Cox model.  More complex simulated data, with intersecting survival curves,  can get from a modified version of an AFT model can be used. We can also generate data more complicated with an AH model whose baseline risk distribution can be the log-normal or Weibull distribution. -->
+2 Simulation from a Cox model
+=============================
+
+The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+
+2.1 Simulation from a Cox model with baseline hazard following Weibull distribution
+-----------------------------------------------------------------------------------
+
+To simulate survival data checking the proportional risk hypothesis, we use a Cox model with survival times following a Weibull distribution.
+
+<!-- We recall that the generation of survival data from a Cox model based on :  -->
+<!-- $$ -->
+<!--     T = H_0^{-1} \left[ \frac{-\log(1-U)}{\exp(\beta^T X_{i.})}\right], -->
+<!-- $$ -->
+<!-- where $U \sim \mathcal{U} [0.1].$ -->
+<!-- For this simulation, we consider that survival times follow a Weibull's law $\mathcal{W}(a,\lambda).$ In this case, we have the cumulative risk function expressed by :  -->
+<!-- $$ -->
+<!--     H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right] -->
+<!-- $$ -->
+<!-- and survival times can therefore be simulated from :  -->
+<!-- $$ -->
+<!--     T = \frac{1}{\lambda^{1/a}} \left( \frac{-\log(1-U)}{\exp(\beta^T X_{i.})} \right)^{1/a} .  -->
+<!-- $$ -->
+``` r
+res_paramW = get_param_weib(med = 1062, mu = 1134)
+# c(res_paramW$a, res_paramW$lambda)
+listCoxWSim_n500_p1000 <- modelSim(model = "cox", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                   p = 1000, pnonull = 20, betaDistr = 1, hazDistr = "weibull", 
+                                   hazParams = c(3, 4), seed = 1, d = 0)
+#> Warning in modelSim(model = "cox", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+#> [1] 3 4
+hist(listCoxWSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_cox_model-1.png" width="100%" />
+
+2.2 Simulation from a Cox model with baseline hazard following log-normal distribution
+--------------------------------------------------------------------------------------
+
+To simulate survival data checking the proportional risk hypothesis, we use a Cox model with survival times following a log-normal distribution.
+
+``` r
+res_paramLN = get_param_ln(var = 170000, mu = 2320)
+listCoxSim_n500_p1000 <- modelSim(model = "cox", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                  p = 1000, pnonull = 20, betaDistr = 1, hazDistr = "log-normal", 
+                                  hazParams = c(res_paramLN$a, res_paramLN$lambda), seed = 1, d = 0)
+#> Warning in modelSim(model = "cox", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+hist(listCoxSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_coxLN_model-1.png" width="100%" />
+
+3 Simulation from an AFT model
+==============================
+
+From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+
+3.1 Simulation from an AFT model with baseline hazard following Weibull distribution
+------------------------------------------------------------------------------------
+
+To simulate survival data not checking the proportional risk hypothesis, we use an AFT model with survival times following a weibull distribution.
+
+``` r
+res_paramW = get_param_weib(med = 1062, mu = 1134)
+# c(res_paramW$a, res_paramW$lambda)
+listAFTWSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                  p = 1000, pnonull = 20, betaDistr = 1, hazDistr = "weibull", 
+                                  hazParams = c(3, 2), seed = 1, d = 0)
+#> Warning in modelSim(model = "AFT", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+hist(listAFTWSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_aftW_model-1.png" width="100%" />
+
+3.2 Simulation from an AFT model with baseline hazard following log-normal distribution
+---------------------------------------------------------------------------------------
+
+To simulate survival data not checking the proportional risk hypothesis, we use an AFT model with survival times following a log-normal distribution.
+
+``` r
+res_paramLN = get_param_ln(var = 170000, mu = 2325)
+listAFTLNSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                  p = 10, pnonull = 10, betaDistr = 1, hazDistr = "log-normal", 
+                                  hazParams = c(res_paramLN$a*3, res_paramLN$lambda), seed = 1, d = 0)
+#> Warning in modelSim(model = "AFT", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+hist(listAFTLNSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_aftLN_model-1.png" width="100%" />
+
+<!-- ```{r sim_aft_model} -->
+<!-- res_paramLN = get_param_ln(var = 200000, mu = 1134)#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996) -->
+<!-- listAFTLNSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(0,1), n = 500,  -->
+<!--                                   p = 100, pnonull = 100, betaDistr = 1, hazDistr = "log-normal", -->
+<!--                                   hazParams = c(0.3, res_paramLN$lambda), Phi = 0, seed = 1, d = 0) -->
+<!-- hist(listAFTLNSim_n500_p1000) -->
+<!-- ``` -->
+3.3 Simulation from a shifted AFT model
+---------------------------------------
+
+To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term *betaDistr* in the model. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+
+``` r
+res_paramLN = get_param_ln(var = 170000, mu = 2325)
+listAFTsSim_n500_p1000 <- modelSim(model = "AFTshift", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                  p = 10, pnonull = 10, betaDistr = "unif", hazDistr = "log-normal", 
+                                  hazParams = c(0.3, res_paramLN$lambda), seed = 1, d = 0)
+#> Warning in modelSim(model = "AFTshift", matDistr = "unif", matParam = c(-1, :
+#> Options "non-linearity with interactions" not available
+#> Warning in log(mat_grille_ti * (1/as.vector(eta_i)) - matrix(phi2, nrow(Z), :
+#> production de NaN
+hist(listAFTsSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_aft_mod_model-1.png" width="100%" />
+
+4 Simulation from an AH model
+=============================
+
+From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html).
+
+4.1 Simulation from an AH model with baseline hazard following Weibull distribution
+-----------------------------------------------------------------------------------
+
+``` r
+res_paramW = get_param_weib(med = 1062, mu = 1134)
+listAHwSim_n500_p1000 <- modelSim(model = "AH", matDistr = "unif", matParam = c(-1,1), n = 500,
+                                  p = 100, pnonull = 20, betaDistr = 1, hazDistr = "weibull",
+                                  hazParams = c(res_paramW$a, res_paramW$lambda),
+                                  Phi = 0, seed = 1, d = 0)
+#> Warning in modelSim(model = "AH", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+hist(listAHwSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_ah_model-1.png" width="100%" />
+
+4.2 Simulation from the an AH model with baseline hazard following log-normal distribution
+------------------------------------------------------------------------------------------
+
+``` r
+res_paramLN = get_param_ln(var = 170000, mu = 2325)
+listAHSim_n500_p1000 <- modelSim(model = "AH", matDistr = "unif", matParam = c(-1,1), n = 500,
+                                  p = 100, pnonull = 100, betaDistr = 1.5, hazDistr = "log-normal",
+                                  hazParams = c(res_paramLN$a*4, res_paramLN$lambda), Phi = 0, 
+                                 seed = 1, d = 0)
+#> Warning in modelSim(model = "AH", matDistr = "unif", matParam = c(-1, 1), :
+#> Options "non-linearity with interactions" not available
+# summary(listAHSim_n500_p1000)
+# print(listAHSim_n500_p1000)
+hist(listAHSim_n500_p1000)
+```
+
+<img src="man/figures/README-sim_ahLN_model-1.png" width="100%" />
+
+5 Utils functions
+=================
+
+<!-- The package enables simulating data close to real datasets. In this goal, we have to know the mean, median, and variance of real datasets and then compute the parameters of the used distribution to have a similar distribution of survival times by giving the mean, median, and variance. -->
+5.1 Get parameters of survival time distribution
+------------------------------------------------
+
+``` r
+# Weibull distribution
+res_paramW = get_param_weib(med = 1062, mu = 1134)
+res_paramW
+#> $a
+#> [1] 1.969765
+#> 
+#> $lambda
+#> [1] 7.586963e-07
+# Log-normale distribution
+res_paramLN = get_param_ln(var = 600000, mu = 1134)
+res_paramLN
+#> $a
+#> [1] 0.6188154
+#> 
+#> $lambda
+#> [1] 6.84204
+```
+
+5.2 Plotting survival curves
+----------------------------
+
+### 5.2.1 Cox/Weibull model
+
+``` r
+set.seed(1234)
+ind = sample(x = 1:500, 8)
+## Cox/Weibull model
+# df_p1000_n500[1:6,1:10]
+plot(listCoxWSim_n500_p1000, ind = ind)
+```
+
+<img src="man/figures/README-surv_curves-1.png" width="100%" />
+
+### 5.2.2 AFT/Log-normal model
+
+``` r
+## AFT/Weibull model
+# df_p1000_n500[1:6,1:10]
+plot(listAFTLNSim_n500_p1000, ind = ind)
+```
+
+<img src="man/figures/README-surv_curves_aft-1.png" width="100%" />
+
+### 5.2.3 Shifted AFT/Log-normal model
+
+``` r
+## Shifted AFT/LN model
+# df_p1000_n500[1:6,1:10]
+plot(listAFTsSim_n500_p1000, ind = ind)
+```
+
+<img src="man/figures/README-surv_curves_afts-1.png" width="100%" />
+
+### 5.2.4 AH/LN model
+
+``` r
+## Cox/Weibull model
+# df_p1000_n500[1:6,1:10]
+# set.seed(765)
+ind = sample(x = 1:500, 8)
+plot(listAHSim_n500_p1000, ind = ind)
+```
+
+<img src="man/figures/README-surv_curves_ah-1.png" width="100%" />
+
+5.3 Plotting hazard curves
+--------------------------
+
+### 5.3.1 Cox/Weibull model
+
+``` r
+## Cox/Weibull model
+# df_p1000_n500[1:6,1:10]
+plot(listCoxWSim_n500_p1000, ind = ind, type = "hazard")
+```
+
+<img src="man/figures/README-haz_curves-1.png" width="100%" />
+
+### 5.3.2 AFT/Weibull model
+
+``` r
+## AFT/Weibull model
+# df_p1000_n500[1:6,1:10]
+plot(listAFTWSim_n500_p1000, ind = ind, type = "hazard")
+```
+
+<img src="man/figures/README-haz_curves_aft-1.png" width="100%" />
+
+### 5.3.3 AFT/Log-normal model
+
+``` r
+## AFT/LN model
+# df_p1000_n500[1:6,1:10]
+plot(listAFTLNSim_n500_p1000, ind = ind, type = "hazard")
+```
+
+<img src="man/figures/README-haz_curves_aftLN-1.png" width="100%" />
+
+### 5.3.4 Shifted AFT/Log-normal model
+
+``` r
+## Shifted AFT/LN model
+# df_p1000_n500[1:6,1:10]
+plot(listAFTsSim_n500_p1000, ind = ind, type = "hazard")
+```
+
+<img src="man/figures/README-haz_curves_afts-1.png" width="100%" />
+
+### 5.3.5 AH/LN model
+
+``` r
+## Cox/Weibull model
+# df_p1000_n500[1:6,1:10]
+plot(listAHSim_n500_p1000, ind = ind, type = "hazard")
+```
+
+<img src="man/figures/README-haz_curves_ah-1.png" width="100%" />
+
+6 Examples
+==========
+
+Please also see the package [vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html) for more detailed examples and a description of the methodology underpinning the **survMS** package.
