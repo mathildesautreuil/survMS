@@ -5,13 +5,11 @@ survMS R package: survival Model Simulation
 New hosting/Installation
 ========================
 
+<!-- badges: start -->
+[![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) <!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) --> <!-- badges: end -->
+
 <https://github.com/mathildesautreuil/survMS>
 
-<!-- badges: start -->
-<!-- [![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) -->
-<!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) -->
-<!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) -->
-<!-- badges: end -->
 Install from CRAN:
 
 ``` r
