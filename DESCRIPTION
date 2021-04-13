@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "mathilde.sautreuil@gmail.com")
 URL: https://github.com/mathildesautreuil/survMS/
-BugReports: https://github.com/mathildesautreuil/survMS/issues  
+BugReports: https://github.com/mathildesautreuil/survMS/issues
 Maintainer: Mathilde Sautreuil <mathilde.sautreuil@gmail.com>
 Description: Package enables to simulate survival models (Cox, AFT and AH) with different levels of complexity.
 License: GPL-3
