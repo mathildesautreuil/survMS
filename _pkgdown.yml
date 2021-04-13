@@ -46,5 +46,3 @@ navbar:
     - icon: fa-github fa-lg
       href: https://github.com/mathildesautreuil/survMS
 
-repo:
-  branch: master
