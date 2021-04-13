@@ -3,7 +3,7 @@ title: "How to simulate datasets from different survival models"
 output: rmarkdown::html_vignette
 bibliography: chap3.json
 vignette: >
-  %\VignetteIndexEntry{How-to-simulate-survival-models}
+  %\VignetteIndexEntry{how-to-simulate-survival-models}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
