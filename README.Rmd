@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 
 # New hosting/Installation
 
-
 <!-- badges: start -->
 [![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS)
 [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
