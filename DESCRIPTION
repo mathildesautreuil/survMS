@@ -10,14 +10,16 @@ Authors@R:
 URL: https://github.com/mathildesautreuil/survMS/
 BugReports: https://github.com/mathildesautreuil/survMS/issues
 Maintainer: Mathilde Sautreuil <mathilde.sautreuil@gmail.com>
-Description: Package enables to simulate survival models (Cox, AFT and AH) with different levels of complexity.
+Description: Package enables the data simulation from different survival models (Cox, AFT, and AH models). 
+The simulated data will have various levels of complexity according to the survival model considered. The 
+implemented methods for the Cox model are described in Ralf Bender, Thomas Augustin, Maria Blettner (2004) 
+<doi:10.1002/sim.2059>.
 License: GPL-3
 Encoding: UTF-8
 LazyData: false
 Suggests: 
     knitr,
-    rmarkdown,
-    testthat
+    rmarkdown
 Imports: graphics
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
