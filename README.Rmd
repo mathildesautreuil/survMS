@@ -15,13 +15,10 @@ knitr::opts_chunk$set(
 ```
 
 
-# New hosting/Installation
-
 [![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS)
 [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
 
-[https://github.com/mathildesautreuil/survMS](https://github.com/mathildesautreuil/survMS)
-
+# Installation
 
 Install from CRAN:
 ```{r setupCRAN, eval=FALSE}

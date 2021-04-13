@@ -2,12 +2,10 @@ survMS R package: survival Model Simulation
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-New hosting/Installation
-========================
-
 [![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
 
-<https://github.com/mathildesautreuil/survMS>
+Installation
+============
 
 Install from CRAN:
 
