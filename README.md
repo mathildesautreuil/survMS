@@ -5,8 +5,7 @@ survMS R package: survival Model Simulation
 New hosting/Installation
 ========================
 
-<!-- badges: start -->
-[![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check) <!-- [![Codecov test coverage](https://codecov.io/gh/tidyverse/dplyr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/dplyr?branch=master) --> <!-- badges: end -->
+[![](https://www.r-pkg.org/badges/version/survMS)](https://cran.r-project.org/package=survMS) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/dplyr/actions?workflow=R-CMD-check)
 
 <https://github.com/mathildesautreuil/survMS>
 
@@ -37,92 +36,8 @@ library(survMS)
 
 Note that we stayed in a linear dependency framework without interaction. We will adapt the package in a second step to be in a nonlinear framework to simulate interactions. The package's implementation is easily adapted to the nonlinear framework with interactions by replacing the explanatory variables' linear part with a nonlinear function of the explanatory variables. All the functions in the package are coded to introduce this nonlinear function of the explanatory variables easily.
 
-For details on methodology, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). <!-- ## Reminder of the functions used in survival analysis -->
+For details on methodology, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html).
 
-<!-- The table below summarizes the writing of the functions used in survival analysis (instantaneous risk $\lambda(t)$, cumulative risk function $H_0(t)$, survival function $S(t)$ and density $f(t)$) for each of the models considered (Cox, AFT and AH) for the generation of survival data. -->
-<!-- |                         | Cox                                                           | AFT                                                     | AH                                                         | -->
-<!-- |-------------------------|---------------------------------------------------------------|---------------------------------------------------------|------------------------------------------------------------| -->
-<!-- | $$H(t|X_{i.})$$     | $$H_0(t)\exp(\beta^T X_{i.})$$                                | $$H_0(t\exp(\beta^T X_{i.}))$$                          | $$ H_0(t\exp(\beta^T X_{i.}))\exp(-\beta^T X_{i.})$$       | -->
-<!-- | $$\lambda(t|X_{i.})$$ | $$\alpha_0(t)\exp(\beta^T X_{i.})$$                           | $$\alpha_0(t\exp(\beta^T X_{i.}))\exp(\beta^T X_{i.})$$ | $$\alpha_0(t\exp(\beta^T X_{i.}))$$                        | -->
-<!-- | $$S(t|X_{i.})$$       | $$S_0(t)^{\exp(\beta^T X_{i.})}$$                             | $$S_0(t\exp(\beta^T X_{i.}))$$                          | $$S_0(t\exp(\beta^T X_{i.}))^{\exp(-\beta^T X_{i.})}$$     | -->
-<!-- | $$f(t|X_{i.})$$     | $$f_0(t) \exp(\beta^T X_{i.}) S_0(t)^{\exp(\beta^T X_{i.})}$$ | $$f_0(t\exp(\beta^T X_{i.})) \exp(\beta^T X_{i.})$$     | $$f_0(t \exp(\beta^T X_{i.})) S_0(t\exp(\beta^T X_{i.}))^{(\exp(-\beta^T X_{i.})-1)}$$ | -->
-<!-- ## Survival times generation -->
-<!-- The models considered are composed of one function, $\alpha_0(t)$, with the baseline risk and the parameters $\beta,$ reflecting the effect of the variables on survival times. For data generation, we assume that the base risk function $\alpha_0(t)$ is known and therefore follows a probability distribution. For this initial version of the package, the baseline hazard distributions are Weibull and log-normale.  These distribution characteristics are summarized in the table below, showing the correspondences in terms of baseline risk and cumulative risk. -->
-<!-- |                            | Weibull                                                                                                            | Log-normale                                       | -->
-<!-- |----------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------| -->
-<!-- | Parameters                 | $$\lambda > 0 \text{ (échelle)}$$ $$a > 0 \text{ (forme)}  $$                                                     | $$\mu \in ]-\infty,+\infty[$$   $$\sigma > 0$$  | -->
-<!-- | Support                    | $$[0,+\infty[$$                                                                                                    | $$]0,+\infty[$$                                   | -->
-<!-- | Baseline hazard            | $$\alpha_0(t) = \lambda a t^{(a-1)}$$                                                         | $$\alpha_0(t) = \frac{\frac{1}{\sigma\sqrt{2\pi t}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}$$ | -->
-<!-- | Cumulative Hazards         | $$H_0(t) = \lambda t^{a}$$                                                                                         | $$H_0(t) = - \log\left(1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]\right)          $$                                                                     | -->
-<!-- | Inverse cumulative hazards | $$H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}$$                                                           | $$H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)                                   $$                                                                     | -->
-<!-- | Density                    | $$f(t) = \lambda a t^{(a-1)} \exp(-\lambda t^{a})         $$                                                       | $$f(t) =  \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right] \frac{1}{\sigma t \sqrt{2\pi }}                    $$                                       | -->
-<!-- | Cumulative function        | $$F(t) = \exp(-\lambda t^{a})    $$                                                                                | $$F(t) = 1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]                             $$                                                                       | -->
-<!-- | Expectation                | $$\mathbb{E}(T) =  \Gamma(\frac{1}{a} + 1) \frac{1}{\sqrt[a]{\lambda}}$$                                         | $$\mathbb{E}(T) = \exp (\mu + \frac{\sigma^2}{2})                                     $$                                                                       | -->
-<!-- | Variance                   | $$\mathbb{V}(T) =  \left[ \Gamma(\frac{2}{a} + 1) - \Gamma^2(\frac{1}{a} + 1)\right] \frac{1}{\sqrt[a]{\mu^2} }$$ |  $$\mathbb{V}(T) = (\exp(\sigma^2) -1) \exp(2\mu+\sigma^2)                           $$                                                                        | -->
-<!-- |                            |                                                      Weibull                                                      |                                                                           Log-normale                                                                           | -->
-<!-- |----------------------------|:-----------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:| -->
-<!-- | Parameters                 |                            $$\lambda > 0$$ \text{ (échelle)}  $$a > 0$$ \text{ (forme)}                           |                                                         $$\mu \in ]-\infty,+\infty[$$     $$\sigma > 0$$                                                        | -->
-<!-- | Support                    |                                                  $$\mathbb{R}^{+}$$                                                  |                                                                         $$\mathbb{R}^{+}_{\star}$$                                                                         | -->
-<!-- | Baseline hazard            |                                       $$\alpha_0(t) = \lambda a t^{(a-1)}$$                                       | $$\alpha_0(t) = \frac{\frac{1}{\sigma\sqrt{2\pi t}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}$$ | -->
-<!-- | Cumulative Hazards         |                                             $$H_0(t) = \lambda t^{a}$$                                            |                                         $$H_0(t) = - \log\left(1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]\right)$$                                        | -->
-<!-- | Inverse cumulative hazards |                              $$H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}$$                             |                                                     $$H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)$$                                                     | -->
-<!-- | Density                    |                                $$f(t) = \lambda a t^{(a-1)} \exp(-\lambda t^{a})$$                                |                                $$f(t) =  \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right] \frac{1}{\sigma t \sqrt{2\pi }}$$                               | -->
-<!-- | Cumulative function        |                                          $$F(t) = \exp(-\lambda t^{a})$$                                          |                                                   $$F(t) = 1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]$$                                                   | -->
-<!-- | Expectation                |                      $$\mathbb{E}(T) =  \Gamma(\frac{1}{a} + 1) \frac{1}{\sqrt[a]{\lambda}}$$                     |                                                       $$\mathbb{E}(T) = \exp (\mu + \frac{\sigma^2}{2})$$                                                       | -->
-<!-- | Variance                   | $$\mathbb{V}(T) =  \left[ \Gamma(\frac{2}{a} + 1) - \Gamma^2(\frac{1}{a} + 1)\right] \frac{1}{\sqrt[a]{\mu^2} }$$ |                                                   $$ \mathbb{V}(T) = (\exp(\sigma^2) -1) \exp(2\mu+\sigma^2)$$                                                  | -->
-<!-- The distribution function is deduced from the survival function from the following formula :  -->
-<!-- $$ -->
-<!--      F(t|X) = 1 - S(t|X).  -->
-<!-- $$ -->
-<!-- For data generation, if $Y$ is a random variable that follows a probability distribution $F,$ then $U = F(Y)$ follows a uniform distribution over the interval $[0.1],$ and $(1-U)$ also follows a uniform distribution $\mathcal{U}[0.1].$ From the previous equation, we finally obtain that :  -->
-<!-- $$ -->
-<!--      1 - U = S(t|X) = \exp(-H_0(\psi_1(X)t)\psi_2(X)) % \sim \mathcal{U} [0,1]. -->
-<!--      $$ -->
-<!--      <!-- \\ %\sim \mathcal{U} [0.1] \\ -->
-<!-- $$ 1-U = \exp(-H_0(\psi_1(X)t)\psi_2(X)) % \sim \mathcal{U} [0,1]. $$ -->
-<!-- %\textcolor{red}{equivalent do not put = ?}\label{eq:U} --> <!-- If $\alpha_0(t)$ is positive for any $t,$ then $H_0(t)$ can be inverted and the survival time of each of the considered models (Cox, AFT, and AH) express starting from $H_0^{-1}(u).$ The expression of the survival times for each of the models is presented in the table above and is written in a general way :  -->
-
-<!--  $$ -->
-<!--       T = \frac{1}{\psi_1(X)} H^{-1}_0 \left( \frac{\log(1-U)}{\psi_2(X)} \right), \text{with} -->
-<!--   $$ -->
-<!-- where the set $(\psi_1(X), \psi_2(X))$ is equal to $(1, \exp(\beta^TX_{i.})$ for Cox's model, to $(\exp(-\beta^TX_{i.)). }, \exp(-\beta^TX_{i.})$ for an AFT model and $(\exp(-\beta^TX_{i.}, 1)$ for an AH model. -->
-<!-- $$ -->
-<!-- (\psi_1(X), \psi_2(X)) = \left\{ -->
-<!--     \begin{array}{ll} -->
-<!--         (1, \exp(\beta^TX)) & \mbox{for Cox's model } \\ -->
-<!--         (\exp(\beta^TX), \exp(-\beta^TX)) & \mbox{for model AH} \\\ -->
-<!--         (\exp(\beta^TX), 1) & \mbox{for an AFT model. }  -->
-<!--     \end{array} -->
-<!-- \right. -->
-<!-- $$ -->
-<!-- Two distributions were proposed for the cumulative risk function $H_0(t)$ to generate the survival data. If the survival times are distributed according to a Weibull distribution $\mathcal{W}(a, \lambda),$ the baseline risk is of the form :  -->
-<!-- $$ -->
-<!--     \alpha_0(t) = a\lambda t^{a-1}, \lambda > 0, a > 0. -->
-<!-- $$ -->
-<!-- The cumulative risk function is therefore written as follows:  -->
-<!-- $$ -->
-<!--     H_0(t) = \lambda t^{a}, \lambda > 0, a > 0 -->
-<!-- $$ -->
-<!--  and the inverse of this function is expressed as follows: -->
-<!--  $$ -->
-<!--      H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}. -->
-<!--  $$ -->
-<!--  In a second step, we considered that the survival times followed a log-normal $\mathcal{LN}(\mu, \sigma)$ distribution of mean $\mu$ and standard deviation $\sigma$. The basic risk function is therefore written as :  -->
-<!--  $$ -->
-<!--      \alpha_0(t) = \frac{\frac{\frac{1}{\sigma\sqrt{2\pi t}}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]}, -->
-<!--  $$ -->
-<!--  with $\Phi(t)$ the distribution function of a centered and reduced normal distribution. The cumulative risk function is written as :  -->
-<!--  $$ -->
-<!--      H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right] -->
-<!--  $$ -->
-<!--  and therefore the inverse of this function is expressed by :  -->
-<!--  $$ -->
-<!--      H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu), -->
-<!--  $$ -->
-<!--  with $\Phi^{-1}(t)$ the inverse of the distribution function of a centered and reduced normal distribution. -->
-<!--  As specified in Section~\ref{sec:chap3_intro}, we have simulated the survival data from three different models. The first model considered is a Cox model, whose baseline risk function distribution can be a Weibull or a log-normale distribution. This simulation allows us to have survival data by checking the proportional risks. -->
-<!--  The second model for data simulation is an AFT model associated with the Weibull or log-normal distribution for the baseline risk function.  -->
-<!--  With an AFT model, the risks are not proportional. But the survival curves are parallel as for a Cox model.  More complex simulated data, with intersecting survival curves,  can get from a modified version of an AFT model can be used. We can also generate data more complicated with an AH model whose baseline risk distribution can be the log-normal or Weibull distribution. -->
 2 Simulation from a Cox model
 =============================
 
