@@ -13,7 +13,7 @@ articles:
   - title: Simulation of survival data
     navbar: ~
     contents:
-      - How-to-simulate-survival-models
+      - how-to-simulate-survival-models
 
 reference:
   - title: Main function
