@@ -34,12 +34,12 @@ library(survMS)
 
 Note that we stayed in a linear dependency framework without interaction. We will adapt the package in a second step to be in a nonlinear framework to simulate interactions. The package's implementation is easily adapted to the nonlinear framework with interactions by replacing the explanatory variables' linear part with a nonlinear function of the explanatory variables. All the functions in the package are coded to introduce this nonlinear function of the explanatory variables easily.
 
-For details on methodology, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html).
+For details on methodology, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html).
 
 2 Simulation from a Cox model
 =============================
 
-The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
 
 2.1 Simulation from a Cox model with baseline hazard following Weibull distribution
 -----------------------------------------------------------------------------------
@@ -93,7 +93,7 @@ hist(listCoxSim_n500_p1000)
 3 Simulation from an AFT model
 ==============================
 
-From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
 
 3.1 Simulation from an AFT model with baseline hazard following Weibull distribution
 ------------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ hist(listAFTLNSim_n500_p1000)
 3.3 Simulation from a shifted AFT model
 ---------------------------------------
 
-To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term *betaDistr* in the model. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
+To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term *betaDistr* in the model. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html). Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).
 
 ``` r
 res_paramLN = get_param_ln(var = 170000, mu = 2325)
@@ -159,7 +159,7 @@ hist(listAFTsSim_n500_p1000)
 4 Simulation from an AH model
 =============================
 
-From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html).
+From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see [Vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html).
 
 4.1 Simulation from an AH model with baseline hazard following Weibull distribution
 -----------------------------------------------------------------------------------
@@ -324,4 +324,4 @@ plot(listAHSim_n500_p1000, ind = ind, type = "hazard")
 6 Examples
 ==========
 
-Please also see the package [vignette](https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html) for more detailed examples and a description of the methodology underpinning the **survMS** package.
+Please also see the package [vignette](https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html) for more detailed examples and a description of the methodology underpinning the **survMS** package.

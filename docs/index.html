@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Survival Model Simulation">
-<meta property="og:description" content="Package enables to simulate survival models (Cox, AFT and AH) with different levels of complexity.">
+<meta property="og:description" content="Package enables the data simulation from different survival models (Cox, AFT, and AH models). The simulated data will have various levels of complexity according to the survival model considered. The implemented methods for the Cox model are described in Ralf Bender, Thomas Augustin, Maria Blettner (2004) &lt;doi:10.1002/sim.2059&gt;.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -105,12 +105,12 @@
 <a href="#introduction" class="anchor"></a>1 Introduction</h1>
 <p><strong>survMS</strong> is an R package that generates survival data from different survival models with varying levels of complexity. Three survival models are implemented in the package to simulate survival data: a Cox model, an Accelerated Failure Time (AFT) model, and an Accelerated Hazard (AH) model. These models have their specificities. Indeed, a Cox model is a proportional risk model, not an AFT and an AH model. A proportional risk model means that the ratio of the risks between two individuals with different explanatory variables does not depend on the time. In an AFT model, the explanatory variables have an accelerating or decelerating effect on individuals’ survival. In both models, a Cox model and an AFT model, the survival function’s curves never intersect. When one is interested in more complex data with intersecting survival curves, for example, to make it more difficult for methods to predict survival, two approaches are implemented in the package. The first approach consists of modifying an AFT model to have intersecting survival curves. The second approach concerns using of an AH model (for <em>Accelerated Hazards</em>) to generate the survival data. an AH model is more flexible than the two models mentioned above. In an AH model, the variables accelerate or decelerate the hazard risk. The survival curves of an AH model can therefore cross each other. The generation of survival times carried out from the different models mentioned above. The baseline risk function of the models is assumed to be known and follows a particular probability distribution. For these different models, we use parametric distribution of the baseline risk for the generation of survival time.</p>
 <p>Note that we stayed in a linear dependency framework without interaction. We will adapt the package in a second step to be in a nonlinear framework to simulate interactions. The package’s implementation is easily adapted to the nonlinear framework with interactions by replacing the explanatory variables’ linear part with a nonlinear function of the explanatory variables. All the functions in the package are coded to introduce this nonlinear function of the explanatory variables easily.</p>
-<p>For details on methodology, see <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">Vignette</a>.</p>
+<p>For details on methodology, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>.</p>
 </div>
 <div id="simulation-from-a-cox-model" class="section level1">
 <h1 class="hasAnchor">
 <a href="#simulation-from-a-cox-model" class="anchor"></a>2 Simulation from a Cox model</h1>
-<p>The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
+<p>The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
 <div id="simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>2.1 Simulation from a Cox model with baseline hazard following Weibull distribution</h2>
@@ -158,7 +158,7 @@
 <div id="simulation-from-an-aft-model" class="section level1">
 <h1 class="hasAnchor">
 <a href="#simulation-from-an-aft-model" class="anchor"></a>3 Simulation from an AFT model</h1>
-<p>From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
+<p>From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
 <div id="simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>3.1 Simulation from an AFT model with baseline hazard following Weibull distribution</h2>
@@ -198,7 +198,7 @@
 <div id="simulation-from-a-shifted-aft-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-a-shifted-aft-model" class="anchor"></a>3.3 Simulation from a shifted AFT model</h2>
-<p>To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term <em>betaDistr</em> in the model. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
+<p>To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term <em>betaDistr</em> in the model. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
 <div class="sourceCode"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">170000</span>, mu <span class="op">=</span> <span class="fl">2325</span><span class="op">)</span>
 <span class="va">listAFTsSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFTshift"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
@@ -215,7 +215,7 @@
 <div id="simulation-from-an-ah-model" class="section level1">
 <h1 class="hasAnchor">
 <a href="#simulation-from-an-ah-model" class="anchor"></a>4 Simulation from an AH model</h1>
-<p>From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">Vignette</a>.</p>
+<p>From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>.</p>
 <div id="simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>4.1 Simulation from an AH model with baseline hazard following Weibull distribution</h2>
@@ -369,7 +369,7 @@
 <div id="examples" class="section level1">
 <h1 class="hasAnchor">
 <a href="#examples" class="anchor"></a>6 Examples</h1>
-<p>Please also see the package <a href="https://mathildesautreuil.github.io/survMS/articles/How-to-simulate-survival-models.html">vignette</a> for more detailed examples and a description of the methodology underpinning the <strong>survMS</strong> package.</p>
+<p>Please also see the package <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">vignette</a> for more detailed examples and a description of the methodology underpinning the <strong>survMS</strong> package.</p>
 </div>
 
   </div>
