@@ -296,28 +296,29 @@ The Phi parameter enables to simulate survival data in a linear framework with n
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mathildesautreuil/survMS/'>survMS</a></span><span class='op'>)</span>
 <span class='co'>### Survival data simulated from Cox model</span>
-<span class='va'>res_paramW</span> <span class='op'>=</span> <span class='fu'><a href='get_param_weib.html'>get_param_weib</a></span><span class='op'>(</span>med <span class='op'>=</span> <span class='fl'>1062</span>, mu <span class='op'>=</span> <span class='fl'>1134</span><span class='op'>)</span>
+<span class='va'>res_paramW</span> <span class='op'>=</span> <span class='fu'><a href='get_param_weib.html'>get_param_weib</a></span><span class='op'>(</span>med <span class='op'>=</span> <span class='fl'>2228</span>, mu <span class='op'>=</span> <span class='fl'>2325</span><span class='op'>)</span>
 <span class='va'>listCoxSim_n500_p1000</span> <span class='op'>&lt;-</span> <span class='fu'>modelSim</span><span class='op'>(</span>model <span class='op'>=</span> <span class='st'>"cox"</span>, matDistr <span class='op'>=</span> <span class='st'>"unif"</span>, matParam <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>500</span>,
                                 p <span class='op'>=</span> <span class='fl'>1000</span>, pnonull <span class='op'>=</span> <span class='fl'>20</span>, betaDistr <span class='op'>=</span> <span class='fl'>1</span>, hazDistr <span class='op'>=</span> <span class='st'>"weibull"</span>,
                                 hazParams <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>res_paramW</span><span class='op'>$</span><span class='va'>a</span>, <span class='va'>res_paramW</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span>, seed <span class='op'>=</span> <span class='fl'>1</span>, d <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Options "non-linearity with interactions" not available</span></div><div class='output co'>#&gt; [1] 1.969765e+00 7.586963e-07</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p1000</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Options "non-linearity with interactions" not available</span></div><div class='output co'>#&gt; [1] 2.234780e+00 2.285439e-08</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p1000</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Simulated matrix of size  500 1000 
 #&gt; Distribution of baseline hazard function  weibull 
-#&gt; Distribution parameter of baseline hazard function  1.969765 7.586963e-07 
+#&gt; Distribution parameter of baseline hazard function  2.23478 2.285439e-08 
 #&gt; Censorship rate 0 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p1000</span><span class='op'>)</span>
 </div><div class='img'><img src='modelSim-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p1000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='modelSim-2.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='img'><img src='modelSim-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p1000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"hazard"</span><span class='op'>)</span>
+</div><div class='img'><img src='modelSim-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='va'>df_p1000_n500</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>time <span class='op'>=</span> <span class='va'>listCoxSim_n500_p1000</span><span class='op'>$</span><span class='va'>TC</span>,
                           event <span class='op'>=</span> <span class='va'>listCoxSim_n500_p1000</span><span class='op'>$</span><span class='va'>delta</span>,
                           <span class='va'>listCoxSim_n500_p1000</span><span class='op'>$</span><span class='va'>Z</span><span class='op'>)</span>
 <span class='va'>df_p1000_n500</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;        time event         X1          X2          X3          X4         X5
-#&gt; 1  984.0383  TRUE -0.4689827  0.10835412  0.06161759 -0.85424529  0.7436100
-#&gt; 2 1247.6510  TRUE -0.2557522  0.37655048  0.36972181  0.74861751  0.9343941
-#&gt; 3 1003.7009  TRUE  0.1457067  0.31611511 -0.23343321 -0.60225439  0.7338325
-#&gt; 4  632.6652  TRUE  0.8164156  0.32668545  0.90997600  0.06917952 -0.1245694
-#&gt; 5 1385.3040  TRUE -0.5966361 -0.05553159 -0.76328684 -0.78887562 -0.6161244
-#&gt; 6  505.3584  TRUE  0.7967794  0.93905633 -0.92179989 -0.23200997 -0.8354112
+</div><div class='output co'>#&gt;       time event         X1          X2          X3          X4         X5
+#&gt; 1 2083.189  TRUE -0.4689827  0.10835412  0.06161759 -0.85424529  0.7436100
+#&gt; 2 2567.945  TRUE -0.2557522  0.37655048  0.36972181  0.74861751  0.9343941
+#&gt; 3 2119.835  TRUE  0.1457067  0.31611511 -0.23343321 -0.60225439  0.7338325
+#&gt; 4 1411.367  TRUE  0.8164156  0.32668545  0.90997600  0.06917952 -0.1245694
+#&gt; 5 2816.097  TRUE -0.5966361 -0.05553159 -0.76328684 -0.78887562 -0.6161244
+#&gt; 6 1157.808  TRUE  0.7967794  0.93905633 -0.92179989 -0.23200997 -0.8354112
 #&gt;            X6          X7          X8
 #&gt; 1  0.05203812  0.60469908  0.19983827
 #&gt; 2 -0.85332915 -0.04100963  0.58890922
@@ -325,42 +326,14 @@ The Phi parameter enables to simulate survival data in a linear framework with n
 #&gt; 4 -0.15388398 -0.20573331  0.08030391
 #&gt; 5  0.97619215  0.62845399 -0.95182076
 #&gt; 6 -0.04225174  0.88271415  0.55445834</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>df_p1000_n500</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1]  500 1002</div><div class='input'>
-<span class='va'>listCoxSim_n500_p25000</span> <span class='op'>&lt;-</span> <span class='fu'>modelSim</span><span class='op'>(</span>model <span class='op'>=</span> <span class='st'>"cox"</span>, matDistr <span class='op'>=</span> <span class='st'>"unif"</span>, matParam <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>500</span>,
-                                p <span class='op'>=</span> <span class='fl'>25000</span>, pnonull <span class='op'>=</span> <span class='fl'>20</span>, betaDistr <span class='op'>=</span> <span class='fl'>1</span>, hazDistr <span class='op'>=</span> <span class='st'>"weibull"</span>,
-                                hazParams <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>res_paramW</span><span class='op'>$</span><span class='va'>a</span>, <span class='va'>res_paramW</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span>, seed <span class='op'>=</span> <span class='fl'>1</span>, d <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Options "non-linearity with interactions" not available</span></div><div class='output co'>#&gt; [1] 1.969765e+00 7.586963e-07</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p25000</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Simulated matrix of size  500 25000 
-#&gt; Distribution of baseline hazard function  weibull 
-#&gt; Distribution parameter of baseline hazard function  1.969765 7.586963e-07 
-#&gt; Censorship rate 0 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p25000</span><span class='op'>)</span>
-</div><div class='img'><img src='modelSim-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listCoxSim_n500_p25000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='modelSim-4.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='va'>df_p25m_n500</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>time <span class='op'>=</span> <span class='va'>listCoxSim_n500_p25000</span><span class='op'>$</span><span class='va'>TC</span>,
-                         event <span class='op'>=</span> <span class='va'>listCoxSim_n500_p25000</span><span class='op'>$</span><span class='va'>delta</span>,
-                         <span class='va'>listCoxSim_n500_p25000</span><span class='op'>$</span><span class='va'>Z</span><span class='op'>)</span>
-<span class='va'>df_p25m_n500</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;        time event         X1          X2          X3          X4         X5
-#&gt; 1  207.2944  TRUE -0.4689827  0.10835412  0.06161759 -0.85424529  0.7436100
-#&gt; 2 1268.9080  TRUE -0.2557522  0.37655048  0.36972181  0.74861751  0.9343941
-#&gt; 3 2001.0070  TRUE  0.1457067  0.31611511 -0.23343321 -0.60225439  0.7338325
-#&gt; 4  199.4698  TRUE  0.8164156  0.32668545  0.90997600  0.06917952 -0.1245694
-#&gt; 5 1973.7173  TRUE -0.5966361 -0.05553159 -0.76328684 -0.78887562 -0.6161244
-#&gt; 6  238.8874  TRUE  0.7967794  0.93905633 -0.92179989 -0.23200997 -0.8354112
-#&gt;            X6          X7          X8
-#&gt; 1  0.05203812  0.60469908  0.19983827
-#&gt; 2 -0.85332915 -0.04100963  0.58890922
-#&gt; 3  0.69948350 -0.64519687  0.00917386
-#&gt; 4 -0.15388398 -0.20573331  0.08030391
-#&gt; 5  0.97619215  0.62845399 -0.95182076
-#&gt; 6 -0.04225174  0.88271415  0.55445834</div><div class='input'>
-<span class='co'>### Survival data simulated from AFT model</span>
+</div><div class='output co'>#&gt; [1]  500 1002</div><div class='input'><span class='co'>### Survival data simulated from AFT model</span>
 <span class='va'>res_paramLN</span> <span class='op'>=</span> <span class='fu'><a href='get_param_ln.html'>get_param_ln</a></span><span class='op'>(</span>var <span class='op'>=</span> <span class='fl'>200000</span>, mu <span class='op'>=</span> <span class='fl'>1134</span><span class='op'>)</span>
 <span class='va'>listAFTSim_n500_p1000</span> <span class='op'>&lt;-</span> <span class='fu'>modelSim</span><span class='op'>(</span>model <span class='op'>=</span> <span class='st'>"AFT"</span>, matDistr <span class='op'>=</span> <span class='st'>"unif"</span>, matParam <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>500</span>,
                                 p <span class='op'>=</span> <span class='fl'>100</span>, pnonull <span class='op'>=</span> <span class='fl'>100</span>, betaDistr <span class='op'>=</span> <span class='fl'>1</span>, hazDistr <span class='op'>=</span> <span class='st'>"log-normal"</span>,
                                 hazParams <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>res_paramLN</span><span class='op'>$</span><span class='va'>a</span>, <span class='va'>res_paramLN</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span>,
                                 Phi <span class='op'>=</span> <span class='fl'>0</span>, seed <span class='op'>=</span> <span class='fl'>1</span>, d <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Options "non-linearity with interactions" not available</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>listAFTSim_n500_p1000</span><span class='op'>)</span>
+</div><div class='img'><img src='modelSim-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listAFTSim_n500_p1000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='img'><img src='modelSim-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>df_p1000_n500</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>time <span class='op'>=</span> <span class='va'>listAFTSim_n500_p1000</span><span class='op'>$</span><span class='va'>TC</span>,
                            event <span class='op'>=</span> <span class='va'>listAFTSim_n500_p1000</span><span class='op'>$</span><span class='va'>delta</span>,
                            <span class='va'>listAFTSim_n500_p1000</span><span class='op'>$</span><span class='va'>Z</span><span class='op'>)</span>
@@ -379,18 +352,22 @@ The Phi parameter enables to simulate survival data in a linear framework with n
 #&gt; 4 -0.15388398 -0.20573331  0.08030391
 #&gt; 5  0.97619215  0.62845399 -0.95182076
 #&gt; 6 -0.04225174  0.88271415  0.55445834</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>df_p1000_n500</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 500 102</div><div class='input'><span class='co'># write.csv(df_p1000_n500, file = paste0(path, "DF_RegScreen_n500_p1000.csv"), row.names = F)</span>
-<span class='co'># listAFTSim_n500_p25000 &lt;- modelSim(model = AFT, matDistr = "unif", matParam = c(-1,1),</span>
-                                 <span class='co'>#  n = 500, p = 25000, pnonull = 20, betaDistr = 1,</span>
-                                 <span class='co'># hazDistr = "weibull",</span>
-                                 <span class='co'># hazParams = c(res_paramLN$a, res_paramLN$lambda),</span>
-                                 <span class='co'># seed = 1, d = 0)</span>
-<span class='co'># hist(listAFTSim_n500_p25000)</span>
-<span class='co'># df_p25m_n500 = data.frame(time = listAFTSim_n500_p25000$TC,</span>
-                      <span class='co'># event = listAFTSim_n500_p25000$delta,</span>
-                      <span class='co'># listAFTSim_n500_p25000$Z)</span>
-<span class='co'># df_p25m_n500[1:6,1:10]</span>
-</div></pre>
+</div><div class='output co'>#&gt; [1] 500 102</div><div class='input'>
+<span class='co'>### Survival data simulated from AH model</span>
+<span class='va'>res_paramLN</span> <span class='op'>=</span> <span class='fu'><a href='get_param_ln.html'>get_param_ln</a></span><span class='op'>(</span>var<span class='op'>=</span><span class='fl'>170000</span>, mu<span class='op'>=</span><span class='fl'>2325</span><span class='op'>)</span>
+<span class='va'>listAHSim_n500_p1000</span> <span class='op'>&lt;-</span> <span class='fu'>modelSim</span><span class='op'>(</span>model <span class='op'>=</span> <span class='st'>"AH"</span>, matDistr <span class='op'>=</span> <span class='st'>"unif"</span>, matParam <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span>, n <span class='op'>=</span> <span class='fl'>500</span>, 
+                                 p <span class='op'>=</span> <span class='fl'>100</span>, pnonull <span class='op'>=</span> <span class='fl'>100</span>, betaDistr <span class='op'>=</span> <span class='fl'>1.5</span>, hazDistr <span class='op'>=</span> <span class='st'>"log-normal"</span>,
+                                 hazParams <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>res_paramLN</span><span class='op'>$</span><span class='va'>a</span><span class='op'>*</span><span class='fl'>4</span>, <span class='va'>res_paramLN</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span>,
+                                 Phi <span class='op'>=</span> <span class='fl'>0</span>, seed <span class='op'>=</span> <span class='fl'>1</span>, d <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Options "non-linearity with interactions" not available</span></div><div class='input'>                                 
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>listAHSim_n500_p1000</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Simulated matrix of size  500 100 
+#&gt; Distribution of baseline hazard function  log-normal 
+#&gt; Distribution parameter of baseline hazard function  0.7038675 7.735993 
+#&gt; Censorship rate 0 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>listAHSim_n500_p1000</span><span class='op'>)</span>
+</div><div class='img'><img src='modelSim-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listAHSim_n500_p1000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='modelSim-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>listAHSim_n500_p1000</span>, ind <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>500</span>, <span class='fl'>5</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"hazard"</span><span class='op'>)</span>
+</div><div class='img'><img src='modelSim-8.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

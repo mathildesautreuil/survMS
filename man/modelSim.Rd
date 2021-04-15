@@ -149,32 +149,20 @@ sim$model <- model
 \examples{
 library(survMS)
 ### Survival data simulated from Cox model
-res_paramW = get_param_weib(med = 1062, mu = 1134)
+res_paramW = get_param_weib(med = 2228, mu = 2325)
 listCoxSim_n500_p1000 <- modelSim(model = "cox", matDistr = "unif", matParam = c(-1,1), n = 500,
                                 p = 1000, pnonull = 20, betaDistr = 1, hazDistr = "weibull",
                                 hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
 print(listCoxSim_n500_p1000)
 hist(listCoxSim_n500_p1000)
 plot(listCoxSim_n500_p1000, ind = sample(1:500, 5))
+plot(listCoxSim_n500_p1000, ind = sample(1:500, 5), type = "hazard")
 
 df_p1000_n500 = data.frame(time = listCoxSim_n500_p1000$TC,
                           event = listCoxSim_n500_p1000$delta,
                           listCoxSim_n500_p1000$Z)
 df_p1000_n500[1:6,1:10]
 dim(df_p1000_n500)
-
-listCoxSim_n500_p25000 <- modelSim(model = "cox", matDistr = "unif", matParam = c(-1,1), n = 500,
-                                p = 25000, pnonull = 20, betaDistr = 1, hazDistr = "weibull",
-                                hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
-print(listCoxSim_n500_p25000)
-hist(listCoxSim_n500_p25000)
-plot(listCoxSim_n500_p25000, ind = sample(1:500, 5))
-
-df_p25m_n500 = data.frame(time = listCoxSim_n500_p25000$TC,
-                         event = listCoxSim_n500_p25000$delta,
-                         listCoxSim_n500_p25000$Z)
-df_p25m_n500[1:6,1:10]
-
 ### Survival data simulated from AFT model
 res_paramLN = get_param_ln(var = 200000, mu = 1134)
 listAFTSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(-1,1), n = 500,
@@ -182,22 +170,24 @@ listAFTSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c
                                 hazParams = c(res_paramLN$a, res_paramLN$lambda),
                                 Phi = 0, seed = 1, d = 0)
 hist(listAFTSim_n500_p1000)
+plot(listAFTSim_n500_p1000, ind = sample(1:500, 5))
 df_p1000_n500 = data.frame(time = listAFTSim_n500_p1000$TC,
                            event = listAFTSim_n500_p1000$delta,
                            listAFTSim_n500_p1000$Z)
 df_p1000_n500[1:6,1:10]
 dim(df_p1000_n500)
-# write.csv(df_p1000_n500, file = paste0(path, "DF_RegScreen_n500_p1000.csv"), row.names = F)
-# listAFTSim_n500_p25000 <- modelSim(model = AFT, matDistr = "unif", matParam = c(-1,1),
-                                 #  n = 500, p = 25000, pnonull = 20, betaDistr = 1,
-                                 # hazDistr = "weibull",
-                                 # hazParams = c(res_paramLN$a, res_paramLN$lambda),
-                                 # seed = 1, d = 0)
-# hist(listAFTSim_n500_p25000)
-# df_p25m_n500 = data.frame(time = listAFTSim_n500_p25000$TC,
-                      # event = listAFTSim_n500_p25000$delta,
-                      # listAFTSim_n500_p25000$Z)
-# df_p25m_n500[1:6,1:10]
+
+### Survival data simulated from AH model
+res_paramLN = get_param_ln(var=170000, mu=2325)
+listAHSim_n500_p1000 <- modelSim(model = "AH", matDistr = "unif", matParam = c(-1,1), n = 500, 
+                                 p = 100, pnonull = 100, betaDistr = 1.5, hazDistr = "log-normal",
+                                 hazParams = c(res_paramLN$a*4, res_paramLN$lambda),
+                                 Phi = 0, seed = 1, d = 0)
+                                 
+print(listAHSim_n500_p1000)
+hist(listAHSim_n500_p1000)
+plot(listAHSim_n500_p1000, ind = sample(1:500, 5))
+plot(listAHSim_n500_p1000, ind = sample(1:500, 5), type = "hazard")
 }
 \seealso{
 \code{\link{print.modSim}, \link{plot.modSim}}
