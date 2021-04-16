@@ -2,9 +2,12 @@ survMS R package: survival Model Simulation
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<img src="https://raw.githubusercontent.com/mathildesautreuil/master/survMS/docs/reference/survMS.png" height="100" align="right" />
+<!-- <img src="docs/reference/survMS.png" align="right" height=150/> -->
+<img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right" />
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS) [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS)
+
+[![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check)
 
 Installation
 ============
