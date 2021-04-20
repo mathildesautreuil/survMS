@@ -17,7 +17,14 @@ knitr::opts_chunk$set(
 <!-- <img src="docs/reference/survMS.png" align="right" height=150/> -->
 <img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right" />
 
-
+```{r, echo = FALSE, results='asis'}
+library(badger)
+cat(
+	badge_cran_release("survMS", "green"),
+	badge_cran_download("survMS", "grand-total", "blue"),
+  badge_github_actions("mathildesautreuil/survMS")
+)
+```
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS)
 
 

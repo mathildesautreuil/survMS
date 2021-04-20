@@ -5,7 +5,7 @@ survMS R package: survival Model Simulation
 <!-- <img src="docs/reference/survMS.png" align="right" height=150/> -->
 <img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right" />
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS)
+[![](https://www.r-pkg.org/badges/version/survMS?color=green)](https://cran.r-project.org/package=survMS) [![](http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=blue)](https://cran.r-project.org/package=survMS) [![R build status](https://github.com/mathildesautreuil/survMS/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS)
 
 [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check)
 
