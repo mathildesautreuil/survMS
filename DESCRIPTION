@@ -16,7 +16,8 @@ Encoding: UTF-8
 LazyData: false
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    markdown
 Imports: graphics
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1

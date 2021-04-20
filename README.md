@@ -8,7 +8,9 @@ survMS R package: survival Model Simulation
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS) [![](http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=blue)](https://cran.r-project.org/package=survMS)
 
 <!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check) -->
-[![R build status](https://github.com/mathildesautreuil/survMS/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions)
+[![R build status](https://github.com/mathildesautreuil/survMS/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions) [![](https://img.shields.io/github/last-commit/mathildesautreuil/survMS.svg)](https://github.com/mathildesautreuil/survMS/commits/master)
+
+[![](https://img.shields.io/badge/survMS-website-pink.svg)](https://mathildesautreuil.github.io/survMS)
 
 Installation
 ============
