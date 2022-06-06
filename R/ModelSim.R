@@ -106,7 +106,8 @@
 #' \item{ht}{ Matrix of hazard risk functions}
 #' \item{grilleTi}{ Time grid}
 #' }
-#' @import stats
+#' @import stats 
+#' @importFrom MASS mvrnorm
 #' @export
 #'
 #' @author Mathilde Sautreuil
@@ -114,6 +115,7 @@
 #'
 #'
 #' @examples
+#' \dontrun{
 #' library(survMS)
 #' ### Survival data simulated from Cox model
 #' res_paramW = get_param_weib(med = 2228, mu = 2325)
@@ -156,6 +158,7 @@
 #' hist(listAHSim_n500_p1000)
 #' plot(listAHSim_n500_p1000, ind = sample(1:500, 5))
 #' plot(listAHSim_n500_p1000, ind = sample(1:500, 5), type = "hazard")
+#' }
 modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr, hazDistr, hazParams, seed, Phi = NULL, d = 0, pourc = 0.9){
 
   eta_i <- NULL
@@ -183,7 +186,7 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
   }
 
 
-  testmatdistr = c("norm", "unif")
+  testmatdistr = c("norm", "unif", "mvnorm")
   if(!any(testmatdistr %in% matDistr)){
     stop("The distribution of the matrix must be \"norm\" or \"unif\"")
   }
@@ -192,13 +195,17 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
     matParam = c(0,1)
   }else if (is.null(matParam) && matDistr == "unif"){
     matParam = c(-1,1)
+  }else if (is.null(matParam) && matDistr == "mvnorm"){
+    ## first arg: mu
+    ## second arg: rho (coef de cor)
+    matParam = c(0,0.6)
   }else if (length(matParam) != 2){
     stop("The length of \"matParam\" must be equal at 2")
   }
 
 
   ## Distribution of the matrix
-  TYPES_matDistr<-c("norm", "unif")
+  TYPES_matDistr<-c("norm", "unif", "mvnorm")
   distr<-pmatch(matDistr,TYPES_matDistr)
 
   ## Distribution of beta
@@ -243,6 +250,13 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
     Z=matrix(rnorm(n*p,matParam[1],matParam[2]),n,p)
   }else if(distr == 2){
     Z=matrix(runif(n*p,matParam[1],matParam[2]),n,p)
+  }else if(distr == 3){
+    mup <- rep(matParam[1], p)
+    rhop <- matParam[2]
+    Sigma <- diag(p) * (1 - rhop) + rhop 
+    Z <- mvrnorm(n = n, mup, Sigma)
+  }else{
+    stop("The matrix distribution is not correct")
   }
   Y = runif(n,0,1)
 
@@ -255,7 +269,7 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
       if (!is.na(hdistr)){
         if (hdistr == 1){
 
-          print(hazParams)
+          # print(hazParams)
           Ts = SurvTimesCoxWeib(Z, beta, Y, pp, hazParams)
           fcts = SurvFctCoxWeib(Z, beta, pp, Ts, hazParams)
 

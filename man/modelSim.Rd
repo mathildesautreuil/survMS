@@ -147,6 +147,7 @@ The Phi parameter enables to simulate survival data in a linear framework with n
 sim$model <- model
 }
 \examples{
+\dontrun{
 library(survMS)
 ### Survival data simulated from Cox model
 res_paramW = get_param_weib(med = 2228, mu = 2325)
@@ -188,6 +189,7 @@ print(listAHSim_n500_p1000)
 hist(listAHSim_n500_p1000)
 plot(listAHSim_n500_p1000, ind = sample(1:500, 5))
 plot(listAHSim_n500_p1000, ind = sample(1:500, 5), type = "hazard")
+}
 }
 \seealso{
 \code{\link{print.modSim}, \link{plot.modSim}}
