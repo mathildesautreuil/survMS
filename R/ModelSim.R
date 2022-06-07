@@ -523,6 +523,53 @@ hist.modSim<- function(x, ...){
   hist(x$TC, xlab = "times", main = "Histogram of survival times")
 }
 
+#' Heatmap of Covariate matrix
+#'
+#' @param x output of modelSim function (must be of type modSim)
+#' @param k number of column split
+#' @param ind indices of columns to keep
+#' @param ... supplementary parameters
+#'
+#' @return Heatmap x
+#' @export
+#' @import circlize
+#' @importFrom ComplexHeatmap Heatmap
+#' 
+#' @method Heatmap modSim
+#'
+#' @examples
+#' library(survMS)
+#' res_paramW = get_param_weib(med = 2.5, mu = 1.2)
+#' listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", 
+#'                                      matParam = c(0,0.6), n = 500, 
+#'                                      p = 1000, pnonull = 20, betaDistr = 1, 
+#'                                      hazDistr = "weibull", 
+#'                                      hazParams = c(res_paramW$a, res_paramW$lambda), 
+#'                                      seed = 1, d = 0)
+#' print(listCoxSimCor_n500_p1000)
+#' hist(listCoxSimCor_n500_p1000)
+#' Heatmap.modSim(listCoxSimCor_n500_p1000, k = 4)
+Heatmap.modSim <- function(x, k, ind = NULL, ...){
+  
+  col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
+  if(!is.null(ind)){
+    ind = ind
+  }else{
+    ind = which(x$betaNorm != 0)
+  }
+  rows_info <- rep("High", nrow(x$Z))
+  rows_info[which(x$TC > median(x$TC))] <- "Low"
+  colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
+  Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
+                row_split = rows_info, 
+                # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
+                #                  rep("No Sign", 
+                #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
+                col = col_fun, #row_km = 2,
+                show_column_names = TRUE, column_km = k)
+  
+}
+
 #' Survival or hazard curves of simulated data
 #'
 #' @param x output of modelSim function (must be of type modSim)

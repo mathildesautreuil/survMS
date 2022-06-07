@@ -1,7 +1,7 @@
 Package: survMS
 Title: Survival Model Simulation
 Version: 0.0.1
-Depends: ggplot2
+Depends: ggplot2, ComplexHeatmap, circlize
 Authors@R: 
     person(given = "Mathilde",
            family = "Sautreuil",

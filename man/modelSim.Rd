@@ -4,21 +4,8 @@
 \alias{modelSim}
 \title{Data simulation from different survival models}
 \usage{
-modelSim(
-  model = "cox",
-  matDistr,
-  matParam,
-  n,
-  p,
-  pnonull,
-  betaDistr,
-  hazDistr,
-  hazParams,
-  seed,
-  Phi = NULL,
-  d = 0,
-  pourc = 0.9
-)
+modelSim(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
+  hazDistr, hazParams, seed, Phi = NULL, d = 0, pourc = 0.9)
 }
 \arguments{
 \item{model}{Survival model: "cox", "AFT", "AFTshift" or "AH"}

@@ -3,6 +3,7 @@
 \docType{package}
 \name{survMS}
 \alias{survMS}
+\alias{survMS-package}
 \title{survMS Package}
 \description{
 Package enables simulating data with different levels of complexity from  survival models (Cox, AFT and AH models).
