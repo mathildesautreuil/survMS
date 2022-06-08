@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">survMS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -61,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mathildesautreuil/survMS">
+  <a href="https://github.com/mathildesautreuil/survMS" class="external-link">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -82,23 +84,60 @@
       <h1 data-toc-skip>How to simulate datasets from different survival models</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/mathildesautreuil/survMS/blob/master/vignettes/how-to-simulate-survival-models.Rmd"><code>vignettes/how-to-simulate-survival-models.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mathildesautreuil/survMS/blob/HEAD/vignettes/how-to-simulate-survival-models.Rmd" class="external-link"><code>vignettes/how-to-simulate-survival-models.Rmd</code></a></small>
       <div class="hidden name"><code>how-to-simulate-survival-models.Rmd</code></div>
 
     </div>
 
     
     
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mathildesautreuil/survMS/">survMS</a></span><span class="op">)</span>
-<span class="co">#&gt; Le chargement a nécessité le package : ggplot2</span></code></pre></div>
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>1 Introduction</h1>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mathildesautreuil/survMS/" class="external-link">survMS</a></span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: ggplot2</span>
+<span class="co">#&gt; Loading required package: ComplexHeatmap</span>
+<span class="co">#&gt; Loading required package: grid</span>
+<span class="co">#&gt; ========================================</span>
+<span class="co">#&gt; ComplexHeatmap version 2.13.1</span>
+<span class="co">#&gt; Bioconductor page: http://bioconductor.org/packages/ComplexHeatmap/</span>
+<span class="co">#&gt; Github page: https://github.com/jokergoo/ComplexHeatmap</span>
+<span class="co">#&gt; Documentation: http://jokergoo.github.io/ComplexHeatmap-reference</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; If you use it in published research, please cite:</span>
+<span class="co">#&gt; Gu, Z. Complex heatmaps reveal patterns and correlations in multidimensional </span>
+<span class="co">#&gt;   genomic data. Bioinformatics 2016.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; The new InteractiveComplexHeatmap package can directly export static </span>
+<span class="co">#&gt; complex heatmaps into an interactive Shiny app with zero effort. Have a try!</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; This message can be suppressed by:</span>
+<span class="co">#&gt;   suppressPackageStartupMessages(library(ComplexHeatmap))</span>
+<span class="co">#&gt; ========================================</span>
+<span class="co">#&gt; Loading required package: circlize</span>
+<span class="co">#&gt; ========================================</span>
+<span class="co">#&gt; circlize version 0.4.15</span>
+<span class="co">#&gt; CRAN page: https://cran.r-project.org/package=circlize</span>
+<span class="co">#&gt; Github page: https://github.com/jokergoo/circlize</span>
+<span class="co">#&gt; Documentation: https://jokergoo.github.io/circlize_book/book/</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; If you use it in published research, please cite:</span>
+<span class="co">#&gt; Gu, Z. circlize implements and enhances circular visualization</span>
+<span class="co">#&gt;   in R. Bioinformatics 2014.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; This message can be suppressed by:</span>
+<span class="co">#&gt;   suppressPackageStartupMessages(library(circlize))</span>
+<span class="co">#&gt; ========================================</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'survMS'</span>
+<span class="co">#&gt; The following object is masked from 'package:ComplexHeatmap':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     Heatmap</span></code></pre></div>
+<div class="section level2">
+<h2 id="introduction">1 Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>This package enables us to simulate survival data with several levels of complexity from different survival models: Cox model <span class="citation">(Cox 1972)</span>, the Accelerated Failure Time (AFT) model, and the Accelerated Hazard (AH) model <span class="citation">(Chen and Wang 2000)</span>. To simulate data from a Cox model, we consider the procedure of <span class="citation">(Bender, Augustin, and Blettner 2005)</span>. This model is the most popular in survival analysis, but other models exist. The package also enables us to simulate survival data from an AFT model based on <span class="citation">(Leemis, Shih, and Reynertson 1990)</span>. Considering different models for data simulation is interesting because the assumptions associated with these models are different. Indeed, the Cox model is a proportional risk model, not the AFT model. In the AFT model, the variables will have an accelerating or decelerating effect on on individuals’ survival. Despite the survival functions of an AFT model never intersect as in the Cox model. However, having data with intersecting survival curves allows the data to be more complex and makes it more difficult for methods to predict survival. Besides, Cox and AFT models produce data with survival curves not crossing. To have crossing survival curves, we considered two approaches. The first approach consists of modifying the AFT model to have intersecting survival curves. The second approach concerns using an AH model to generate the survival data. The AH model is more flexible than the two models mentioned above. In the AH model, the variables will accelerate or decelerate the instantaneous risk of death. The survival curves of the AH model can therefore cross each other. This package also allows us to simulate survival data from modified AFT and AH models. The generation of survival times carries out from the different models mentioned above. The models’ baseline risk function of the models is assumed to be known and follows a specific probability distribution.</p>
-<div id="reminder-of-the-functions-used-in-survival-analysis" class="section level2">
-<h2 class="hasAnchor">
-<a href="#reminder-of-the-functions-used-in-survival-analysis" class="anchor"></a>1.1 Reminder of the functions used in survival analysis</h2>
+<div class="section level3">
+<h3 id="reminder-of-the-functions-used-in-survival-analysis">1.1 Reminder of the functions used in survival analysis<a class="anchor" aria-label="anchor" href="#reminder-of-the-functions-used-in-survival-analysis"></a>
+</h3>
 <p>The table below summarizes the writing of the functions used in survival analysis (instantaneous risk <span class="math inline">\(\lambda(t)\)</span>, cumulative risk function <span class="math inline">\(H_0(t)\)</span>, survival function <span class="math inline">\(S(t)\)</span> and density function <span class="math inline">\(f(t)\)</span>) for each of the models considered (Cox, AFT and AH models).</p>
 <table class="table">
 <colgroup>
@@ -141,13 +180,13 @@
 </tbody>
 </table>
 </div>
-<div id="survival-times-generation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#survival-times-generation" class="anchor"></a>1.2 Survival times generation</h2>
+<div class="section level3">
+<h3 id="survival-times-generation">1.2 Survival times generation<a class="anchor" aria-label="anchor" href="#survival-times-generation"></a>
+</h3>
 <p>The models considered are composed of one function, <span class="math inline">\(\alpha_0(t)\)</span> the baseline risk and a parameter <span class="math inline">\(\beta,\)</span> reflecting the variables’ effect on survival times. For data generation, we assume that the baseline risk function <span class="math inline">\(\alpha_0(t)\)</span> is known and therefore follows a probability distribution. For this initial version of the package, the baseline hazard distributions are Weibull or log-normale. We summarize the characteristics of the distributions (Weibull/Log-normale) in the table below.</p>
 <table class="table">
 <colgroup>
-<col width="21%">
+<col width="20%">
 <col width="43%">
 <col width="35%">
 </colgroup>
@@ -209,20 +248,15 @@
 </table>
 <p>with <span class="math inline">\(\Gamma\)</span> is the gamma function and <span class="math inline">\(\Phi\)</span> is the cumulative distribution function of the standard normal distribution.</p>
 <p>The distribution function is deduced from the survival function from the following formula:</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
      F(t\mid X) = 1 - S(t\mid X). 
- \end{equation}\]</span>
-For data generation, if <span class="math inline">\(Y\)</span> is a random variable that follows a probability distribution <span class="math inline">\(F,\)</span> then <span class="math inline">\(U = F(Y)\)</span> follows a uniform distribution over the interval <span class="math inline">\([0,1],\)</span> and <span class="math inline">\((1-U)\)</span> also follows a uniform distribution <span class="math inline">\(\mathcal{U}[0,1].\)</span> We finally obtain that:
-<span class="math display">\[\begin{align}
+ \end{equation}\]</span> For data generation, if <span class="math inline">\(Y\)</span> is a random variable that follows a probability distribution <span class="math inline">\(F,\)</span> then <span class="math inline">\(U = F(Y)\)</span> follows a uniform distribution over the interval <span class="math inline">\([0,1],\)</span> and <span class="math inline">\((1-U)\)</span> also follows a uniform distribution <span class="math inline">\(\mathcal{U}[0,1].\)</span> We finally obtain that: <span class="math display">\[\begin{align}
      1 - U &amp;= S(t\mid X) \\ %\sim \mathcal{U} [0,1] \\
      &amp;= \exp(-H_0(\psi_1(X)t)\psi_2(X)) % \sim \mathcal{U} [0,1]. 
- \end{align}\]</span>
-<!-- \label{eq:U} -->
-<!-- %\textcolor{red}{equivalent do not put = ?} --> If <span class="math inline">\(\alpha_0(t)\)</span> is strictly positive for any <span class="math inline">\(t,\)</span> then <span class="math inline">\(H_0(t)\)</span> can be inverted and the survival time of each of the considered models (Cox, AFT, and AH) expresses for <span class="math inline">\(H_0^{-1}(u)\)</span>. The expression of the survival times for each of the models writes in a general way:
-<span class="math display">\[\begin{equation}
+ \end{align}\]</span> <!-- \label{eq:U} --> <!-- %\textcolor{red}{equivalent do not put = ?} --> If <span class="math inline">\(\alpha_0(t)\)</span> is strictly positive for any <span class="math inline">\(t,\)</span> then <span class="math inline">\(H_0(t)\)</span> can be inverted and the survival time of each of the considered models (Cox, AFT, and AH) expresses for <span class="math inline">\(H_0^{-1}(u)\)</span>. The expression of the survival times for each of the models writes in a general way: <span class="math display">\[\begin{equation}
       T = \frac{1}{\psi_1(X)} H^{-1}_0 \left( \frac{\log(1-U)}{\psi_2(X)} \right), \text{with}
-  \end{equation}\]</span>
-<span class="math display">\[\begin{equation}
+  \end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
 (\psi_1(X), \psi_2(X)) = \left\{
     \begin{array}{ll}
         (1, \exp(\beta^TX)) &amp; \mbox{for the Cox model } \\
@@ -230,220 +264,187 @@ For data generation, if <span class="math inline">\(Y\)</span> is a random varia
         (\exp(\beta^TX), 1) &amp; \mbox{for the AFT model. } 
     \end{array}
 \right.
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>Two distributions are proposed for the cumulative risk function <span class="math inline">\(H_0(t)\)</span> to generate the survival data. If the survival times are distributed according to a Weibull distribution <span class="math inline">\(\mathcal{W}(a, \lambda),\)</span> the baseline risk is of the form: <!-- \footnote{We specify that the parameterization used for the Weibull distribution is the one used by \citet{http://zotero.org/users/local/uYsfYM7W/items/KP2R9YII}. --> <!-- }  --></p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
     \alpha_0(t) = a\lambda t^{a-1}, \lambda &gt; 0, a &gt; 0.
-\end{equation}\]</span>
-The cumulative risk function is therefore written as follows:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> The cumulative risk function is therefore written as follows: <span class="math display">\[\begin{equation}
     H_0(t) = \lambda t^{a}, \lambda &gt; 0, a &gt; 0
-\end{equation}\]</span>
-and the inverse of this function is expressed as follows:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> and the inverse of this function is expressed as follows: <span class="math display">\[\begin{equation}
      H_0^{-1}(u) = \left( \frac{u}{\lambda} \right)^{1/a}.
- \end{equation}\]</span>
-In a second step, we considered that the survival times followed a log-normal <span class="math inline">\(\mathcal{LN}(\mu, \sigma)\)</span> distribution of mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. The basic risk function is therefore written as:
-<span class="math display">\[\begin{equation}
+ \end{equation}\]</span></p>
+<p>In a second step, we considered that the survival times followed a log-normal <span class="math inline">\(\mathcal{LN}(\mu, \sigma)\)</span> distribution of mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. The basic risk function is therefore written as: <span class="math display">\[\begin{equation}
      \alpha_0(t) = \frac{\frac{\frac{1}{\sigma\sqrt{2\pi t}}} \exp\left[-\frac{(\log t - \mu)^2 }{2 \sigma^2}\right]}{1 - \Phi\left[\frac{\log t - \mu}{\sigma}\right]},
- \end{equation}\]</span>
-with <span class="math inline">\(\Phi(t)\)</span> the distribution function of a centered and reduced normal distribution. The cumulative risk function is written as:
-<span class="math display">\[\begin{equation}
+ \end{equation}\]</span> with <span class="math inline">\(\Phi(t)\)</span> the distribution function of a centered and reduced normal distribution. The cumulative risk function is written as: <span class="math display">\[\begin{equation}
      H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right]
- \end{equation}\]</span>
-and therefore the inverse of this function is expressed by:
-<span class="math display">\[\begin{equation}
+ \end{equation}\]</span> and therefore the inverse of this function is expressed by: <span class="math display">\[\begin{equation}
      H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu),
- \end{equation}\]</span>
-<p>with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution.</p>
+ \end{equation}\]</span> with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution.</p>
 <p><!-- As specified in Section~\ref{sec:chap3_intro}, we have simulated the survival data from three different models. The first model considered is the Cox model whose baseline risk function distribution can be a Weibull or a log-normale distribution. This simulation allows us to have survival data by checking the proportional risks. --> <!-- Weibull's distribution shares the hypothesis of proportional risks with Cox's model. This is why we have associated it with the Cox model and why we have chosen another distribution for the AFT and AH models.  --> <!-- The second model considered for data simulation is the AFT model associated with the Weibull or log-normal distribution for the baseline risk function.  --> <!-- With the AFT model, the risks are not proportional. But the survival curves are parallel as for the Cox model. To have a more complex simulation with intersecting survival curves, simulated data can be simulated from a modified version of an AFT model. Data more complex can also be generated with an AH model whose baseline risk distribution can be the log-normal or Weibull distribution. --></p>
 </div>
 </div>
-<div id="simulation-from-a-cox-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-a-cox-model" class="anchor"></a>2 Simulation from a Cox model</h1>
-We used <span class="citation">(Bender, Augustin, and Blettner 2005)</span> to simulate the data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. We generate survival data from a Cox model as follows:
-<span class="math display">\[\begin{equation}
+<div class="section level2">
+<h2 id="simulation-from-a-cox-model">2 Simulation from a Cox model<a class="anchor" aria-label="anchor" href="#simulation-from-a-cox-model"></a>
+</h2>
+<p>We used <span class="citation">(Bender, Augustin, and Blettner 2005)</span> to simulate the data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. We generate survival data from a Cox model as follows: <span class="math display">\[\begin{equation}
     T = H_0^{-1} \left[ \frac{-\log(1-U)}{\exp(\beta^T X_{i})}\right],
-\end{equation}\]</span>
-<p>where <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
-<div id="simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>2.1 Simulation from a Cox model with baseline hazard following Weibull distribution</h2>
-For this simulation, we consider that survival times follow a Weibull’s distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> where <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
+<div class="section level3">
+<h3 id="simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution">2.1 Simulation from a Cox model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a Weibull’s distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
     H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right]
-\end{equation}\]</span>
-and survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> and survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \frac{1}{\lambda^{1/a}} \left( \frac{-\log(1-U)}{\exp(\beta^T X_{i})} \right)^{1/a} . 
-    \end{equation}\]</span>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+    \end{equation}\]</span></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">1062</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span><span class="co">#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996)</span>
-<span class="va">listCoxSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>,
-                                  hazDistr <span class="op">=</span> <span class="st">"weibull"</span>, hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">res_paramW</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramW</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+<span class="va">listCoxSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>,
+                                  hazDistr <span class="op">=</span> <span class="st">"weibull"</span>, hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramW</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramW</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "cox", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="co">#&gt; [1] 1.969765e+00 7.586963e-07</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listCoxSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listCoxSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="how-to-simulate-survival-models_files/figure-html/sim_cox_model-1.png" width="700"></p>
 </div>
-<div id="simulation-from-a-cox-model-with-baseline-hazard-following-log-normale-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-a-cox-model-with-baseline-hazard-following-log-normale-distribution" class="anchor"></a>2.2 Simulation from a Cox model with baseline hazard following log-normale distribution</h2>
-For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+<div class="section level3">
+<h3 id="simulation-from-a-cox-model-with-baseline-hazard-following-log-normale-distribution">2.2 Simulation from a Cox model with baseline hazard following log-normale distribution<a class="anchor" aria-label="anchor" href="#simulation-from-a-cox-model-with-baseline-hazard-following-log-normale-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
     H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right]
-\end{equation}\]</span>
-and survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> and survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \exp\left(\sigma\Phi^{-1}(1-\exp\left(\frac{\log(1-U)}{\exp(\beta^TX_{i})}\right))+\mu\right). 
-    \end{equation}\]</span>
+    \end{equation}\]</span></p>
+</div>
+<div class="section level3">
+<h3 id="simulation-from-a-cox-model-with-a-correlated-covariate-matrix">2.3 Simulation from a Cox model with a correlated covariate matrix<a class="anchor" aria-label="anchor" href="#simulation-from-a-cox-model-with-a-correlated-covariate-matrix"></a>
+</h3>
+<p>For this simulation, we consider the same design as 2.1 to simulate survival times. However, the simulated covariate matrix is correlated. The pertinent covariates are those correlated. We split this set of pertinent covariates in two subsets: one with a correlation parameter (<em>matParam[2]</em>) and the other one with (1 - <em>matParam[2]</em>). The non-pertinent covariates are uncorrelated.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">2.5</span>, mu <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span>
+<span class="va">listCoxSimCor_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"mvnorm"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.6</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>,
+                                  p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">10</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"weibull"</span>,
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramW</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramW</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+<span class="co">#&gt; Warning in modelSim(model = "cox", matDistr = "mvnorm", matParam = c(0, :</span>
+<span class="co">#&gt; Options "non-linearity with interactions" not available</span>
+<span class="fu"><a href="../reference/Heatmap.html">Heatmap</a></span><span class="op">(</span><span class="va">listCoxSimCor_n500_p1000</span>, ind <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">15</span>, k <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<p><img src="how-to-simulate-survival-models_files/figure-html/sim_cox_model_cor-1.png" width="700"></p>
 </div>
 </div>
-<div id="simulation-from-the-aft-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-the-aft-model" class="anchor"></a>3 Simulation from the AFT model</h1>
-To simulate the data from the AFT/Log-normal model, we used the procedure detailed in <span class="citation">(Leemis, Shih, and Reynertson 1990)</span>. We have chosen to perform this simulation in order to generate survival data that do not respect the proportional risk hypothesis. We generate the survival data from an AFT model as:
-<span class="math display">\[\begin{equation}
+<div class="section level2">
+<h2 id="simulation-from-the-aft-model">3 Simulation from the AFT model<a class="anchor" aria-label="anchor" href="#simulation-from-the-aft-model"></a>
+</h2>
+<p>To simulate the data from the AFT/Log-normal model, we used the procedure detailed in <span class="citation">(Leemis, Shih, and Reynertson 1990)</span>. We have chosen to perform this simulation in order to generate survival data that do not respect the proportional risk hypothesis. We generate the survival data from an AFT model as: <span class="math display">\[\begin{equation}
     T = \frac{H_0^{-1} \left[ -\log(1-U)\right]}{\exp(\beta^T X_{i})},
-\end{equation}\]</span>
-<p>where <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
-<div id="simulation-from-the-aft-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-aft-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>3.1 Simulation from the AFT model with baseline hazard following Weibull distribution</h2>
-For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> where <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
+<div class="section level3">
+<h3 id="simulation-from-the-aft-model-with-baseline-hazard-following-weibull-distribution">3.1 Simulation from the AFT model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-aft-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
      H_0(t) = \lambda t^{a}.
-\end{equation}\]</span>
-<!-- where $\Phi(t)$ is the distribution function of the centred and reduced normal distribution.  -->
-Survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> <!-- where $\Phi(t)$ is the distribution function of the centred and reduced normal distribution.  --> Survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \left( \frac{-\log(1-U)}{\lambda}\right)^{\frac{1}{a}} \exp(-\beta^T X_{i}). 
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 </div>
-<div id="simulation-from-the-aft-model-with-baseline-hazard-following-log-normale-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-aft-model-with-baseline-hazard-following-log-normale-distribution" class="anchor"></a>3.2 Simulation from the AFT model with baseline hazard following log-normale distribution</h2>
-For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(\mu,\sigma).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+<div class="section level3">
+<h3 id="simulation-from-the-aft-model-with-baseline-hazard-following-log-normale-distribution">3.2 Simulation from the AFT model with baseline hazard following log-normale distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-aft-model-with-baseline-hazard-following-log-normale-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(\mu,\sigma).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
      H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right],
-\end{equation}\]</span>
-where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \frac{1}{\exp(\beta^T X_{i})} \exp(\sigma \phi^{-1}(U) + \mu). 
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <!-- \label{eq:Taft}  -->
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">listAFTSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">100</span>, pnonull <span class="op">=</span> <span class="fl">100</span>, 
-                                  betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0</span><span class="op">)</span>, Phi <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">listAFTSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">100</span>, pnonull <span class="op">=</span> <span class="fl">100</span>, 
+                                  betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0</span><span class="op">)</span>, Phi <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AFT", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAFTSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAFTSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="how-to-simulate-survival-models_files/figure-html/sim_aft_model-1.png" width="700"></p>
 </div>
 </div>
-<div id="simulation-from-the-shifted-aft-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-the-shifted-aft-model" class="anchor"></a>4 Simulation from the shifted AFT model</h1>
-As mentioned above, we simulated survival data from a modified AFT model to obtain intersecting survival curves. We rewrite the cumulative risk function by adding a term <span class="math inline">\(\phi_2(X)\)</span>:
-<span class="math display">\[\begin{equation}
+<div class="section level2">
+<h2 id="simulation-from-the-shifted-aft-model">4 Simulation from the shifted AFT model<a class="anchor" aria-label="anchor" href="#simulation-from-the-shifted-aft-model"></a>
+</h2>
+<p>As mentioned above, we simulated survival data from a modified AFT model to obtain intersecting survival curves. We rewrite the cumulative risk function by adding a term <span class="math inline">\(\phi_2(X)\)</span>: <span class="math display">\[\begin{equation}
    H(t|X) = H_0(t\exp(\beta^T X_{i}) + \phi_2(X)),
-\end{equation}\]</span>
-with <span class="math inline">\(\phi_2(X) = -\beta_2^T X_{i}.\)</span> We get:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> with <span class="math inline">\(\phi_2(X) = -\beta_2^T X_{i}.\)</span> We get: <span class="math display">\[\begin{equation}
      1 - U = \exp(-H_0(t\exp(\beta^T X_{i})) - \beta_2^T X_{i}) \sim \mathcal{U} [0,1]
- \end{equation}\]</span>
-because <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span> If <span class="math inline">\(\alpha_0(t)\)</span> is strictly positive for any <span class="math inline">\(t,\)</span> then <span class="math inline">\(H_0(t)\)</span> can be inverted and the survival time can be expressed from <span class="math inline">\(H_0^{-1}(u)\)</span>:
-<span class="math display">\[\begin{equation}
+ \end{equation}\]</span> because <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span> If <span class="math inline">\(\alpha_0(t)\)</span> is strictly positive for any <span class="math inline">\(t,\)</span> then <span class="math inline">\(H_0(t)\)</span> can be inverted and the survival time can be expressed from <span class="math inline">\(H_0^{-1}(u)\)</span>: <span class="math display">\[\begin{equation}
       T = \frac{1}{\exp(\beta^T X_{i})} \left [H^{-1}_0 \left(-\log(1-U) \right) +\beta_2^T X_{i} \right].
-  \end{equation}\]</span>
-<div id="simulation-from-the-shifted-aft-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-shifted-aft-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>4.1 Simulation from the shifted AFT model with baseline hazard following Weibull distribution</h2>
-Moreover, we suppose that the survival times follow a Weibull distribution and the inverse of the cumulative risk function is then written <span class="math inline">\(H_0^{-1}(u) = \left(\frac{u}{\lambda}\right)^{\frac{1}{a}}\)</span>. <!-- with $\Phi^{-1}(t)$ the inverse of the distribution function of a centered and reduced normal distribution. --> We generate thus the survival times as follows:
-<span class="math display">\[\begin{equation}
+  \end{equation}\]</span></p>
+<div class="section level3">
+<h3 id="simulation-from-the-shifted-aft-model-with-baseline-hazard-following-weibull-distribution">4.1 Simulation from the shifted AFT model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-shifted-aft-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h3>
+<p>Moreover, we suppose that the survival times follow a Weibull distribution and the inverse of the cumulative risk function is then written <span class="math inline">\(H_0^{-1}(u) = \left(\frac{u}{\lambda}\right)^{\frac{1}{a}}\)</span>. <!-- with $\Phi^{-1}(t)$ the inverse of the distribution function of a centered and reduced normal distribution. --> We generate thus the survival times as follows: <span class="math display">\[\begin{equation}
     T = \left( \left( \frac{-\log(1-U)}{\lambda} \right)^{\frac{1}{a}} + \beta_2^T X_{i} \right) \exp(-\beta^T X_{i}). 
-\end{equation}\]</span>
-<p>with <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
+\end{equation}\]</span> with <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
 </div>
-<div id="simulation-from-the-shifted-aft-model-with-baseline-hazard-following-log-normale-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-shifted-aft-model-with-baseline-hazard-following-log-normale-distribution" class="anchor"></a>4.2 Simulation from the shifted AFT model with baseline hazard following log-normale distribution</h2>
-Moreover, we suppose that the survival times follow a log-normal distribution and the inverse of the cumulative risk function is then written <span class="math inline">\(H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)\)</span> with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution. We generate thus the survival times as follows:
-<span class="math display">\[\begin{equation}
+<div class="section level3">
+<h3 id="simulation-from-the-shifted-aft-model-with-baseline-hazard-following-log-normale-distribution">4.2 Simulation from the shifted AFT model with baseline hazard following log-normale distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-shifted-aft-model-with-baseline-hazard-following-log-normale-distribution"></a>
+</h3>
+<p>Moreover, we suppose that the survival times follow a log-normal distribution and the inverse of the cumulative risk function is then written <span class="math inline">\(H_0^{-1}(u) = \exp(\sigma\Phi^{-1}(1-\exp(-u))+\mu)\)</span> with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution. We generate thus the survival times as follows: <span class="math display">\[\begin{equation}
 T = \frac{1}{\exp(\beta^T X_{i})} \left( \exp(\sigma \Phi^{-1}(U) + \mu) + \beta_2^T X_{i} \right), 
-\end{equation}\]</span>
-<p>with <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+\end{equation}\]</span> with <span class="math inline">\(U \sim \mathcal{U} [0,1].\)</span></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># res_paramLN = get_param_ln(var = 600000, mu = 1134)#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996)</span>
-<span class="va">listAFTsSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFTshift"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listAFTsSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFTshift"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                    p <span class="op">=</span> <span class="fl">100</span>, pnonull <span class="op">=</span> <span class="fl">100</span>, betaDistr <span class="op">=</span> <span class="st">"unif"</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, 
-                                   hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">7.8</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                   hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">7.8</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AFTshift", matDistr = "unif", matParam = c(-1, :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
 <span class="co">#&gt; Warning in log(mat_grille_ti * (1/as.vector(eta_i)) - matrix(phi2, nrow(Z), :</span>
-<span class="co">#&gt; production de NaN</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="co">#&gt; NaNs produced</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="how-to-simulate-survival-models_files/figure-html/sim_aft_mod_model-1.png" width="700"></p>
 </div>
 </div>
-<div id="simulation-from-a-ah-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-a-ah-model" class="anchor"></a>5 Simulation from a AH model</h1>
-Building on the work of <span class="citation">(Bender, Augustin, and Blettner 2005, <span class="citation">Leemis, Shih, and Reynertson (1990)</span>)</span>, we also simulated survival data from another model, the AH model. We performed this simulation to generate data with intersecting survival curves. We generate the survival data from an AH model as:
-<span class="math display">\[\begin{equation}
+<div class="section level2">
+<h2 id="simulation-from-a-ah-model">5 Simulation from a AH model<a class="anchor" aria-label="anchor" href="#simulation-from-a-ah-model"></a>
+</h2>
+<p>Building on the work of <span class="citation">Leemis, Shih, and Reynertson (1990)</span>, we also simulated survival data from another model, the AH model. We performed this simulation to generate data with intersecting survival curves. We generate the survival data from an AH model as: <span class="math display">\[\begin{equation}
     T = \frac{1}{\exp(\beta^T X_{i})} H_0^{-1} \left[ -\frac{\log(1-U)}{\exp(-\beta^T X_{i})}\right],
-\end{equation}\]</span>
-<p>with <span class="math inline">\(U \sim \mathcal{U}([0,1])\)</span></p>
-<div id="simulation-from-the-ah-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-ah-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>5.1 Simulation from the AH model with baseline hazard following Weibull distribution</h2>
-For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> with <span class="math inline">\(U \sim \mathcal{U}([0,1])\)</span></p>
+<div class="section level3">
+<h3 id="simulation-from-the-ah-model-with-baseline-hazard-following-weibull-distribution">5.1 Simulation from the AH model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-ah-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{W}(a,\lambda).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
      H_0(t) = \lambda t^{a},
-\end{equation}\]</span>
-where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \left( \frac{-\log(1-U) \exp(\beta^T X_{i})}{\lambda}\right)^{\frac{1}{a}} \exp(-\beta^T X_{i}). 
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 </div>
-<div id="simulation-from-the-ah-model-with-baseline-hazard-following-log-normale-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-ah-model-with-baseline-hazard-following-log-normale-distribution" class="anchor"></a>5.2 Simulation from the AH model with baseline hazard following log-normale distribution</h2>
-For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(\mu,\sigma).\)</span> In this case, we have the cumulative risk function expressed by:
-<span class="math display">\[\begin{equation}
+<div class="section level3">
+<h3 id="simulation-from-the-ah-model-with-baseline-hazard-following-log-normale-distribution">5.2 Simulation from the AH model with baseline hazard following log-normale distribution<a class="anchor" aria-label="anchor" href="#simulation-from-the-ah-model-with-baseline-hazard-following-log-normale-distribution"></a>
+</h3>
+<p>For this simulation, we consider that survival times follow a log-normal distribution <span class="math inline">\(\mathcal{LN}(\mu,\sigma).\)</span> In this case, we have the cumulative risk function expressed by: <span class="math display">\[\begin{equation}
      H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right],
-\end{equation}\]</span>
-where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from:
-<span class="math display">\[\begin{equation}
+\end{equation}\]</span> where <span class="math inline">\(\Phi(t)\)</span> is the distribution function of the centred and reduced normal distribution. Survival times can therefore be simulated from: <span class="math display">\[\begin{equation}
     T = \frac{1}{\exp(\beta^T X_{i})} \exp\left[\sigma \Phi^{-1}\left(\frac{\log(1-U)}{\exp(-\beta^T X_{i})} \right) + \mu\right] 
-\end{equation}\]</span>
-<!-- \label{eq:Tah} -->
-<p>with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+\end{equation}\]</span> <!-- \label{eq:Tah} --> with <span class="math inline">\(\Phi^{-1}(t)\)</span> the inverse of the distribution function of a centered and reduced normal distribution.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">600000</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span><span class="co">#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996)</span>
-<span class="va">listAHSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">100</span>, 
+<span class="va">listAHSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, p <span class="op">=</span> <span class="fl">100</span>, 
                                  pnonull <span class="op">=</span> <span class="fl">100</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, 
-                                 hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                 hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AH", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="how-to-simulate-survival-models_files/figure-html/sim_ah_model-1.png" width="700"></p>
 </div>
 </div>
-<div id="perspectives" class="section level1">
-<h1 class="hasAnchor">
-<a href="#perspectives" class="anchor"></a>6 Perspectives</h1>
+<div class="section level2">
+<h2 id="perspectives">6 Perspectives<a class="anchor" aria-label="anchor" href="#perspectives"></a>
+</h2>
 <p>We planned several perspectives for the package as adding interactions and non-linear effects by proposing complex functions and considering other baseline risk distributions.</p>
-<div id="interactions-and-non-linear-effects" class="section level2">
-<h2 class="hasAnchor">
-<a href="#interactions-and-non-linear-effects" class="anchor"></a>6.1 Interactions and non-linear effects</h2>
+<div class="section level3">
+<h3 id="interactions-and-non-linear-effects">6.1 Interactions and non-linear effects<a class="anchor" aria-label="anchor" href="#interactions-and-non-linear-effects"></a>
+</h3>
 <p>Note that we have remained in a linear dependency framework with no interaction. The second version will take into account the non-linear and interaction framework by replacing <span class="math inline">\(\beta^T X\)</span> with a more complex <span class="math inline">\(g(X)\)</span> dependency.</p>
 </div>
-<div id="other-distributions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#other-distributions" class="anchor"></a>6.2 Other distributions</h2>
+<div class="section level3">
+<h3 id="other-distributions">6.2 Other distributions<a class="anchor" aria-label="anchor" href="#other-distributions"></a>
+</h3>
 <p>We can already simulate data for the Cox model by considering Gompertz or exponential distributions for the baseline risk. The perspective is to propose also these distributions for the baseline hazard in the AFT and AH models. We wish to suggest other distributions as gamma and log-logistic distributions.</p>
 <!-- # Utils functions -->
 <!-- The package enables simulating data close to real datasets. In this goal, we have to know the mean, median, and variance of real datasets and then compute the parameters of the used distribution to have a similar distribution of survival times by giving the mean, median, and variance. -->
@@ -471,21 +472,21 @@ where <span class="math inline">\(\Phi(t)\)</span> is the distribution function 
 <!-- # ``` -->
 </div>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h1>
-<div id="refs" class="references">
-<div id="ref-http://zotero-org/users/local/uYsfYM7W/items/KP2R9YII">
-<p>Bender, Ralf, Thomas Augustin, and Maria Blettner. 2005. “Generating Survival Times to Simulate Cox Proportional Hazards Models.” <em>Statistics in Medicine</em> 24 (11): 1713–23. doi:<a href="https://doi.org/10.1002/sim.2059">10.1002/sim.2059</a>.</p>
+<div class="section level2">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-http://zotero.org/users/local/uYsfYM7W/items/KP2R9YII" class="csl-entry">
+Bender, Ralf, Thomas Augustin, and Maria Blettner. 2005. <span>“Generating Survival Times to Simulate Cox Proportional Hazards Models.”</span> <em>Statistics in Medicine</em> 24 (11): 1713–23. <a href="https://doi.org/10.1002/sim.2059" class="external-link">https://doi.org/10.1002/sim.2059</a>.
 </div>
-<div id="ref-http://zotero-org/users/local/uYsfYM7W/items/4NPJ6PV4">
-<p>Chen, Ying Qing, and Mei-Cheng Wang. 2000. “Analysis of Accelerated Hazards Models.” <em>Journal of the American Statistical Association</em> 95 (450): 608–18. doi:<a href="https://doi.org/10.1080/01621459.2000.10474236">10.1080/01621459.2000.10474236</a>.</p>
+<div id="ref-http://zotero.org/users/local/uYsfYM7W/items/4NPJ6PV4" class="csl-entry">
+Chen, Ying Qing, and Mei-Cheng Wang. 2000. <span>“Analysis of Accelerated Hazards Models.”</span> <em>Journal of the American Statistical Association</em> 95 (450): 608–18. <a href="https://doi.org/10.1080/01621459.2000.10474236" class="external-link">https://doi.org/10.1080/01621459.2000.10474236</a>.
 </div>
-<div id="ref-http://zotero-org/users/local/uYsfYM7W/items/NN8SEC4E">
-<p>Cox, D. R. 1972. “Regression Models and Life-Tables.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 34 (2): 187–220.</p>
+<div id="ref-http://zotero.org/users/local/uYsfYM7W/items/NN8SEC4E" class="csl-entry">
+Cox, D. R. 1972. <span>“Regression Models and Life-Tables.”</span> <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 34 (2): 187–220.
 </div>
-<div id="ref-http://zotero-org/users/local/uYsfYM7W/items/KCILGW99">
-<p>Leemis, Lawrence M., Li-Hsing Shih, and Kurt Reynertson. 1990. “Variate Generation for Accelerated Life and Proportional Hazards Models with Time Dependent Covariates.” <em>Statistics &amp; Probability Letters</em> 10 (4): 335–39. doi:<a href="https://doi.org/10.1016/0167-7152(90)90052-9">10.1016/0167-7152(90)90052-9</a>.</p>
+<div id="ref-http://zotero.org/users/local/uYsfYM7W/items/KCILGW99" class="csl-entry">
+Leemis, Lawrence M., Li-Hsing Shih, and Kurt Reynertson. 1990. <span>“Variate Generation for Accelerated Life and Proportional Hazards Models with Time Dependent Covariates.”</span> <em>Statistics &amp; Probability Letters</em> 10 (4): 335–39. <a href="https://doi.org/10.1016/0167-7152(90)90052-9" class="external-link">https://doi.org/10.1016/0167-7152(90)90052-9</a>.
 </div>
 </div>
 </div>
@@ -502,11 +503,13 @@ where <span class="math inline">\(\Phi(t)\)</span> is the distribution function 
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://mathildesautreuil.github.io/">Mathilde Sautreuil</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://mathildesautreuil.github.io/" class="external-link">Mathilde Sautreuil</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -514,6 +517,8 @@ where <span class="math inline">\(\Phi(t)\)</span> is the distribution function 
 
   
 
+
+  
 
   </body>
 </html>

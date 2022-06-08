@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">survMS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -61,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mathildesautreuil/survMS">
+  <a href="https://github.com/mathildesautreuil/survMS" class="external-link">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -79,189 +81,164 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="survms-r-package-survival-model-simulation" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#survms-r-package-survival-model-simulation" class="anchor"></a>survMS R package: survival Model Simulation</h1></div>
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- <img src="docs/reference/survMS.png" align="right" height=150/> -->
-<p><img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right"></p>
-<!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS) -->
-<p><a href="https://cran.r-project.org/package=survMS"><img src="https://www.r-pkg.org/badges/version/survMS?color=bc8f8f"></a> <a href="https://cran.r-project.org/package=survMS"><img src="http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=8fbcbc"></a> <!-- [![](http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=blue)](https://cran.r-project.org/package=survMS) --></p>
-<!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check) -->
-<!-- [![R build status](https://github.com/mathildesautreuil/survMS/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions) -->
-<p><a href="https://github.com/mathildesautreuil/survMS//actions"><img src="https://github.com/mathildesautreuil/survMS//workflows/R-CMD-check/badge.svg" alt="R build status"></a> <!-- [![](https://img.shields.io/github/last-commit/mathildesautreuil/survMS.svg)](https://github.com/mathildesautreuil/survMS/commits/master) --></p>
+<div class="section level1">
+<div class="page-header"><h1 id="survms-r-package-survival-model-simulation">survMS R package: survival Model Simulation<a class="anchor" aria-label="anchor" href="#survms-r-package-survival-model-simulation"></a>
+</h1></div>
+<!-- README.md is generated from README.Rmd. Please edit that file --><!-- <img src="docs/reference/survMS.png" align="right" height=150/> --><p><img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right"></p>
+<!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS) --><p><a href="https://cran.r-project.org/package=survMS" class="external-link"><img src="https://www.r-pkg.org/badges/version/survMS?color=bc8f8f"></a> <a href="https://cran.r-project.org/package=survMS" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=8fbcbc"></a> <!-- [![](http://cranlogs.r-pkg.org/badges/grand-total/survMS?color=blue)](https://cran.r-project.org/package=survMS) --></p>
+<!-- [![R build status](https://github.com/tidyverse/dplyr/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions?workflow=R-CMD-check) --><!-- [![R build status](https://github.com/mathildesautreuil/survMS/workflows/R-CMD-check/badge.svg)](https://github.com/mathildesautreuil/survMS/actions) --><p><a href="https://github.com/mathildesautreuil/survMS//actions" class="external-link"><img src="https://github.com/mathildesautreuil/survMS//workflows/R-CMD-check/badge.svg" alt="R build status"></a> <!-- [![](https://img.shields.io/github/last-commit/mathildesautreuil/survMS.svg)](https://github.com/mathildesautreuil/survMS/commits/master) --></p>
 <p><a href="https://mathildesautreuil.github.io/survMS"><img src="https://img.shields.io/badge/survMS-website-bc8f8f.svg"></a></p>
 </div>
-<div id="installation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h1>
+<div class="section level1">
+<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h1>
 <p>Install from CRAN:</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"survMS"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"survMS"</span><span class="op">)</span></code></pre></div>
 <p>Or install the development version from Github:</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"mathildesautreuil/survMS"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"mathildesautreuil/survMS"</span><span class="op">)</span></code></pre></div>
 <p>And load the library:</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mathildesautreuil/survMS/">survMS</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mathildesautreuil/survMS/" class="external-link">survMS</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: ggplot2</span></code></pre></div>
 </div>
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>1 Introduction</h1>
+<div class="section level1">
+<h1 id="1-introduction">1 Introduction<a class="anchor" aria-label="anchor" href="#1-introduction"></a>
+</h1>
 <p><strong>survMS</strong> is an R package that generates survival data from different survival models with varying levels of complexity. Three survival models are implemented in the package to simulate survival data: a Cox model, an Accelerated Failure Time (AFT) model, and an Accelerated Hazard (AH) model. These models have their specificities. Indeed, a Cox model is a proportional risk model, not an AFT and an AH model. A proportional risk model means that the ratio of the risks between two individuals with different explanatory variables does not depend on the time. In an AFT model, the explanatory variables have an accelerating or decelerating effect on individuals’ survival. In both models, a Cox model and an AFT model, the survival function’s curves never intersect. When one is interested in more complex data with intersecting survival curves, for example, to make it more difficult for methods to predict survival, two approaches are implemented in the package. The first approach consists of modifying an AFT model to have intersecting survival curves. The second approach concerns using of an AH model (for <em>Accelerated Hazards</em>) to generate the survival data. an AH model is more flexible than the two models mentioned above. In an AH model, the variables accelerate or decelerate the hazard risk. The survival curves of an AH model can therefore cross each other. The generation of survival times carried out from the different models mentioned above. The baseline risk function of the models is assumed to be known and follows a particular probability distribution. For these different models, we use parametric distribution of the baseline risk for the generation of survival time.</p>
 <p>Note that we stayed in a linear dependency framework without interaction. We will adapt the package in a second step to be in a nonlinear framework to simulate interactions. The package’s implementation is easily adapted to the nonlinear framework with interactions by replacing the explanatory variables’ linear part with a nonlinear function of the explanatory variables. All the functions in the package are coded to introduce this nonlinear function of the explanatory variables easily.</p>
 <p>For details on methodology, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>.</p>
 </div>
-<div id="simulation-from-a-cox-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-a-cox-model" class="anchor"></a>2 Simulation from a Cox model</h1>
+<div class="section level1">
+<h1 id="2-simulation-from-a-cox-model">2 Simulation from a Cox model<a class="anchor" aria-label="anchor" href="#2-simulation-from-a-cox-model"></a>
+</h1>
 <p>The package survMS can simulate data from a Cox model. We have chosen to carry out this simulation to generate survival data that respects the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
-<div id="simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>2.1 Simulation from a Cox model with baseline hazard following Weibull distribution</h2>
+<div class="section level2">
+<h2 id="21-simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution">2.1 Simulation from a Cox model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#21-simulation-from-a-cox-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h2>
 <p>To simulate survival data checking the proportional risk hypothesis, we use a Cox model with survival times following a Weibull distribution.</p>
-<!-- We recall that the generation of survival data from a Cox model based on :  -->
-<!-- $$ -->
-<!--     T = H_0^{-1} \left[ \frac{-\log(1-U)}{\exp(\beta^T X_{i.})}\right], -->
-<!-- $$ -->
-<!-- where $U \sim \mathcal{U} [0.1].$ -->
-<!-- For this simulation, we consider that survival times follow a Weibull's law $\mathcal{W}(a,\lambda).$ In this case, we have the cumulative risk function expressed by :  -->
-<!-- $$ -->
-<!--     H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right] -->
-<!-- $$ -->
-<!-- and survival times can therefore be simulated from :  -->
-<!-- $$ -->
-<!--     T = \frac{1}{\lambda^{1/a}} \left( \frac{-\log(1-U)}{\exp(\beta^T X_{i.})} \right)^{1/a} .  -->
-<!-- $$ -->
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<!-- We recall that the generation of survival data from a Cox model based on :  --><!-- $$ --><!--     T = H_0^{-1} \left[ \frac{-\log(1-U)}{\exp(\beta^T X_{i.})}\right], --><!-- $$ --><!-- where $U \sim \mathcal{U} [0.1].$ --><!-- For this simulation, we consider that survival times follow a Weibull's law $\mathcal{W}(a,\lambda).$ In this case, we have the cumulative risk function expressed by :  --><!-- $$ --><!--     H_0(t) = - \log\left [1 - \Phi\left(\frac{\log t - \mu}{\sigma}\right)\right] --><!-- $$ --><!-- and survival times can therefore be simulated from :  --><!-- $$ --><!--     T = \frac{1}{\lambda^{1/a}} \left( \frac{-\log(1-U)}{\exp(\beta^T X_{i.})} \right)^{1/a} .  --><!-- $$ --><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">1062</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span>
 <span class="co"># c(res_paramW$a, res_paramW$lambda)</span>
-<span class="va">listCoxWSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listCoxWSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                    p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"weibull"</span>, 
-                                   hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                   hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "cox", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
 <span class="co">#&gt; [1] 3 4</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_cox_model-1.png" width="100%"></p>
 </div>
-<div id="simulation-from-a-cox-model-with-baseline-hazard-following-log-normal-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-a-cox-model-with-baseline-hazard-following-log-normal-distribution" class="anchor"></a>2.2 Simulation from a Cox model with baseline hazard following log-normal distribution</h2>
+<div class="section level2">
+<h2 id="22-simulation-from-a-cox-model-with-baseline-hazard-following-log-normal-distribution">2.2 Simulation from a Cox model with baseline hazard following log-normal distribution<a class="anchor" aria-label="anchor" href="#22-simulation-from-a-cox-model-with-baseline-hazard-following-log-normal-distribution"></a>
+</h2>
 <p>To simulate survival data checking the proportional risk hypothesis, we use a Cox model with survival times following a log-normal distribution.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">170000</span>, mu <span class="op">=</span> <span class="fl">2320</span><span class="op">)</span>
-<span class="va">listCoxSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listCoxSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"cox"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                   p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, 
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "cox", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listCoxSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listCoxSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_coxLN_model-1.png" width="100%"></p>
 </div>
 </div>
-<div id="simulation-from-an-aft-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-an-aft-model" class="anchor"></a>3 Simulation from an AFT model</h1>
+<div class="section level1">
+<h1 id="3-simulation-from-an-aft-model">3 Simulation from an AFT model<a class="anchor" aria-label="anchor" href="#3-simulation-from-an-aft-model"></a>
+</h1>
 <p>From survMS package, we can simulate the data from an AFT model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
-<div id="simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>3.1 Simulation from an AFT model with baseline hazard following Weibull distribution</h2>
+<div class="section level2">
+<h2 id="31-simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution">3.1 Simulation from an AFT model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#31-simulation-from-an-aft-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h2>
 <p>To simulate survival data not checking the proportional risk hypothesis, we use an AFT model with survival times following a weibull distribution.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">1062</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span>
 <span class="co"># c(res_paramW$a, res_paramW$lambda)</span>
-<span class="va">listAFTWSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listAFTWSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                   p <span class="op">=</span> <span class="fl">1000</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"weibull"</span>, 
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AFT", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAFTWSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAFTWSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_aftW_model-1.png" width="100%"></p>
 </div>
-<div id="simulation-from-an-aft-model-with-baseline-hazard-following-log-normal-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-an-aft-model-with-baseline-hazard-following-log-normal-distribution" class="anchor"></a>3.2 Simulation from an AFT model with baseline hazard following log-normal distribution</h2>
+<div class="section level2">
+<h2 id="32-simulation-from-an-aft-model-with-baseline-hazard-following-log-normal-distribution">3.2 Simulation from an AFT model with baseline hazard following log-normal distribution<a class="anchor" aria-label="anchor" href="#32-simulation-from-an-aft-model-with-baseline-hazard-following-log-normal-distribution"></a>
+</h2>
 <p>To simulate survival data not checking the proportional risk hypothesis, we use an AFT model with survival times following a log-normal distribution.</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">170000</span>, mu <span class="op">=</span> <span class="fl">2325</span><span class="op">)</span>
-<span class="va">listAFTLNSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listAFTLNSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFT"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                   p <span class="op">=</span> <span class="fl">10</span>, pnonull <span class="op">=</span> <span class="fl">10</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, 
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span><span class="op">*</span><span class="fl">3</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span><span class="op">*</span><span class="fl">3</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AFT", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_aftLN_model-1.png" width="100%"></p>
-<!-- ```{r sim_aft_model} -->
-<!-- res_paramLN = get_param_ln(var = 200000, mu = 1134)#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996) -->
-<!-- listAFTLNSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(0,1), n = 500,  -->
-<!--                                   p = 100, pnonull = 100, betaDistr = 1, hazDistr = "log-normal", -->
-<!--                                   hazParams = c(0.3, res_paramLN$lambda), Phi = 0, seed = 1, d = 0) -->
-<!-- hist(listAFTLNSim_n500_p1000) -->
-<!-- ``` -->
+<!-- ```{r sim_aft_model} --><!-- res_paramLN = get_param_ln(var = 200000, mu = 1134)#compute_param_weibull(a_list = a_list, med = 2280, moy = 2325, var = 1619996) --><!-- listAFTLNSim_n500_p1000 <- modelSim(model = "AFT", matDistr = "unif", matParam = c(0,1), n = 500,  --><!--                                   p = 100, pnonull = 100, betaDistr = 1, hazDistr = "log-normal", --><!--                                   hazParams = c(0.3, res_paramLN$lambda), Phi = 0, seed = 1, d = 0) --><!-- hist(listAFTLNSim_n500_p1000) --><!-- ``` -->
 </div>
-<div id="simulation-from-a-shifted-aft-model" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-a-shifted-aft-model" class="anchor"></a>3.3 Simulation from a shifted AFT model</h2>
+<div class="section level2">
+<h2 id="33-simulation-from-a-shifted-aft-model">3.3 Simulation from a shifted AFT model<a class="anchor" aria-label="anchor" href="#33-simulation-from-a-shifted-aft-model"></a>
+</h2>
 <p>To obtain survival data from a model that does not respect the proportional risk hypothesis and that their survival curves can not cross, we have modified the AFT model by adding a term <em>betaDistr</em> in the model. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>. Survival times can follow different distributions: Weibull, log-normal, exponential (in progress) and Gompertz (in progress).</p>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">170000</span>, mu <span class="op">=</span> <span class="fl">2325</span><span class="op">)</span>
-<span class="va">listAFTsSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFTshift"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
+<span class="va">listAFTsSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AFTshift"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>, 
                                   p <span class="op">=</span> <span class="fl">10</span>, pnonull <span class="op">=</span> <span class="fl">10</span>, betaDistr <span class="op">=</span> <span class="st">"unif"</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>, 
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AFTshift", matDistr = "unif", matParam = c(-1, :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
 <span class="co">#&gt; Warning in log(mat_grille_ti * (1/as.vector(eta_i)) - matrix(phi2, nrow(Z), :</span>
 <span class="co">#&gt; production de NaN</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_aft_mod_model-1.png" width="100%"></p>
 </div>
 </div>
-<div id="simulation-from-an-ah-model" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simulation-from-an-ah-model" class="anchor"></a>4 Simulation from an AH model</h1>
+<div class="section level1">
+<h1 id="4-simulation-from-an-ah-model">4 Simulation from an AH model<a class="anchor" aria-label="anchor" href="#4-simulation-from-an-ah-model"></a>
+</h1>
 <p>From survMS package, we can also simulated survival data from another model, an AH model. We have chosen to carry out this simulation to generate survival data that does not respect the proportional risk hypothesis and survival curves can cross. For more details, see <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">Vignette</a>.</p>
-<div id="simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution" class="anchor"></a>4.1 Simulation from an AH model with baseline hazard following Weibull distribution</h2>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level2">
+<h2 id="41-simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution">4.1 Simulation from an AH model with baseline hazard following Weibull distribution<a class="anchor" aria-label="anchor" href="#41-simulation-from-an-ah-model-with-baseline-hazard-following-weibull-distribution"></a>
+</h2>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">1062</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span>
-<span class="va">listAHwSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>,
+<span class="va">listAHwSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>,
                                   p <span class="op">=</span> <span class="fl">100</span>, pnonull <span class="op">=</span> <span class="fl">20</span>, betaDistr <span class="op">=</span> <span class="fl">1</span>, hazDistr <span class="op">=</span> <span class="st">"weibull"</span>,
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">res_paramW</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramW</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>,
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramW</span><span class="op">$</span><span class="va">a</span>, <span class="va">res_paramW</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>,
                                   Phi <span class="op">=</span> <span class="fl">0</span>, seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AH", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAHwSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAHwSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_ah_model-1.png" width="100%"></p>
 </div>
-<div id="simulation-from-the-an-ah-model-with-baseline-hazard-following-log-normal-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulation-from-the-an-ah-model-with-baseline-hazard-following-log-normal-distribution" class="anchor"></a>4.2 Simulation from the an AH model with baseline hazard following log-normal distribution</h2>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level2">
+<h2 id="42-simulation-from-the-an-ah-model-with-baseline-hazard-following-log-normal-distribution">4.2 Simulation from the an AH model with baseline hazard following log-normal distribution<a class="anchor" aria-label="anchor" href="#42-simulation-from-the-an-ah-model-with-baseline-hazard-following-log-normal-distribution"></a>
+</h2>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res_paramLN</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_ln.html">get_param_ln</a></span><span class="op">(</span>var <span class="op">=</span> <span class="fl">170000</span>, mu <span class="op">=</span> <span class="fl">2325</span><span class="op">)</span>
-<span class="va">listAHSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>,
+<span class="va">listAHSim_n500_p1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modelSim.html">modelSim</a></span><span class="op">(</span>model <span class="op">=</span> <span class="st">"AH"</span>, matDistr <span class="op">=</span> <span class="st">"unif"</span>, matParam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">500</span>,
                                   p <span class="op">=</span> <span class="fl">100</span>, pnonull <span class="op">=</span> <span class="fl">100</span>, betaDistr <span class="op">=</span> <span class="fl">1.5</span>, hazDistr <span class="op">=</span> <span class="st">"log-normal"</span>,
-                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span><span class="op">*</span><span class="fl">4</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, Phi <span class="op">=</span> <span class="fl">0</span>, 
+                                  hazParams <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">res_paramLN</span><span class="op">$</span><span class="va">a</span><span class="op">*</span><span class="fl">4</span>, <span class="va">res_paramLN</span><span class="op">$</span><span class="va">lambda</span><span class="op">)</span>, Phi <span class="op">=</span> <span class="fl">0</span>, 
                                  seed <span class="op">=</span> <span class="fl">1</span>, d <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; Warning in modelSim(model = "AH", matDistr = "unif", matParam = c(-1, 1), :</span>
 <span class="co">#&gt; Options "non-linearity with interactions" not available</span>
 <span class="co"># summary(listAHSim_n500_p1000)</span>
 <span class="co"># print(listAHSim_n500_p1000)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-sim_ahLN_model-1.png" width="100%"></p>
 </div>
 </div>
-<div id="utils-functions" class="section level1">
-<h1 class="hasAnchor">
-<a href="#utils-functions" class="anchor"></a>5 Utils functions</h1>
-<!-- The package enables simulating data close to real datasets. In this goal, we have to know the mean, median, and variance of real datasets and then compute the parameters of the used distribution to have a similar distribution of survival times by giving the mean, median, and variance. -->
-<div id="get-parameters-of-survival-time-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#get-parameters-of-survival-time-distribution" class="anchor"></a>5.1 Get parameters of survival time distribution</h2>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level1">
+<h1 id="5-utils-functions">5 Utils functions<a class="anchor" aria-label="anchor" href="#5-utils-functions"></a>
+</h1>
+<!-- The package enables simulating data close to real datasets. In this goal, we have to know the mean, median, and variance of real datasets and then compute the parameters of the used distribution to have a similar distribution of survival times by giving the mean, median, and variance. --><div class="section level2">
+<h2 id="51-get-parameters-of-survival-time-distribution">5.1 Get parameters of survival time distribution<a class="anchor" aria-label="anchor" href="#51-get-parameters-of-survival-time-distribution"></a>
+</h2>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Weibull distribution</span>
 <span class="va">res_paramW</span> <span class="op">=</span> <span class="fu"><a href="reference/get_param_weib.html">get_param_weib</a></span><span class="op">(</span>med <span class="op">=</span> <span class="fl">1062</span>, mu <span class="op">=</span> <span class="fl">1134</span><span class="op">)</span>
 <span class="va">res_paramW</span>
@@ -279,103 +256,103 @@
 <span class="co">#&gt; $lambda</span>
 <span class="co">#&gt; [1] 6.84204</span></code></pre></div>
 </div>
-<div id="plotting-survival-curves" class="section level2">
-<h2 class="hasAnchor">
-<a href="#plotting-survival-curves" class="anchor"></a>5.2 Plotting survival curves</h2>
-<div id="coxweibull-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#coxweibull-model" class="anchor"></a>5.2.1 Cox/Weibull model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
-<span class="va">ind</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">500</span>, <span class="fl">8</span><span class="op">)</span>
+<div class="section level2">
+<h2 id="52-plotting-survival-curves">5.2 Plotting survival curves<a class="anchor" aria-label="anchor" href="#52-plotting-survival-curves"></a>
+</h2>
+<div class="section level3">
+<h3 id="521-coxweibull-model">5.2.1 Cox/Weibull model<a class="anchor" aria-label="anchor" href="#521-coxweibull-model"></a>
+</h3>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
+<span class="va">ind</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">500</span>, <span class="fl">8</span><span class="op">)</span>
 <span class="co">## Cox/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-surv_curves-1.png" width="100%"></p>
 </div>
-<div id="aftlog-normal-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#aftlog-normal-model" class="anchor"></a>5.2.2 AFT/Log-normal model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="522-aftlog-normal-model">5.2.2 AFT/Log-normal model<a class="anchor" aria-label="anchor" href="#522-aftlog-normal-model"></a>
+</h3>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## AFT/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-surv_curves_aft-1.png" width="100%"></p>
 </div>
-<div id="shifted-aftlog-normal-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#shifted-aftlog-normal-model" class="anchor"></a>5.2.3 Shifted AFT/Log-normal model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="523-shifted-aftlog-normal-model">5.2.3 Shifted AFT/Log-normal model<a class="anchor" aria-label="anchor" href="#523-shifted-aftlog-normal-model"></a>
+</h3>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Shifted AFT/LN model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-surv_curves_afts-1.png" width="100%"></p>
 </div>
-<div id="ahln-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ahln-model" class="anchor"></a>5.2.4 AH/LN model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="524-ahln-model">5.2.4 AH/LN model<a class="anchor" aria-label="anchor" href="#524-ahln-model"></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Cox/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
 <span class="co"># set.seed(765)</span>
-<span class="va">ind</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">500</span>, <span class="fl">8</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
+<span class="va">ind</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">500</span>, <span class="fl">8</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-surv_curves_ah-1.png" width="100%"></p>
 </div>
 </div>
-<div id="plotting-hazard-curves" class="section level2">
-<h2 class="hasAnchor">
-<a href="#plotting-hazard-curves" class="anchor"></a>5.3 Plotting hazard curves</h2>
-<div id="coxweibull-model-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#coxweibull-model-1" class="anchor"></a>5.3.1 Cox/Weibull model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level2">
+<h2 id="53-plotting-hazard-curves">5.3 Plotting hazard curves<a class="anchor" aria-label="anchor" href="#53-plotting-hazard-curves"></a>
+</h2>
+<div class="section level3">
+<h3 id="531-coxweibull-model">5.3.1 Cox/Weibull model<a class="anchor" aria-label="anchor" href="#531-coxweibull-model"></a>
+</h3>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Cox/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listCoxWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-haz_curves-1.png" width="100%"></p>
 </div>
-<div id="aftweibull-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#aftweibull-model" class="anchor"></a>5.3.2 AFT/Weibull model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="532-aftweibull-model">5.3.2 AFT/Weibull model<a class="anchor" aria-label="anchor" href="#532-aftweibull-model"></a>
+</h3>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## AFT/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAFTWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAFTWSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-haz_curves_aft-1.png" width="100%"></p>
 </div>
-<div id="aftlog-normal-model-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#aftlog-normal-model-1" class="anchor"></a>5.3.3 AFT/Log-normal model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="533-aftlog-normal-model">5.3.3 AFT/Log-normal model<a class="anchor" aria-label="anchor" href="#533-aftlog-normal-model"></a>
+</h3>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## AFT/LN model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAFTLNSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-haz_curves_aftLN-1.png" width="100%"></p>
 </div>
-<div id="shifted-aftlog-normal-model-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#shifted-aftlog-normal-model-1" class="anchor"></a>5.3.4 Shifted AFT/Log-normal model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="534-shifted-aftlog-normal-model">5.3.4 Shifted AFT/Log-normal model<a class="anchor" aria-label="anchor" href="#534-shifted-aftlog-normal-model"></a>
+</h3>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Shifted AFT/LN model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAFTsSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-haz_curves_afts-1.png" width="100%"></p>
 </div>
-<div id="ahln-model-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ahln-model-1" class="anchor"></a>5.3.5 AH/LN model</h3>
-<div class="sourceCode"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="535-ahln-model">5.3.5 AH/LN model<a class="anchor" aria-label="anchor" href="#535-ahln-model"></a>
+</h3>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Cox/Weibull model</span>
 <span class="co"># df_p1000_n500[1:6,1:10]</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">listAHSim_n500_p1000</span>, ind <span class="op">=</span> <span class="va">ind</span>, type <span class="op">=</span> <span class="st">"hazard"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-haz_curves_ah-1.png" width="100%"></p>
 </div>
 </div>
 </div>
-<div id="examples" class="section level1">
-<h1 class="hasAnchor">
-<a href="#examples" class="anchor"></a>6 Examples</h1>
+<div class="section level1">
+<h1 id="6-examples">6 Examples<a class="anchor" aria-label="anchor" href="#6-examples"></a>
+</h1>
 <p>Please also see the package <a href="https://mathildesautreuil.github.io/survMS/articles/how-to-simulate-survival-models.html">vignette</a> for more detailed examples and a description of the methodology underpinning the <strong>survMS</strong> package.</p>
 </div>
 
@@ -383,40 +360,51 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=survMS">https://​cloud.r-project.org/​package=survMS</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/mathildesautreuil/survMS/">https://​github.com/​mathildesautreuil/​survMS/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/mathildesautreuil/survMS/issues">https://​github.com/​mathildesautreuil/​survMS/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=survMS" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/mathildesautreuil/survMS/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/mathildesautreuil/survMS/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing survMS</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://mathildesautreuil.github.io/">Mathilde Sautreuil</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<a href="https://mathildesautreuil.github.io/" class="external-link">Mathilde Sautreuil</a> <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://mathildesautreuil.github.io/">Mathilde Sautreuil</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://mathildesautreuil.github.io/" class="external-link">Mathilde Sautreuil</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -424,6 +412,8 @@
 
   
 
+
+  
 
   </body>
 </html>
