@@ -156,7 +156,8 @@ and survival times can therefore be simulated from:
     \end{equation}
 
 ## 2.3 Simulation from a Cox model with a correlated covariate matrix
-For this simulation, we consider the same design as 2.1 to simulate survival times. However, the simulated covariate matrix is correlated. The pertinent covariates are those correlated. We split this set of pertinent covariates in two subsets: one with a correlation parameter (`r matParam[2]`) and the other one with (1 - `r matParam[2]`). The non-pertinent covariates are uncorrelated.
+
+For this simulation, we consider the same design as 2.1 to simulate survival times. However, the simulated covariate matrix is correlated. The pertinent covariates are those correlated. We split this set of pertinent covariates in two subsets: one with a correlation parameter (*matParam[2]*) and the other one with (1 - *matParam[2]*). The non-pertinent covariates are uncorrelated.
 
 ```{r sim_cox_model_cor} 
 res_paramW = get_param_weib(med = 2.5, mu = 1.2)
