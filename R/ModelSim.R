@@ -257,6 +257,7 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
     Sigma2 <-  rbind(matrix(0,pnonull/2,pnonull/2), diag(pnonull/2) * rhop + (1-rhop), matrix(0,p-(pnonull),pnonull/2))
     
     Sigma <- cbind(Sigma1,Sigma2, matrix(0, p, p-pnonull)) 
+    diag(Sigma) <- 1
     Z <- mvrnorm(n = n, mup, Sigma)
   }else{
     stop("The matrix distribution is not correct")
