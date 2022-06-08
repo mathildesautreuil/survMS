@@ -155,6 +155,17 @@ and survival times can therefore be simulated from:
     T = \exp\left(\sigma\Phi^{-1}(1-\exp\left(\frac{\log(1-U)}{\exp(\beta^TX_{i})}\right))+\mu\right). 
     \end{equation}
 
+## 2.3 Simulation from a Cox model with a correlated covariate matrix
+For this simulation, we consider the same design as 2.1 to simulate survival times. However, the simulated covariate matrix is correlated. The pertinent covariates are those correlated. We split this set of pertinent covariates in two subsets: one with a correlation parameter (`r matParam[2]`) and the other one with (1 - `r matParam[2]`). The non-pertinent covariates are uncorrelated.
+
+```{r sim_cox_model_cor} 
+res_paramW = get_param_weib(med = 2.5, mu = 1.2)
+listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", matParam = c(0,0.6), n = 500,
+                                  p = 1000, pnonull = 10, betaDistr = 1, hazDistr = "weibull",
+                                  hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
+Heatmap(listCoxSimCor_n500_p1000, ind = 1:15, k = 3)
+```
+
 # 3  Simulation from the AFT model
 
 To simulate the data from the AFT/Log-normal model, we used the procedure detailed in [@http://zotero.org/users/local/uYsfYM7W/items/KCILGW99]. We have chosen to perform this simulation in order to generate survival data that do not respect the proportional risk hypothesis. We generate the survival data from an AFT model as: 
