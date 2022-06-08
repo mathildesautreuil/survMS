@@ -45,11 +45,11 @@ plot(listAHSim_n500_p1000, ind = sample(1:500, 5), type = "hazard")
 ### Correlated survival data simulated from Cox model
 res_paramW = get_param_weib(med = 2.5, mu = 1.2)
 listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", matParam = c(0,0.6), n = 500,
-                                  p = 1000, pnonull = 5, betaDistr = 1, hazDistr = "weibull",
+                                  p = 1000, pnonull = 10, betaDistr = 1, hazDistr = "weibull",
                                   hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
 print(listCoxSimCor_n500_p1000)
 hist(listCoxSimCor_n500_p1000)
-Heatmap(listCoxSimCor_n500_p1000)
+# draw(listCoxSimCor_n500_p1000)
 
 # ### Survival data simulated from Cox model
 # res_paramW = get_param_weib(med = 1062, mu = 1134)

@@ -107,3 +107,37 @@ get_param_exp = function(int_a = c(0.000001,110), med, mu){
 #
 # }
 
+
+#' Heatmap of Covariate matrix
+#'
+#' @param x output of modelSim function (must be of type modSim)
+#' @param k number of column split
+#' @param ind indices of columns to keep
+#' @param ... supplementary parameters
+#'
+#' @return Heatmap x
+#' @import circlize
+#' @importFrom ComplexHeatmap Heatmap
+#' 
+#' @examples
+#' library(survMS)
+Heatmap.modSim<- function(x, k, ind = NULL, ...){
+  
+  col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
+  if(!is.null(ind)){
+    ind = ind
+  }else{
+    ind = which(x$betaNorm != 0)
+  }
+  rows_info <- rep("High", nrow(x$Z))
+  rows_info[which(x$TC > median(x$TC))] <- "Low"
+  colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
+  Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
+          row_split = rows_info, 
+          # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
+          #                  rep("No Sign", 
+          #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
+          col = col_fun, #row_km = 2,
+          show_column_names = TRUE, column_km = k)
+  
+}

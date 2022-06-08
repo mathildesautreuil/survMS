@@ -253,8 +253,8 @@ modelSim = function(model = "cox", matDistr, matParam, n, p, pnonull, betaDistr,
   }else if(distr == 3){
     mup <- c(rep(matParam[1], pnonull), rep(matParam[1]-0.5, p-pnonull))
     rhop <- matParam[2]
-    Sigma1 <-  rbind(diag(pnonull/2) * (1 - rhop) + rhop, matrix(0,p-(pnonull/2),pnonull/2))
-    Sigma2 <-  rbind(matrix(0,pnonull/2,pnonull/2), diag(pnonull/2) * rhop + (1-rhop), matrix(0,p-(pnonull),pnonull/2))
+    Sigma1 <-  rbind(diag(floor(pnonull/2)) * (1 - rhop) + rhop, matrix(0,p-floor((pnonull/2)),floor(pnonull/2)))
+    Sigma2 <-  rbind(matrix(0,floor(pnonull/2),pnonull-floor(pnonull/2)), diag(pnonull-floor(pnonull/2)) * rhop + (1-rhop), matrix(0,p-(pnonull),pnonull-floor(pnonull/2)))
     
     Sigma <- cbind(Sigma1,Sigma2, matrix(0, p, p-pnonull)) 
     diag(Sigma) <- 1
@@ -535,12 +535,9 @@ hist.modSim<- function(x, ...){
 #' @param ... supplementary parameters
 #'
 #' @return Heatmap x
-#' @export
 #' @import circlize
 #' @importFrom ComplexHeatmap Heatmap
 #' 
-#' @method Heatmap modSim
-#'
 #' @examples
 #' library(survMS)
 #' res_paramW = get_param_weib(med = 2.5, mu = 1.2)
@@ -552,8 +549,8 @@ hist.modSim<- function(x, ...){
 #'                                      seed = 1, d = 0)
 #' print(listCoxSimCor_n500_p1000)
 #' hist(listCoxSimCor_n500_p1000)
-#' Heatmap.modSim(listCoxSimCor_n500_p1000, k = 4)
-Heatmap.modSim <- function(x, k, ind = NULL, ...){
+#' # Heatmap(listCoxSimCor_n500_p1000, k = 4)
+Heatmap.modSim<- function(x, k, ind = NULL, ...){
   
   col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
   if(!is.null(ind)){
@@ -571,6 +568,51 @@ Heatmap.modSim <- function(x, k, ind = NULL, ...){
                 #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
                 col = col_fun, #row_km = 2,
                 show_column_names = TRUE, column_km = k)
+  
+}
+
+#' Draw Heatmap of modSim object
+#'
+#' @param x modSim object
+#' @param k number of split for heatmap's columns
+#' @param ind number of columns to keep
+#' @param ... supplementary parameters
+#'
+#' @return draw x
+#' @import circlize
+#' @importFrom ComplexHeatmap draw
+#' 
+#' @examples
+#' library(survMS)
+#' res_paramW = get_param_weib(med = 2.5, mu = 1.2)
+#' listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", 
+#'                                      matParam = c(0,0.6), n = 500, 
+#'                                      p = 1000, pnonull = 20, betaDistr = 1, 
+#'                                      hazDistr = "weibull", 
+#'                                      hazParams = c(res_paramW$a, res_paramW$lambda), 
+#'                                      seed = 1, d = 0)
+#' print(listCoxSimCor_n500_p1000)
+#' hist(listCoxSimCor_n500_p1000)
+#' draw(listCoxSimCor_n500_p1000, k = 3)
+draw.modSim<- function(x, k, ind = NULL, ...){
+  
+  col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
+  if(!is.null(ind)){
+    ind = ind
+  }else{
+    ind = which(x$betaNorm != 0)
+  }
+  rows_info <- rep("High", nrow(x$Z))
+  rows_info[which(x$TC > median(x$TC))] <- "Low"
+  colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
+  ht <- Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
+          row_split = rows_info, 
+          # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
+          #                  rep("No Sign", 
+          #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
+          col = col_fun, #row_km = 2,
+          show_column_names = TRUE, column_km = k)
+  draw(ht, heatmap_legend_side = "bottom")
   
 }
 
