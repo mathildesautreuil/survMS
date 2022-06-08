@@ -49,6 +49,7 @@ listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", matPara
                                   hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
 print(listCoxSimCor_n500_p1000)
 hist(listCoxSimCor_n500_p1000)
+Heatmap(listCoxSimCor_n500_p1000, ind = 1:15, k = 3)
 # draw(listCoxSimCor_n500_p1000)
 
 # ### Survival data simulated from Cox model

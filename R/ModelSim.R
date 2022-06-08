@@ -535,6 +535,7 @@ hist.modSim<- function(x, ...){
 #' @param ... supplementary parameters
 #'
 #' @return Heatmap x
+#' @export
 #' @import circlize
 #' @importFrom ComplexHeatmap Heatmap
 #' 
@@ -554,14 +555,14 @@ Heatmap.modSim<- function(x, k, ind = NULL, ...){
   
   col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
   if(!is.null(ind)){
-    ind = ind
+    ind_col = ind
   }else{
-    ind = which(x$betaNorm != 0)
+    ind_col = which(x$betaNorm != 0)
   }
   rows_info <- rep("High", nrow(x$Z))
   rows_info[which(x$TC > median(x$TC))] <- "Low"
   colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
-  Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
+  Heatmap(as.matrix(x$Z)[,ind_col], name = "expression", 
                 row_split = rows_info, 
                 # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
                 #                  rep("No Sign", 
@@ -571,50 +572,7 @@ Heatmap.modSim<- function(x, k, ind = NULL, ...){
   
 }
 
-#' Draw Heatmap of modSim object
-#'
-#' @param x modSim object
-#' @param k number of split for heatmap's columns
-#' @param ind number of columns to keep
-#' @param ... supplementary parameters
-#'
-#' @return draw x
-#' @import circlize
-#' @importFrom ComplexHeatmap draw
-#' 
-#' @examples
-#' library(survMS)
-#' res_paramW = get_param_weib(med = 2.5, mu = 1.2)
-#' listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", 
-#'                                      matParam = c(0,0.6), n = 500, 
-#'                                      p = 1000, pnonull = 20, betaDistr = 1, 
-#'                                      hazDistr = "weibull", 
-#'                                      hazParams = c(res_paramW$a, res_paramW$lambda), 
-#'                                      seed = 1, d = 0)
-#' print(listCoxSimCor_n500_p1000)
-#' hist(listCoxSimCor_n500_p1000)
-#' draw(listCoxSimCor_n500_p1000, k = 3)
-draw.modSim<- function(x, k, ind = NULL, ...){
-  
-  col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
-  if(!is.null(ind)){
-    ind = ind
-  }else{
-    ind = which(x$betaNorm != 0)
-  }
-  rows_info <- rep("High", nrow(x$Z))
-  rows_info[which(x$TC > median(x$TC))] <- "Low"
-  colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
-  ht <- Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
-          row_split = rows_info, 
-          # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
-          #                  rep("No Sign", 
-          #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
-          col = col_fun, #row_km = 2,
-          show_column_names = TRUE, column_km = k)
-  draw(ht, heatmap_legend_side = "bottom")
-  
-}
+
 
 #' Survival or hazard curves of simulated data
 #'

@@ -132,7 +132,7 @@ Heatmap.modSim<- function(x, k, ind = NULL, ...){
   rows_info <- rep("High", nrow(x$Z))
   rows_info[which(x$TC > median(x$TC))] <- "Low"
   colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
-  Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
+  ComplexHeatmap::Heatmap(as.matrix(x$Z)[,ind], name = "expression", 
           row_split = rows_info, 
           # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
           #                  rep("No Sign", 

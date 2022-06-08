@@ -4,9 +4,9 @@
 \alias{Heatmap.modSim}
 \title{Heatmap of Covariate matrix}
 \usage{
-Heatmap.modSim(x, k, ind = NULL, ...)
+\method{Heatmap}{modSim}(x, k, ind = NULL, ...)
 
-Heatmap.modSim(x, k, ind = NULL, ...)
+\method{Heatmap}{modSim}(x, k, ind = NULL, ...)
 }
 \arguments{
 \item{x}{output of modelSim function (must be of type modSim)}
@@ -38,6 +38,6 @@ listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm",
                                      seed = 1, d = 0)
 print(listCoxSimCor_n500_p1000)
 hist(listCoxSimCor_n500_p1000)
-Heatmap(listCoxSimCor_n500_p1000, k = 4)
+# Heatmap(listCoxSimCor_n500_p1000, k = 4)
 library(survMS)
 }

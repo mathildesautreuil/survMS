@@ -19,6 +19,70 @@ SurvTimesCoxWeib = function(Z, beta, Y, pp, hazParams){
   return(Ts)
 }
 
+#' Internal heatmap object
+#'
+#' @param x modSim obkect
+#' @param k number of clusters for the heatmap
+#' @param ind number of column covariate matrix
+#' @param ... supplementary arguments
+#'
+#' @return Heatmap x
+#' @export
+#'
+#' @examples
+#' library(survMS)
+Heatmap <- function(x, k, ind = NULL, ...) {
+  
+  UseMethod("Heatmap")
+}
+
+
+#' Draw Heatmap of modSim object
+#'
+#' @param x modSim object
+#' @param k number of split for heatmap's columns
+#' @param ind number of columns to keep
+#' @param ... supplementary parameters
+#'
+#' @return draw x
+#' @export
+#' @import circlize
+#' @importFrom ComplexHeatmap draw
+#' 
+#' @examples
+#' library(survMS)
+#' res_paramW = get_param_weib(med = 2.5, mu = 1.2)
+#' listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", 
+#'                                      matParam = c(0,0.6), n = 500, 
+#'                                      p = 1000, pnonull = 20, betaDistr = 1, 
+#'                                      hazDistr = "weibull", 
+#'                                      hazParams = c(res_paramW$a, res_paramW$lambda), 
+#'                                      seed = 1, d = 0)
+#' print(listCoxSimCor_n500_p1000)
+#' hist(listCoxSimCor_n500_p1000)
+#' #draw(listCoxSimCor_n500_p1000, k = 3)
+draw.modSim<- function(x, k, ind = NULL, ...){
+  
+  col_fun = colorRamp2(c(-3, 0, 3), c("green", "white", "red"))
+  if(!is.null(ind)){
+    ind_col = ind
+  }else{
+    ind_col = which(x$betaNorm != 0)
+  }
+  rows_info <- rep("High", nrow(x$Z))
+  rows_info[which(x$TC > median(x$TC))] <- "Low"
+  colnames(x$Z) <- paste0("X", 1:ncol(x$Z))
+  ht <- Heatmap(as.matrix(x$Z)[,ind_col], name = "expression", 
+                row_split = rows_info, 
+                # column_split = c(rep("Sign", sum(x$betaNorm[ind] != 0)),
+                #                  rep("No Sign", 
+                #                      ncol(x$Z[,ind]) - sum(x$betaNorm[ind] != 0))),
+                col = col_fun, #row_km = 2,
+                show_column_names = TRUE, column_km = k)
+  draw(ht, heatmap_legend_side = "bottom")
+  
+}
+
 
 #' Simulation survival times from Cox/Log-normal model
 #'
