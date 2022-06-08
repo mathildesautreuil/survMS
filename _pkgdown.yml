@@ -23,6 +23,7 @@ reference:
       - hist.modSim
       - print.modSim
       - plot.modSim
+      - Heatmap.modSim
   - title: Other
     desc: Other utility functions
     contents:

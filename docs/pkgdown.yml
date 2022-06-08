@@ -3,7 +3,7 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   how-to-simulate-survival-models: how-to-simulate-survival-models.html
-last_built: 2022-06-08T20:06Z
+last_built: 2022-06-08T20:26Z
 urls:
   reference: https://mathildesautreuil.github.io/survMS/reference
   article: https://mathildesautreuil.github.io/survMS/articles

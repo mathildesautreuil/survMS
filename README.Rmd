@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 <!-- <img src="docs/reference/survMS.png" align="right" height=150/> -->
-<img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="150" align="right" />
+<img src="https://raw.githubusercontent.com/mathildesautreuil/survMS/master/docs/reference/survMS.png" height="2" align="right" />
 
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/survMS)](https://CRAN.R-project.org/package=survMS) -->
 [![](https://www.r-pkg.org/badges/version/survMS?color=bc8f8f)](https://cran.r-project.org/package=survMS)
@@ -103,6 +103,18 @@ listCoxSim_n500_p1000 <- modelSim(model = "cox", matDistr = "unif", matParam = c
                                   p = 1000, pnonull = 20, betaDistr = 1, hazDistr = "log-normal", 
                                   hazParams = c(res_paramLN$a, res_paramLN$lambda), seed = 1, d = 0)
 hist(listCoxSim_n500_p1000)
+```
+
+## 2.3 Simulation from a Cox model with a correlated covariate matrix
+
+For this simulation, we consider the same design as 2.1 to simulate survival times. However, the simulated covariate matrix is correlated. The pertinent covariates are those correlated. We split this set of pertinent covariates in two subsets: one with a correlation parameter (*matParam[2]*) and the other one with (1 - *matParam[2]*). The non-pertinent covariates are uncorrelated.
+
+```{r sim_cox_model_cor} 
+res_paramW = get_param_weib(med = 2.5, mu = 1.2)
+listCoxSimCor_n500_p1000 <- modelSim(model = "cox", matDistr = "mvnorm", matParam = c(0,0.6), n = 500,
+                                  p = 1000, pnonull = 10, betaDistr = 1, hazDistr = "weibull",
+                                  hazParams = c(res_paramW$a, res_paramW$lambda), seed = 1, d = 0)
+Heatmap(listCoxSimCor_n500_p1000, ind = 1:15, k = 3)
 ```
 
 # 3 Simulation from an AFT model
